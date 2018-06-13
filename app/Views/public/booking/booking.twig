@@ -1,0 +1,656 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+    <!--  Le cadeau spectacle Section Start Here
+             ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="{{ base_url()}}/theater-comedy">Théâtre/ Humour</a></li>
+                            <li> |</li>
+                            <li><a href="#">Olivier Guedj : Olivier Guedj vous redonne le sourire</a></li>
+                            <li> |</li>
+							
+                            <li> Réservation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection">
+            <div class="tabcontentArea">
+                <ul class="nav mcbTab" role="tablist">
+					<li class="nav-item">
+					{% if is_login == '1' %} 
+							<a class="nav-link" href="#Maréservation"  >ma réservation</a>
+					{% else  %} 
+							{% if step == '' %}  
+									<a class="nav-link active" href="#Maréservation" role="tab" data-toggle="tab">ma réservation</a>	
+							{% else  %} 
+								<a class="nav-link" href="#Maréservation"  >ma réservation</a>
+							{% endif  %} 	
+					{% endif  %} 
+						
+					</li>
+					<li class="nav-item">
+						
+						{% if is_login == '1' %} 
+							<a class="nav-link" href="#Coordonnées" >coordonnées </a>
+						{% else  %} 
+								{% if step == 'login' %} 
+									<a class="nav-link active"  href="#Coordonnées" role="tab" data-toggle="tab">coordonnées </a>
+								{% else  %} 	
+									<a class="nav-link" href="#Coordonnées"  >coordonnées </a>
+								{% endif  %} 						   
+							
+						{% endif  %} 
+						
+ 
+					</li>
+					<li class="nav-item">
+					   {% if is_login == '1' %} 
+									{% if step != '' %} 
+										<a class="nav-link" href="#Recapitulatif" role="tab" data-toggle="tab">récapitulatif</a>
+									{% else  %} 
+											<a class="nav-link active" href="#Recapitulatif" role="tab" data-toggle="tab">récapitulatif</a>
+									{% endif  %} 
+							
+						{% else  %} 
+								<a class="nav-link" href="#Recapitulatif">récapitulatif</a>
+						{% endif  %} 
+						
+						
+					</li>
+					<li class="nav-item">
+							 {% if is_login == '1' %} 
+									{% if step == 'payment' %} 
+										<a class="nav-link active" href="#Paiement" role="tab" data-toggle="tab">paiement</a>
+									{% else  %} 
+											<a class="nav-link"  href="#Paiement" >paiement</a>
+									{% endif  %} 
+									 
+							{% else  %} 
+									<a class="nav-link" href="#Paiement"  >paiement</a>
+							{% endif  %} 
+					
+						
+					</li>
+					<li class="nav-item">
+							{% if is_login == '1' %} 
+							
+									{% if step == 'confirm_order' %} 
+										<a class="nav-link active" href="#Confirmation" role="tab" data-toggle="tab"> confirmation</a>
+									{% else  %} 
+											<a class="nav-link"  href="#Confirmation"> confirmation</a>
+									{% endif  %} 
+								
+							{% else  %} 
+									<a class="nav-link" href="#Confirmation" > confirmation</a>
+							{% endif  %} 
+						
+					</li>
+				</ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+					{% if is_login == '1' %} 
+							       <div role="tabpanel" class="tab-pane fade" id="Maréservation">
+					{% else  %} 
+					
+					        {% if step == '' %}  
+									<div role="tabpanel" class="tab-pane fade  active show" id="Maréservation">
+									  	
+							{% else  %} 
+								   <div role="tabpanel" class="tab-pane fade" id="Maréservation">
+							{% endif  %} 	
+							
+					{% endif  %} 
+						
+                    
+
+                         <!--First tab Start here -->
+
+						    <div class="mcbTabContent">
+                            <!-- Cart Item start here -------->
+
+									{% include 'public/partial/booking/cart.twig' %}
+
+							<!-- End here ---------------->
+							</div>
+							<div class="importantCon">
+									<h2>iNFORMATIONS CONCERnanT votre achat de billets</h2>
+									<div class="importantCon_inner">
+									<h3>important</h3>
+									<p>Le document PDF que vous allez éditer comporte un QR Code qui vous permettra de le faire biper et d’entrer directement en salle. Certaines salles ne sont pas équipées de ce système. Dans ce cas et pour récupérer votre ticket d’accès à la salle : </p>
+									<p>• Présentez ce PDF imprimé à l’accueil</p>
+									<p>• Présentez une saisie d’écran du mail de confirmation. Merci de vous présenter 30 Mn avant le début de l’évenement.</p>
+								</div>
+								<div class="importantCon_inner">
+									<h3>Vos places en salle </h3>
+									<p>Nous faisons tout( vraiment) pour que les membres de CulturAccess occupent les meilleures places disponibles. Mais l’attribution ne relève pas exclusivement de nos services. Dans tous es cas, la catégorie 1 doit correspondre aux meilleures places de la salle (orchestre ou étage).</p>
+								<p>Merci de votre compréhension.</p>
+								</div>
+								<div class="importantCon_inner">
+									<h3>Paiement et sécurité </h3>
+									<p>Nous avons adopté un technologie de paiement ultra sécurisée. Vous pouvez donc utiliser vos cartes de paiement en toute quiétude. Les phases de paiement sont cryptées et protégées. A aucun moment CulturAccess n’a connaissance de votre numéro de carte bancaire et celui-ci n’est stocké sur aucun serveur. Allez donc au spectacle en toute tranquillité.</p>
+								</div>
+						   </div>
+						
+
+						 <!-- End here ------------>
+                    </div>
+					
+					{% if is_login == '1' %} 
+							 <div role="tabpanel" class="tab-pane fade" id="Coordonnées">
+					{% else  %} 
+								{% if step == 'login' %} 
+									 <div role="tabpanel" class="tab-pane fade active show" id="Coordonnées">
+								{% else  %} 	
+									 <div role="tabpanel" class="tab-pane fade" id="Coordonnées">
+								{% endif  %} 						   
+							
+					{% endif  %} 
+                   
+                       <!-- Login and Register start here -->
+					   
+					   {% include 'public/partial/booking/profile.twig' %}
+					   <!-- End here ------------------------>
+                    </div>
+				
+                    {% if is_login == '1' %} 
+									{% if step != '' %} 
+										 <div role="tabpanel" class="tab-pane fade" id="Recapitulatif">
+									{% else  %} 
+											 <div role="tabpanel" class="tab-pane fade  active show" id="Recapitulatif">
+									{% endif  %} 
+							
+					{% else  %} 
+							  <div role="tabpanel" class="tab-pane fade" id="Recapitulatif">						   
+							
+					{% endif  %} 				
+                   
+
+                        <div class="mcbTabContent">
+                            <!-- Cart Item start here -------->
+
+									{% include 'public/partial/booking/cart.twig' %}
+
+							<!-- End here ---------------->
+                        </div>
+						<!-- cart Start here ----------->
+												<div class="importantCon">
+	<h2>iNFORMATIONS CONCERnanT votre achat de billets</h2>
+	<div class="importantCon_inner">
+    <h3>important</h3>
+    <p>Le document PDF que vous allez éditer comporte un QR Code qui vous permettra de le faire biper et d’entrer directement en salle. Certaines salles ne sont pas équipées de ce système. Dans ce cas et pour récupérer votre ticket d’accès à la salle : </p>
+	<p>• Présentez ce PDF imprimé à l’accueil</p>
+	<p>• Présentez une saisie d’écran du mail de confirmation. Merci de vous présenter 30 Mn avant le début de l’évenement.</p>
+</div>
+<div class="importantCon_inner">
+    <h3>Vos places en salle </h3>
+    <p>Nous faisons tout( vraiment) pour que les membres de CulturAccess occupent les meilleures places disponibles. Mais l’attribution ne relève pas exclusivement de nos services. Dans tous es cas, la catégorie 1 doit correspondre aux meilleures places de la salle (orchestre ou étage).</p>
+<p>Merci de votre compréhension.</p>
+</div>
+<div class="importantCon_inner">
+    <h3>Paiement et sécurité </h3>
+    <p>Nous avons adopté un technologie de paiement ultra sécurisée. Vous pouvez donc utiliser vos cartes de paiement en toute quiétude. Les phases de paiement sont cryptées et protégées. A aucun moment CulturAccess n’a connaissance de votre numéro de carte bancaire et celui-ci n’est stocké sur aucun serveur. Allez donc au spectacle en toute tranquillité.</p>
+</div>
+</div>
+					    <!-- End card  here ----------->
+                    </div>
+					
+					{% if is_login == '1' %} 
+							{% if step == 'payment' %} 
+								 
+								<div role="tabpanel" class="tab-pane fade  active show" id="Paiement">
+							{% else  %} 
+									<div role="tabpanel" class="tab-pane fade" id="Paiement">
+							{% endif  %} 
+							 
+					{% else  %} 
+							<div role="tabpanel" class="tab-pane fade" id="Paiement">
+					{% endif  %} 
+					
+                   
+
+                        <div class="mcbTabContent">
+
+						   <!-- PaymentTab start here -->
+							 {% include 'public/partial/booking/cart.twig' %}
+						   <!-- End here ----------->
+
+						</div>
+								<div class="payment-contnet" id="paymentscroll">
+									<h4>JE SAISIS LES INFORMATIONS POUR UN PAIEMENT SéCURISé</h4>
+
+									<div class="paymentcardopt">
+									<form id="pmform" method="post" action="confirmOrder">
+										<div class="pcoptRow">
+											<h3>numéro de carte</h3>
+											<ul>
+												<li><input type="text" name="cartvalue" id="cardval" maxlength="16" ></li>
+												<li><img src="{{ base_url() }}/assets/assets/img/card-1.png"></li>
+												<li><img src="{{ base_url() }}/assets/assets/img/card-2.png"></li>
+												<li><img src="{{ base_url() }}/assets/assets/img/card-3.png"></li>
+
+											</ul>
+											<p class="log"></p>
+										</div>
+										<div class="pcoptRow dateopt">
+											<h3>date d’expiration</h3>
+											<ul>
+												<li><label>Mois</label>
+													<div class="select-style">
+														<select  name="cartExpM"> 
+																   <option>01</option>
+																	<option>02</option>
+																	<option>03</option>
+																	<option>04</option>
+																	<option>05</option>
+																	<option>06</option>
+																	<option>07</option>
+																	<option>08</option>
+																	<option>09</option>
+																	<option>10</option>
+																	<option>11</option>
+																	<option>12</option> 
+														</select>
+													</div>
+												</li>
+												<li><label>Année</label>
+													<div class="select-style">
+													
+													
+														<select name="cartExpY">
+														    {% set endY = currentYear+20 %}
+															 {% for i in currentYear..endY %}
+																<option value ="{{ i }}" >{{ i }}</option> 
+															{% endfor %} 
+														</select>
+													</div>
+												</li>
+
+											</ul>
+										</div>
+										<div class="pcoptRow cryopt">
+											<h3>CRYPTOGRAMME VISUEL</h3>
+											<ul>
+												<li>
+													<div class="inputcol  ">
+														<input name="cvv" type="text" maxlength="3" >
+														<span class="question" ><i class="fas fa-question-circle"></i></span>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="pcoptRow  cettecarteopt" >
+											<!--
+											<h3>enregistrer cette carte</h3>
+											<ul>
+												<li><label>Oui <input name="cette"  type="radio"  value="1"></label></li>
+												<li><label>Non <input name="cette" type="radio" checked value="0"></label></li>
+											</ul> -->
+
+											<div class="actionpcopt">
+												<p>L’enregistrement des données de votre carte (hors cryptogramme visuel) se fait dans un serveur offrant une sécurité absolue. Vous pouvez donc nous confier les données en toute confiance. </p>
+												<ul>
+													<li><a href="/">ANNULER</a></li>
+													<li><input type="submit" name="" value="valider et payer"/></li>
+												</ul>
+											</div>
+										</div>
+										</form>
+									</div>
+									
+									   {% if stmsg!='' %}
+											<div class="alert alert-warning">
+											  {{stmsg}}
+											</div>
+									   
+									   
+									   {% endif  %} 
+						   
+									
+								</div>	
+                    </div>
+					{% if is_login == '1' %} 
+							{% if step == 'confirm_order' %} 
+								 
+								<div role="tabpanel" class="tab-pane fade  active show" id="Confirmation">
+							{% else  %} 
+									<div role="tabpanel" class="tab-pane fade" id="Confirmation">
+							{% endif  %} 
+							 
+					{% else  %} 
+									<div role="tabpanel" class="tab-pane fade" id="Confirmation">
+					{% endif  %} 
+					 
+                            {% if ordstatus=='1' %}
+							 <div role="tabpanel" class="tab-pane fade active show" id="Confirmation">
+								<h3>Merci d'avoir effectué le paiement</h3>
+								<h5 style="">Transaction réussie </h5>
+								<h6 style="">Vous recevrez prochainement un email de confirmation</h6>
+							</div>
+							 
+						   {% elseif ordstatus =='0' %}
+						   
+					 
+											<div class="alert alert-warning">
+											  Echec de la transaction. Merci de réitérer l'opération!!
+											</div><br />
+						        <a href="{{ base_url()}}/validate-cart?step=payment" class="cabtn"  >Try Again</a>
+								 
+						   {% else %}
+						   
+						   {% endif  %} 
+						   
+						   
+                    </div>
+                    
+                </div>
+            </div>
+             
+
+        </div>
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ base_url }}/assets/admin/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script src="{{ base_url() }}/assets/js/validation.js"></script>
+    <script src="{{ base_url() }}/assets/js/customize.js"></script>
+	<
+
+	
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+
+    jQuery(document).ready(function () {
+    'use strict';
+
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+	
+	
+
+    $(document).ready(function() {
+	//alert ('hello');
+
+        $('#registerform').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                email: {
+                    required: true,
+                    email: true
+                },
+                telephon: {
+                    required: true
+
+
+                },
+                message: {
+                    required: true
+
+
+                },
+                person_name: {
+                    required: true
+
+                },
+
+                password: {
+                    required: true
+
+                },
+                password_confirm : {
+                    required: true,
+                    equalTo: '#password'
+                },
+                confirm_email : {
+                    required: true,
+                    equalTo: '#email'
+                },
+                c_address: {
+                    required: true
+
+                },
+                postal_code: {
+                    required: true
+
+                },
+
+                country: {
+                    required: true
+
+                },
+
+                ville: {
+                    required: true
+
+                },
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "Champs requis",
+                    },
+                lastname:
+                    {
+                        required: "Champs requis",
+                    },
+                address:
+                    {
+                        required: "Champs requis",
+                    },
+
+                email: {
+                    required: "Entrez email",
+                    email: "Email invalide"
+                },
+                telephon:
+                    {
+                        required: "Champs requis",
+                    },
+                message:
+                    {
+                        required: "Champs requis",
+                    },
+                person_name:
+                    {
+                        required: "Champs requis",
+                    },
+                password:
+                    {
+                        required: "Champs requis",
+                    },
+                password_confirm:
+                    {
+                        required: "Champs requis",
+                        equalTo:"Le mot de passe n'est pas identique"
+                    },
+                confirm_email:
+                    {
+                        required: "Champs requis",
+                        equalTo:"Les emails ne sont pas identiques"
+                    },
+                c_password:
+                    {
+                        required: "Champs requis",
+                    },
+                postal_code:
+                    {
+                        required: "Champs requis",
+                    },
+                ville:
+                    {
+                        required: "Champs requis",
+                    },
+
+            }
+        });
+		 $('#pmform').validate({
+            rules: {
+
+
+                cartvalue: {
+                    required: true,
+					creditcard: true,
+					 minlength: 15,
+					 maxlength:16,
+
+                },
+                cvv: {
+                    required: true,
+					minlength: 3,
+					 maxlength:3,
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                mymail: {
+                    required: true,
+                    email: true
+                },
+                confirm_mail: {
+                    required: true,
+                    equalTo: "#mymail"
+
+                },
+                telephon: {
+                    required: true
+
+
+                }
+            },
+            messages: {
+                cartvalue:
+                    {
+                        required: "Card no is required",
+						creditcard:"invalid card",
+						minlength:"invalid card",
+						maxlength:"invalid card",
+                    },
+                cvv:
+                    {
+                        required: "cvv no is required",
+						minlength:"cvv invalid",
+						maxlength:"cvv invalid",
+                    },
+                address:
+                    {
+                        required: "address is required",
+                    },
+
+                mymail: {
+                    required: "Enter Your Email",
+                    email: "Enter Valid Email"
+                },
+                confirm_mail:
+                    {
+                        required: "confirm email  is required",
+                        equalTo:"Email not match"
+                    },
+                telephon:
+                    {
+                        required: "telephone no.  is required",
+                    }
+
+            }
+        });
+    });
+   
+    $("#confirmbooking").click(function() {
+		//AJAX here that needs to know the ID
+         
+		$.ajax({
+				type: "get",
+				url: '{{ base_url() }}/confirmOrder',
+				data: {}
+			}).done(function( msg ) {
+ 
+	 
+			});
+	});
+   $("#confirmbooking").click(function() {
+		//AJAX here that needs to know the ID
+         
+		$.ajax({
+				type: "get",
+				url: '{{ base_url() }}/confirmOrder',
+				data: {}
+			}).done(function( msg ) {
+ 
+	 
+			});
+	});
+	
+		function deleteItem(grp_id){
+		    
+		   	$.ajax({
+				type: "get",
+				url: '{{ base_url() }}/ajaxcallRemoveItem/'+grp_id,
+				data: {}
+			}).done(function( msg ) {
+						var obj = msg;
+						console.log(obj.status);
+						if(obj.status==='1'){
+						   window.location.href = '{{ base_url()}}/eventgroup/'+grp_id; //Will take you to Google.
+						}
+						
+						 
+			});
+		   return false;
+		};
+		(function($) {
+			$(document).ready(function() {
+				 $('html, body').animate({
+				   'scrollTop':   $('#paymentscroll').offset().top
+				 }, 2000);
+			});
+		})(jQuery);
+		 
+    </script>
+{% endblock %}

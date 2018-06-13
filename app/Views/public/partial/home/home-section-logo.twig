@@ -1,0 +1,24 @@
+<!-- Logos Section Start Here 
+  		    ==================================================--> 
+            <div class="logos">
+           	  <h2>nos partenaires, nos soutiens</h2>
+                <ul class="owl-carousel owl-theme" id="owl-logo">
+				{% if homePartnerLogo|length >  0 %}
+                  {% for logo in homePartnerLogo %} 
+				      <li><a href="{{logo.partner_url}} "><img src="{{ partnerImgURL }}{{logo.partner_logo}}"></a></li>
+				  {% endfor %}
+				{% else %}
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-1.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-2.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-3.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-4.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-5.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-6.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-7.png"></a></li>
+                	<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/logo-8.png"></a></li>
+				{% endif %}
+                </ul>
+            </div>
+            <!-- Logos Section End Here 
+  		    ==================================================--> 
+

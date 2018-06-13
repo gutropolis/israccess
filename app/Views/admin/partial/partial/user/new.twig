@@ -1,0 +1,73 @@
+
+
+
+{% block BtnPage %}
+{% endblock %}
+
+{% block content %}
+
+<form action="" method="post">
+   
+    <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="text" class="form-control{{ validatorError.username ? ' is-invalid' : '' }}" name="username" id="username" value="{{ oldInputs.username }}" placeholder="Name"/>
+        {% if validatorError.username %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.username %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	<div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control{{ validatorError.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ oldInputs.email }}" placeholder="name@email.me"/>
+        {% if validatorError.email %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.email %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control{{ validatorError.password ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password"/>
+        {% if validatorError.password %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.password %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	<div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control{{ validatorError.status ? ' is-invalid' : '' }}" name="status" id="status" placeholder="status"/>
+        {% if validatorError.status %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.status %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	<div class="form-group">
+        <label for="credit">Credit</label>
+        <input type="text" class="form-control{{ validatorError.credit ? ' is-invalid' : '' }}" name="credit" id="credit" placeholder="credit"/>
+        {% if validatorError.credit %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.credit %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="float-right">
+        <button type="submit" class="btn btn-primary">Save User</button>
+        <a id="btn-annuler" class="btn btn-secondary" href="" role="button">Close</a>
+    </div>
+</form>
+
+{% endblock %}

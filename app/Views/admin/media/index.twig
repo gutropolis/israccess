@@ -1,0 +1,25 @@
+{% extends "partials/layout-admin.twig" %}
+
+{% block TitlePage %}Liste des médias{% endblock %}
+{% block BtnPage %}
+    <a href="{{ path_for('admin_media_upload') }}" class="btn btn-sm btn-primary float-right">Ajouter</a>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                {% for med in medias %}
+                    <div class="col-sm-2 text-center">
+                        <img src="http://local.loc/slim-starter{{ med.thumbpath }}" alt="">
+                        <p class="text-truncate" alt="{{ med.name }}">{{ med.name }}</p>
+                        <div class="btn-group justify-content-center" role="group" aria-label="Basic example">
+                            <a href="http://local.loc/slim-starter{{ med.path }}" data-lightbox="image-{{ med.id }}" class="btn btn-sm btn-secondary"><i class="fa fa-eye"></i></a>
+                            <a href="{{ path_for('admin_media_delete', {'id': med.id }) }}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr?')"><i class="fa fa-trash-o"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

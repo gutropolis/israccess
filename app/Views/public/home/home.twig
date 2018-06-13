@@ -1,0 +1,91 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+           {% include 'public/partial/home/home-slider.twig' %}
+           {% include 'public/partial/home/home-section_1.twig' %}
+		    {% include 'public/partial/home/home-category-sliders.twig' %} 
+		   {% include 'public/partial/home/home-section-logo.twig' %} 
+{% endblock %}
+{% block footerscripts %}
+
+
+<!-- coming-soon -->
+<div class="modal fade" id="coming-soon" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content coming-soon">
+      
+      <div class="modal-body coming-soon">
+        <div class="text-center">
+			<div class="modal_logo_box">
+			<figure><img  src="{{ base_url() }}/assets/assets/img/home-coming.jpg"  alt="logo" /></figure>		
+				
+				
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div> 
+
+<!-- == code by ajay for Date Range picker calendar ========== -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>   
+<script type="text/javascript">
+$(function() {
+
+  $('input[name="daterange"]').daterangepicker({
+      autoUpdateInput: false,
+      locale: {
+          cancelLabel: 'Clear'
+      }
+  });
+
+  $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+  });
+
+  $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+  });
+
+});
+</script>
+	<!-- == code by ajay for Date Range picker calendar End here ========== -->  
+<!--
+<link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://jqueryui.com/resources/demos/datepicker/i18n/datepicker-fr.js"></script> 
+	
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+         jQuery( "#filter-date" ).datepicker( $.datepicker.regional[ "fr" ] ); 
+	 
+ 
+    });
+    </script>	-->
+<style>
+	.ui-widget{
+		font-size: 14px;
+	}
+	.ui-datepicker table{
+		font-size: 10px;
+	}
+	.ui-datepicker .ui-datepicker-header{
+		padding: 0;
+	}
+	
+	.ui-widget.ui-widget-content{
+		width: 210px;
+	}
+</style>		
+{% endblock %} 	

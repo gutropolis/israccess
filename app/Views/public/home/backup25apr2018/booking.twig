@@ -1,0 +1,1117 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+    <!--  Le cadeau spectacle Section Start Here
+             ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="#">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="#">Théâtre/ Humour</a></li>
+                            <li> |</li>
+                            <li><a href="#">Olivier Guedj : Olivier Guedj vous redonne le sourire</a></li>
+                            <li> |</li>
+                            <li> Réservation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection">
+            <div class="tabcontentArea">
+                <ul class="nav mcbTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#Maréservation" role="tab" data-toggle="tab">
+                            ma réservation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Coordonnées" role="tab" data-toggle="tab">
+                            coordonnées
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Recapitulatif" role="tab" data-toggle="tab">
+                            récapitulatif
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Paiement" role="tab" data-toggle="tab">
+                            paiement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Confirmation" role="tab" data-toggle="tab">
+                            confirmation
+                        </a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active show" id="Maréservation">
+                        <div class="mcbTabContent">
+                            <div class="mcbTabinner">
+                                <div class="mcbleftside">
+                                    <div class="loginform">
+                                        <div class="logintitle">
+                                            <h2>Déjà membre... je m’identifie</h2>
+                                        </div>
+                                        <div class="loginforminner">
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Email">
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Mot de passe">
+                                            </div>
+                                            <a href="#">Mot de passe oublié ?</a>
+                                            <div class="inputcol meconnecterbtn">
+                                                <input name="" type="button" value="me connecter" >
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="formSection">
+                                        <h2>COMMANDE SANS COMPTE</h2>
+
+                                        <div class="cscforminner">
+                                            <div class="inputcol radiocontent">
+                                                <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                <label> <input name="gen" type="radio" value=""> M.</label>
+                                            </div>
+                                            <div class="inputcol inputcolLt">
+                                                <input name="" type="text" placeholder="Nom*">
+                                            </div>
+                                            <div class="inputcol inputcolRt">
+                                                <input name="" type="text" placeholder="Prénom*">
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Email*">
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Confirmez votre email*">
+                                            </div>
+
+                                            <div class="inputcol inputinfo">
+                                                <p>Renseignez votre <strong>numéro de téléphone</strong> pour que nous puissions vous joindre en cas d’annulation.</p>
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Téléphone">
+                                                <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                            </div>
+
+                                            <div class="inputcol meconnecterbtn">
+                                                <input name="" type="button" value="valider ma commande" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mcbrightside">
+                                    <div class="formSection">
+                                        <h2>COMMANDE SANS COMPTE</h2>
+
+                                        <div class="cscforminner">
+                                            <div class="inputcol radiocontent">
+                                                <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                <label> <input name="gen" type="radio" value=""> M.</label>
+                                            </div>
+                                            <div class="inputcol inputcolLt">
+                                                <input name="" type="text" placeholder="Nom*">
+                                            </div>
+                                            <div class="inputcol inputcolRt">
+                                                <input name="" type="text" placeholder="Prénom*">
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Adresse">
+                                            </div>
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Compléments adresse">
+                                            </div>
+
+                                            <div class="inputcol inputcolLt">
+                                                <input name="" type="text" placeholder="Code postal">
+                                            </div>
+                                            <div class="inputcol inputcolRt">
+                                                <input name="" type="text" placeholder="Ville">
+                                            </div>
+
+                                            <div class="inputcol inputcolLt">
+                                                <input name="" type="text" placeholder="Téléphone">
+                                                <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                            </div>
+                                            <div class="inputcol inputcolRt">
+                                                <div class="select-style">
+                                                    <select>
+                                                        <option>Pays</option>
+                                                        <option>Pays 1</option>
+                                                        <option>Pays 2</option>
+                                                        <option>Pays 3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="inputcol dateandtimeCol">
+
+                                                <h5>Date de naissance</h5>
+                                                <div class="date">
+                                                    <div class="select-style">
+                                                        <select>
+                                                            <option>Jour</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="month">
+                                                    <div class="select-style">
+                                                        <select>
+                                                            <option>Mois</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="year">
+                                                    <div class="select-style">
+                                                        <select>
+                                                            <option>Année</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Email*">
+                                            </div>
+
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Confirmez votre email*">
+                                            </div>
+
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                            </div>
+
+                                            <div class="inputcol">
+                                                <input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                            </div>
+
+                                            <div class="inputcol meconnecterbtn">
+                                                <input name="" type="button" value="valider mon inscription" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="importantCon">
+                            <h3>important</h3>
+                            <p>Les informations collectées nous permettent de traiter de façon optimale votre commande. Vous êtes avertis en cas d’évènements majeurs (annulations, reports). Cela nous permet également de créer un compte à votre nom. Vous pourrez ainsi accéder à l’historique de vos commandes et avoir toujours vos billets à portée de clic.
+                                Nous garantissons l’extrême confidentialité des informations que vous nous transmettez.</p>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Coordonnées">
+                        2
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Recapitulatif">
+                        <div class="mcbTabContent">
+                            <div class="carttable">
+                                <div class="cartaction">
+                                    <ul>
+                                        <li><a href="#"><input name="" type="radio" value=""></a></li>
+                                        <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="cartimg">
+                                    <a href="#"><img src="{{ base_url() }}/assets/assets/img/book-2.png" ></a>
+                                </div>
+                                <div class="cartdetails">
+                                    <div class="cartItem">
+                                        <h2>Evenement</h2>
+                                        <div class="evencon">
+                                            <p>Olivier Guedj dans    Olivier Guedj dans  Vous redonne Le Sourire   </p>
+                                        </div>
+                                    </div>
+                                    <div class="cartlefu">
+                                        <h2>Lieu   </h2>
+                                        <div class="evencon">
+                                            <p>HABIMA Salle Blanche Rappoport Sdero Tarsat 2 TEL AVIA</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartdate">
+                                        <h2>  date </h2>
+                                        <div class="evencon">
+                                            <p>15/07/2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartnbre">
+                                        <h2>Nbre de places </h2>
+                                        <div class="evencon">
+                                            <p>2places</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartcat">
+                                        <h2>Categorie</h2>
+                                        <div class="evencon">
+                                            <P>CARRE OR</P>
+                                        </div>
+                                    </div>
+                                    <div class="cartprice">
+                                        <h2>Prix/Place</h2>
+                                        <div class="evencon">
+                                            <p><b>120$</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="actionsection">
+                                    <div class="asCon">
+                                        <div class="asLT">
+                                            <p>MONTANT TOTAL des billets</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>120$</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="asCon">
+                                        <div class="asLT">
+                                            <p>frais de réservation</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>2x15$</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="asCon redcol">
+                                        <div class="asLT">
+                                            <p>montant total de la commande</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>270$</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="asCon">
+                                        <div class="asLT">
+                                            <p>MONTANT CARTE CADEAU</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>120$</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="asCon blackcol">
+                                        <div class="asLT">
+                                            <p>RESTE À RÉGLER</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>150$</b></p>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="commandelink"><i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp; valider ma réservation <span>(paiement sécurisé)</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-contnet">
+                            <h4>choisissez votre moyen de paiement</h4>
+
+                            <div class="pcLt">
+                                <h3>PAIEMENT PAR CARTE DE CRÉDIT <span>(Paiement sécurisé)</span></h3>
+                                <ul>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-1.png"></label></li>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-2.png"></label></li>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-3.png"></label></li>
+                                </ul>
+
+                                <div class="clearfix"></div>
+                                <h3>PAIEMENT PAR CARTE cadeaux</h3>
+                                <ul>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-5.png"></label></li>
+                                </ul>
+
+                            </div>
+                            <div class="pcRt">
+                                <h3>PAIEMENT PAR paypal <span>(Paiement sécurisé)</span></h3>
+                                <ul>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-4.png"></label></li>
+                                </ul>
+
+                                <h3>PAIEMENT PAR CARTE pilier</h3>
+                                <ul>
+                                    <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-6.png"></label></li>
+                                </ul>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <a href="#" class="paiementbtn" type="button"   data-toggle="modal" data-target="#exampleModal">je procède au paiement</a>
+
+                            <p class="CulturAccess">CulturAccess n’a pas connaissance de votre numéro de carte bancaire et celui-ci n’est stocké sur aucun serveur. Allez donc au spectacle entoute tranquillité.</p>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Paiement">
+                        <div class="mcbTabContent">
+                            <div class="carttable">
+                                <div class="cartaction">
+                                    <ul>
+                                        <li><a href="#"><input name="" type="radio" value=""></a></li>
+                                        <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="cartimg">
+                                    <a href="#"><img src="{{ base_url() }}/assets/assets/img/book-2.png" ></a>
+                                </div>
+                                <div class="cartdetails">
+                                    <div class="cartItem">
+                                        <h2>Evenement</h2>
+                                        <div class="evencon">
+                                            <p>Olivier Guedj dans    Olivier Guedj dans  Vous redonne Le Sourire   </p>
+                                        </div>
+                                    </div>
+                                    <div class="cartlefu">
+                                        <h2>Lieu   </h2>
+                                        <div class="evencon">
+                                            <p>HABIMA Salle Blanche Rappoport Sdero Tarsat 2 TEL AVIA</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartdate">
+                                        <h2>  date </h2>
+                                        <div class="evencon">
+                                            <p>15/07/2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartnbre">
+                                        <h2>Nbre de places </h2>
+                                        <div class="evencon">
+                                            <p>2places</p>
+                                        </div>
+                                    </div>
+                                    <div class="cartcat">
+                                        <h2>Categorie</h2>
+                                        <div class="evencon">
+                                            <P>CARRE OR</P>
+                                        </div>
+                                    </div>
+                                    <div class="cartprice">
+                                        <h2>Prix/Place</h2>
+                                        <div class="evencon">
+                                            <p><b>120$</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="actionsection">
+                                    <div class="asCon">
+                                        <div class="asLT">
+                                            <p>MONTANT TOTAL des billets</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>120$</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="asCon">
+                                        <div class="asLT">
+                                            <p>frais de réservation</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>2x15$</b></p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="asCon blackcol">
+                                        <div class="asLT">
+                                            <p>RESTE À RÉGLER</p>
+                                        </div>
+                                        <div class="asRT">
+                                            <p><b>150$</b></p>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="commandelink"><i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp; valider ma réservation <span>(paiement sécurisé)</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-contnet">
+                            <h4>JE SAISIS LES INFORMATIONS POUR UN PAIEMENT SéCURISé</h4>
+
+                            <div class="paymentcardopt">
+                                <div class="pcoptRow">
+                                    <h3>numéro de carte</h3>
+                                    <ul>
+                                        <li><input name="" type="text"></li>
+                                        <li><img src="{{ base_url() }}/assets/assets/img/card-1.png"></li>
+                                        <li><img src="{{ base_url() }}/assets/assets/img/card-2.png"></li>
+                                        <li><img src="{{ base_url() }}/assets/assets/img/card-3.png"></li>
+
+                                    </ul>
+                                </div>
+                                <div class="pcoptRow dateopt">
+                                    <h3>date d’expiration</h3>
+                                    <ul>
+                                        <li><label>Mois</label>
+                                            <div class="select-style">
+                                                <select name="">
+                                                    <option>01</option>
+                                                    <option>02</option>
+                                                    <option>03</option>
+                                                    <option>04</option>
+                                                    <option>05</option>
+                                                    <option>06</option>
+                                                    <option>07</option>
+                                                    <option>08</option>
+                                                    <option>09</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                            </div>
+                                        </li>
+                                        <li><label>Année</label>
+                                            <div class="select-style">
+                                                <select name="">
+                                                    <option>2018</option>
+                                                    <option>2017</option>
+                                                    <option>2016</option>
+                                                    <option>2015</option>
+                                                    <option>2014</option>
+                                                    <option>2013</option>
+                                                    <option>2012</option>
+                                                    <option>2011</option>
+                                                    <option>2010</option>
+                                                    <option>2009</option>
+                                                    <option>2008</option>
+                                                    <option>2007</option>
+                                                </select>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="pcoptRow cryopt">
+                                    <h3>CRYPTOGRAMME VISUEL</h3>
+                                    <ul>
+                                        <li>
+                                            <div class="inputcol  ">
+                                                <input name="" type="text"  >
+                                                <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pcoptRow  cettecarteopt">
+                                    <h3>enregistrer cette carte</h3>
+                                    <ul>
+                                        <li><label>Oui <input name="cette"  type="radio" value=""></label></li>
+                                        <li><label>Non <input name="cette" type="radio" value=""></label></li>
+                                    </ul>
+
+                                    <div class="actionpcopt">
+                                        <p>L’enregistrement des données de votre carte (hors cryptogramme visuel) se fait dans un serveur offrant une sécurité absolue. Vous pouvez donc nous confier les données en toute confiance. </p>
+                                        <ul>
+                                            <li><a href="#">ANNULER</a></li>
+                                            <li><a href="#">valider et payer</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="Confirmation">
+                        5
+                    </div>
+                </div>
+            </div>
+            <!--Mobile Content Code-->
+            <div id="accordion" role="tablist" style="display:none;">
+                <div class="card">
+                    <div class="cardheader" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ma réservation
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="mcbTabContent">
+                                <div class="mcbTabinner">
+                                    <div class="mcbleftside">
+                                        <div class="loginform">
+                                            <div class="logintitle">
+                                                <h2>Déjà membre... je m’identifie</h2>
+                                            </div>
+                                            <div class="loginforminner">
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Email">
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Mot de passe">
+                                                </div>
+                                                <a href="#">Mot de passe oublié ?</a>
+                                                <div class="inputcol meconnecterbtn">
+                                                    <input name="" type="button" value="me connecter" >
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="formSection">
+                                            <h2>COMMANDE SANS COMPTE</h2>
+
+                                            <div class="cscforminner">
+                                                <div class="inputcol radiocontent">
+                                                    <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                    <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                                <div class="inputcol inputcolLt">
+                                                    <input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                    <input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Email*">
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div>
+
+                                                <div class="inputcol inputinfo">
+                                                    <p>Renseignez votre <strong>numéro de téléphone</strong> pour que nous puissions vous joindre en cas d’annulation.</p>
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+
+                                                <div class="inputcol meconnecterbtn">
+                                                    <input name="" type="button" value="valider ma commande" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mcbrightside">
+                                        <div class="formSection">
+                                            <h2>COMMANDE SANS COMPTE</h2>
+
+                                            <div class="cscforminner">
+                                                <div class="inputcol radiocontent">
+                                                    <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                    <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                                <div class="inputcol inputcolLt">
+                                                    <input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                    <input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Adresse">
+                                                </div>
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Compléments adresse">
+                                                </div>
+
+                                                <div class="inputcol inputcolLt">
+                                                    <input name="" type="text" placeholder="Code postal">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                    <input name="" type="text" placeholder="Ville">
+                                                </div>
+
+                                                <div class="inputcol inputcolLt">
+                                                    <input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                    <div class="select-style">
+                                                        <select>
+                                                            <option>Pays</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="inputcol dateandtimeCol">
+
+                                                    <h5>Date de naissance</h5>
+                                                    <div class="date">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Jour</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="month">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Mois</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="year">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Année</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Email*">
+                                                </div>
+
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div>
+
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                                </div>
+
+                                                <div class="inputcol">
+                                                    <input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                                </div>
+
+                                                <div class="inputcol meconnecterbtn">
+                                                    <input name="" type="button" value="valider mon inscription" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="importantCon">
+                                <h3>important</h3>
+                                <p>Les informations collectées nous permettent de traiter de façon optimale votre commande. Vous êtes avertis en cas d’évènements majeurs (annulations, reports). Cela nous permet également de créer un compte à votre nom. Vous pourrez ainsi accéder à l’historique de vos commandes et avoir toujours vos billets à portée de clic.
+                                    Nous garantissons l’extrême confidentialité des informations que vous nous transmettez.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardheader" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                coordonnées
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            2
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardheader" role="tab" id="headingThree">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                récapitulatif
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="mcbTabContent">
+                                <div class="carttable">
+                                    <div class="cartaction">
+                                        <ul>
+                                            <li><a href="#"><input name="" type="radio" value=""></a></li>
+                                            <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cartimg">
+                                        <a href="#"><img src="{{ base_url() }}/assets/assets/img/book-2.png" ></a>
+                                    </div>
+                                    <div class="cartdetails">
+                                        <div class="cartItem">
+                                            <h2>Evenement</h2>
+                                            <div class="evencon">
+                                                <p>Olivier Guedj dans    Olivier Guedj dans  Vous redonne Le Sourire   </p>
+                                            </div>
+                                        </div>
+                                        <div class="cartlefu">
+                                            <h2>Lieu   </h2>
+                                            <div class="evencon">
+                                                <p>HABIMA Salle Blanche Rappoport Sdero Tarsat 2 TEL AVIA</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartdate">
+                                            <h2>  date </h2>
+                                            <div class="evencon">
+                                                <p>15/07/2018</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartnbre">
+                                            <h2>Nbre de places </h2>
+                                            <div class="evencon">
+                                                <p>2places</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartcat">
+                                            <h2>Categorie</h2>
+                                            <div class="evencon">
+                                                <P>CARRE OR</P>
+                                            </div>
+                                        </div>
+                                        <div class="cartprice">
+                                            <h2>Prix/Place</h2>
+                                            <div class="evencon">
+                                                <p><b>120$</b></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="actionsection">
+                                        <div class="asCon">
+                                            <div class="asLT">
+                                                <p>MONTANT TOTAL des billets</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>120$</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="asCon">
+                                            <div class="asLT">
+                                                <p>frais de réservation</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>2x15$</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="asCon redcol">
+                                            <div class="asLT">
+                                                <p>montant total de la commande</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>270$</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="asCon">
+                                            <div class="asLT">
+                                                <p>MONTANT CARTE CADEAU</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>120$</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="asCon blackcol">
+                                            <div class="asLT">
+                                                <p>RESTE À RÉGLER</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>150$</b></p>
+                                            </div>
+                                        </div>
+
+                                        <a href="#" class="commandelink"><i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp; valider ma réservation <span>(paiement sécurisé)</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-contnet">
+                                <h4>choisissez votre moyen de paiement</h4>
+
+                                <div class="pcLt">
+                                    <h3>PAIEMENT PAR CARTE DE CRÉDIT <span>(Paiement sécurisé)</span></h3>
+                                    <ul>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-1.png"></label></li>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-2.png"></label></li>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-3.png"></label></li>
+                                    </ul>
+
+                                    <div class="clearfix"></div>
+                                    <h3>PAIEMENT PAR CARTE cadeaux</h3>
+                                    <ul>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-5.png"></label></li>
+                                    </ul>
+
+                                </div>
+                                <div class="pcRt">
+                                    <h3>PAIEMENT PAR paypal <span>(Paiement sécurisé)</span></h3>
+                                    <ul>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-4.png"></label></li>
+                                    </ul>
+
+                                    <h3>PAIEMENT PAR CARTE pilier</h3>
+                                    <ul>
+                                        <li><label><input name="card" type="radio" value=""> <img src="{{ base_url() }}/assets/assets/img/card-6.png"></label></li>
+                                    </ul>
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <a href="#" class="paiementbtn" type="button"   data-toggle="modal" data-target="#exampleModal">je procède au paiement</a>
+
+                                <p class="CulturAccess">CulturAccess n’a pas connaissance de votre numéro de carte bancaire et celui-ci n’est stocké sur aucun serveur. Allez donc au spectacle entoute tranquillité.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="cardheader" role="tab" id="headingFour">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                paiement
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="mcbTabContent">
+                                <div class="carttable">
+                                    <div class="cartaction">
+                                        <ul>
+                                            <li><a href="#"><input name="" type="radio" value=""></a></li>
+                                            <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cartimg">
+                                        <a href="#"><img src="{{ base_url() }}/assets/assets/img/book-2.png" ></a>
+                                    </div>
+                                    <div class="cartdetails">
+                                        <div class="cartItem">
+                                            <h2>Evenement</h2>
+                                            <div class="evencon">
+                                                <p>Olivier Guedj dans    Olivier Guedj dans  Vous redonne Le Sourire   </p>
+                                            </div>
+                                        </div>
+                                        <div class="cartlefu">
+                                            <h2>Lieu   </h2>
+                                            <div class="evencon">
+                                                <p>HABIMA Salle Blanche Rappoport Sdero Tarsat 2 TEL AVIA</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartdate">
+                                            <h2>  date </h2>
+                                            <div class="evencon">
+                                                <p>15/07/2018</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartnbre">
+                                            <h2>Nbre de places </h2>
+                                            <div class="evencon">
+                                                <p>2places</p>
+                                            </div>
+                                        </div>
+                                        <div class="cartcat">
+                                            <h2>Categorie</h2>
+                                            <div class="evencon">
+                                                <P>CARRE OR</P>
+                                            </div>
+                                        </div>
+                                        <div class="cartprice">
+                                            <h2>Prix/Place</h2>
+                                            <div class="evencon">
+                                                <p><b>120$</b></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="actionsection">
+                                        <div class="asCon">
+                                            <div class="asLT">
+                                                <p>MONTANT TOTAL des billets</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>120$</b></p>
+                                            </div>
+                                        </div>
+                                        <div class="asCon">
+                                            <div class="asLT">
+                                                <p>frais de réservation</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>2x15$</b></p>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="asCon blackcol">
+                                            <div class="asLT">
+                                                <p>RESTE À RÉGLER</p>
+                                            </div>
+                                            <div class="asRT">
+                                                <p><b>150$</b></p>
+                                            </div>
+                                        </div>
+
+                                        <a href="#" class="commandelink"><i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp; valider ma réservation <span>(paiement sécurisé)</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-contnet">
+                                <h4>JE SAISIS LES INFORMATIONS POUR UN PAIEMENT SéCURISé</h4>
+
+                                <div class="paymentcardopt">
+                                    <div class="pcoptRow">
+                                        <h3>numéro de carte</h3>
+                                        <ul>
+                                            <li><input name="" type="text"></li>
+                                            <li><img src="{{ base_url() }}/assets/assets/img/card-1.png"></li>
+                                            <li><img src="{{ base_url() }}/assets/assets/img/card-2.png"></li>
+                                            <li><img src="{{ base_url() }}/assets/assets/img/card-3.png"></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="pcoptRow dateopt">
+                                        <h3>date d’expiration</h3>
+                                        <ul>
+                                            <li><label>Mois</label>
+                                                <div class="select-style">
+                                                    <select name="">
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                        <option>06</option>
+                                                        <option>07</option>
+                                                        <option>08</option>
+                                                        <option>09</option>
+                                                        <option>10</option>
+                                                        <option>11</option>
+                                                        <option>12</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li><label>Année</label>
+                                                <div class="select-style">
+                                                    <select name="">
+                                                        <option>2018</option>
+                                                        <option>2017</option>
+                                                        <option>2016</option>
+                                                        <option>2015</option>
+                                                        <option>2014</option>
+                                                        <option>2013</option>
+                                                        <option>2012</option>
+                                                        <option>2011</option>
+                                                        <option>2010</option>
+                                                        <option>2009</option>
+                                                        <option>2008</option>
+                                                        <option>2007</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="pcoptRow cryopt">
+                                        <h3>CRYPTOGRAMME VISUEL</h3>
+                                        <ul>
+                                            <li>
+                                                <div class="inputcol  ">
+                                                    <input name="" type="text"  >
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pcoptRow  cettecarteopt">
+                                        <h3>enregistrer cette carte</h3>
+                                        <ul>
+                                            <li><label>Oui <input name="cette"  type="radio" value=""></label></li>
+                                            <li><label>Non <input name="cette" type="radio" value=""></label></li>
+                                        </ul>
+
+                                        <div class="actionpcopt">
+                                            <p>L’enregistrement des données de votre carte (hors cryptogramme visuel) se fait dans un serveur offrant une sécurité absolue. Vous pouvez donc nous confier les données en toute confiance. </p>
+                                            <ul>
+                                                <li><a href="#">ANNULER</a></li>
+                                                <li><a href="#">valider et payer</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="cardheader" role="tab" id="headingFive">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Confirmation
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                        <div class="card-body">
+                            5
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Mobile Content Code-->
+
+        </div>
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>   
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+    
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+    </script>		 
+{% endblock %} 	

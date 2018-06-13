@@ -1,0 +1,14 @@
+{% extends "partials/layout-admin.twig" %}
+
+{% block TitlePage %}Utilisateur : {{ user.username }}{% endblock %}
+{% block BtnPage %}
+<a href="{{ path_for('admin_user_list') }}" class="btn btn-sm btn-secondary">< Retour</a>
+<a href="{{ path_for('admin_user_edit', {id: user.id}) }}" class="btn btn-sm btn-primary">Modifer</a>
+{% endblock %}
+
+{% block content %}
+
+<p>Nom d'utilisateur : <b>{{ user.username }}</b></p>
+<p>Adresse email : <b>{{ user.email }}</b></p>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+ <!-- Header Start Here 
+  ==================================================-->
+ 	<header>
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-lg-12 logo">
+                	<a href="{{ base_url() }}/home"><img src="{{ base_url() }}/assets/assets/img/logo_beta.jpeg" class="Logo"></a>
+                </div>
+                
+                <div class="col-lg-12 header-menu">
+                	<ul>
+                    	{%if h1=="Home"%}<li  class="active" ><a href="{{ base_url() }}/home"><i class="fas fa-home"></i> Accueil</a></li>
+						{%else%}
+						<li  class="dropdown" ><a href="{{ base_url() }}/home"><i class="fas fa-home"></i> Accueil</a></li>
+						{% endif %}
+                        {% if is_login and is_login == '1'  %}
+						{%if h1=="Bonjour"%}
+						<li   class="active dropdown"><a href="{{ base_url() }}/mon-compte/mes-commandes"  class=" dropdown-toggle" > <i class="fas fa-user"></i>Bonjour {{userinfo.memberName}}</a> 
+						 
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							 <p class="dropdown-item" >Bonjour {{userinfo.memberName}}</p>
+							 <div class="dropdown-divider"></div>
+							 {%if case=="mes-commandes"%}
+						<a class="dropdown-item current"  href="{{ base_url() }}/mon-compte/mes-commandes">Mes commandes</a>
+						{%else%}
+						<a class="dropdown-item "  href="{{ base_url() }}/mon-compte/mes-commandes">Mes commandes</a>
+						{%endif%}
+						 {%if case=="mes-coordonnees"%}
+						<a class="dropdown-item current" href="{{ base_url() }}/mon-compte/mes-coordonnees">Accéder à vos coordonnées</a>
+						{% else %}
+						<a class="dropdown-item" href="{{ base_url() }}/mon-compte/mes-coordonnees">Accéder à vos coordonnées</a>
+						{%endif%}
+						 {%if case=="email-prioritaire"%}
+					     <a class="dropdown-item current" href="{{ base_url() }}/mon-compte/email-prioritaire">Envoyer un mail à traitement prioritaire</a>
+						 {%else%}
+						 <a class="dropdown-item" href="{{ base_url() }}/mon-compte/email-prioritaire">Envoyer un mail à traitement prioritaire</a>
+						 {%endif%}
+						</div>
+						</li>
+						{%else%}
+						<li class="dropdown "><a href="{{ base_url() }}/mon-compte/mes-commandes"  class=" dropdown-toggle"> <i class="fas fa-user"></i>Bonjour {{userinfo.memberName}}</a> 
+						 
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							 <p class="dropdown-item" >Bonjour {{userinfo.memberName}}</p>
+							 <div class="dropdown-divider"></div>
+						<a class="dropdown-item "  href="{{ base_url() }}/mon-compte/mes-commandes">Mes commandes</a>
+						<a class="dropdown-item" href="{{ base_url() }}/mon-compte/mes-coordonnees">Accéder à vos coordonnées</a>
+					     <a class="dropdown-item" href="{{ base_url() }}/mon-compte/email-prioritaire">Envoyer un mail à traitement prioritaire</a>
+        </div>
+						</li>
+						{%endif%}
+						
+						{%  else  %}
+						<li><a href="javascript:void()" data-toggle="modal" data-target="#exampleModal"> 
+						 <i class="fas fa-user"></i> Mon compte</a> </li>
+						{%  endif  %}
+						{% if is_login and is_login == '1'  %}
+						{%if h1=="mon-panier"%}
+                        <li class="active"><a href="{{ base_url() }}/mon-panier"><i class="fas fa-shopping-cart"></i> Mon panier</a></li>
+						{%else%}
+						 <li><a href="{{ base_url() }}/mon-panier"><i class="fas fa-shopping-cart"></i> Mon panier</a></li>
+						{%endif%}
+						{%endif%}
+						{% if is_login and is_login == '1'  %} 
+						 <li><a href="{{ base_url() }}/logout"><i class="fas fa-home"></i>Déconnexion</a></li>
+						{%  endif  %} 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+  <!-- Header  End Here
+  ================================================== --> 

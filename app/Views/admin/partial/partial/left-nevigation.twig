@@ -1,0 +1,243 @@
+<!-- BEGIN: Aside Menu -->
+	<div 
+		id="m_ver_menu" 
+		class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark " 
+		m-menu-vertical="1"
+		 m-menu-scrollable="0" m-menu-dropdown-timeout="500"  
+		>
+						<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+							<li class="m-menu__item  {% if current_url == 'admin/dashboard' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/dashboard" class="m-menu__link ">
+									<i class="m-menu__link-icon flaticon-line-graph"></i>
+									<span class="m-menu__link-title">
+										<span class="m-menu__link-wrap">
+											<span class="m-menu__link-text">
+												{{ adminLang.left_menu_dashboard_txt }} 
+											</span>
+											
+										</span>
+									</span>
+								</a>
+							</li>
+							<li class="m-menu__item {% if current_url == 'admin/cities' %} m-menu__item--active {% endif %}" aria-haspopup="true"  >
+								<a  href="{{ base_url() }}/admin/cities" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_cities_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  
+						  <li class="m-menu__item  {% if current_url == 'admin/currencies' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/currencies" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_currency_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  
+						  <li class="m-menu__item  {% if current_url == 'admin/sliders' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/sliders" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_slider_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+							<li class="m-menu__item  {% if current_url == 'admin/categories' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/categories" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_categories_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+                          <li class="m-menu__item  {% if current_url == 'admin/auditoriums' %} m-menu__item--active {% endif %} {% if current_url == 'admin/auditoriums/add' %} m-menu__item--active {% endif %} {% if current_url == 'admin/auditoriums/edit' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/auditoriums" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-multimedia-1"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_auditorium_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+							<li class="m-menu__item {% if current_url == 'admin/artists' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/artists" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-users"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_artist_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item  {% if current_url == 'admin/productors' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/productors" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-users"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_productor_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item  {% if current_url == 'admin/members' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/members" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-users"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_member_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item {% if current_url == 'admin/sections' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/sections" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-users"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_section_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+                            <li class="m-menu__item  {% if current_url == 'admin/events/groups' %} m-menu__item--active {% endif %} {% if current_url == 'admin/events/groups/edit' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/events/groups" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-7"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_event_group_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item  {% if current_url == 'admin/dont-miss' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/dont-miss" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-7"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_dont_miss_event_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item {% if current_url == 'admin/event-day' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/event-day" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-7"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_events_of_day_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item  {% if current_url == 'admin/seats' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/seats" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-tabs"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_seat_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item  {% if current_url == 'admin/tickets' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/tickets" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-interface-1"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_ticket_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item  {% if current_url == 'admin/users' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/users" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-users"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_user_txt }}
+									</span>
+									
+							</a></li>
+							<li class="m-menu__item  {% if current_url == 'admin/partners' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/partners" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_partner_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item  {% if current_url == 'admin/cms' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/cms" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_cms_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item {% if current_url == 'admin/paymentTypes' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/paymentTypes" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_payment_types_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item  {% if current_url == 'admin/community' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/community" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_community_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item  {% if current_url == 'admin/community_page' %} m-menu__item--active {% endif %} {% if current_url == 'admin/community_page/add' %} m-menu__item--active {% endif %} {% if current_url == 'admin/community_page/edit' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/community_page" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										Community Page
+									</span>
+									
+								</a>
+								
+						  </li>
+						  <li class="m-menu__item {% if current_url == 'admin/orders' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/orders" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-layers"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_order_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+							<li class="m-menu__item  {% if current_url == 'admin/settings' %} m-menu__item--active {% endif %}" aria-haspopup="true" >
+								<a  href="{{ base_url() }}/admin/settings" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-settings-1"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_setting_txt }}
+									</span>
+									
+								</a>
+								
+						  </li>
+							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
+								<a  href="{{ base_url() }}/admin/logout" class="m-menu__link m-menu__toggle">
+									<i class="m-menu__link-icon flaticon-logout"></i>
+									<span class="m-menu__link-text">
+										{{ adminLang.left_menu_logout_txt }}
+									</span>
+									
+							</a></li>
+							
+						</ul>
+					</div>
+					<!-- END: Aside Menu -->

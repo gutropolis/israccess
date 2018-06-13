@@ -1,0 +1,24 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model as Eloquent;
+
+class Country extends Eloquent
+{
+    /**
+     * Define table primary key
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * Define table name
+     *
+     * @var string
+     */
+    protected $table = 'currencies';
+    
+    
+    
+}

@@ -1,0 +1,430 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+    <!--  Le cadeau spectacle Section Start Here
+             ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="{{ base_url()}}/registration">Enregistrement</a></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+		     <div class="col-md-12">
+
+            <form id="registerform"  name="registerform" onsubmit="return FullRegFormOrder()" method="post" >
+                <div class="formSection">
+                    <b>JE CRÉE MON COMPTE</b>
+                    <div class="cscforminner">
+                        <div class="inputcol radiocontent">
+                            <label> <input name="gender" type="radio" value=""> Mme</label>
+                            <label> <input name="gender" type="radio" value="" checked> M.</label>
+                        </div>
+                        <div class="inputcol inputcolLt">
+
+                            <input type="text" name="firstname" placeholder="Nom*">
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <input name="lastname" type="text" placeholder="Prénom*">
+                        </div>
+                        <div class="inputcol">
+                            <input name="address" type="text" placeholder="Adresse*">
+                        </div>
+                        <div class="inputcol">
+                            <input name="c_address" type="text" placeholder="Complément d'adresse">
+                        </div>
+
+                        <div class="inputcol inputcolLt">
+                            <input name="postal_code" type="text" placeholder="Code postal">
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <input name="ville" type="text" placeholder="Ville*">
+                        </div>
+
+                        <div class="inputcol inputcolLt">
+                            <input name="telephon" type="text" placeholder="Téléphone*">
+                            <span class="question" ><i class="fas fa-question-circle"></i></span>
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <div class="select-style"> 
+                                <select name="country">
+									<option value="" >Pays</option>
+									{% if countryList|length >  0 %} 
+ 
+										{% for key,val in countryList %} 
+											<option value="{{ key }}"   >{{ val }}</option>
+										{% endfor %}
+											
+										 
+									{% endif %} 
+										
+                                   
+                                    
+                                </select>
+								<!--<option value="{{ key }}" {% if key=='IL' %} selected {% endif %} >{{ val }}</option>-->
+                            </div>
+                        </div>
+
+                        <div class="inputcol dateandtimeCol">
+
+                            <h5>Date de naissance</h5>
+                            <div class="date">
+                                <div class="select-style">
+                                    <select name="day">
+                                        <option value=""  >Jour</option>
+                                         {% for i in 0..31 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <div class="select-style">
+                                    <select name="month">
+                                        <option value="" >Mois</option>
+                                         {% for i in 0..12 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="year">
+                                <div class="select-style">
+                                    <select name="year">
+                                        <option  value="" >Année</option>
+                                        {% for i in 1930..2011 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="email" type="text" placeholder="Email*" id="email">
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="confirm_email" type="text" placeholder="Confirmez votre email*">
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="password" type="password" placeholder="Choisissez votre mot de passe*" id="password" >
+                            <span class="question" ><i class="fas fa-question-circle"></i></span>
+                            <span class="viewicon" onclick="showpasword()"><i class="fas fa-eye"></i></span>
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="password_confirm" type="password" placeholder="Confirmez votre mot de passe*"  id="passwords">
+                            <span class="viewicon" onclick="showpaswords()"><i class="fas fa-eye"></i></span>
+                        </div>
+							<input type="hidden" id="redUrlRegister" value="{{previous_url}}"/>
+                        <div class="inputcol meconnecterbtn">
+                            <input type="submit" value="valider mon inscription" >
+							<input type="hidden" value="{{ base_url() }}/validate-cart"  />
+							
+                        </div>
+                    </div>
+					<div id="reg_result" style="text-align:center;"></div>
+                </div>
+            </form>
+        </div>
+		  
+		{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ base_url }}/assets/admin/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+   
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+
+    jQuery(document).ready(function () {
+    'use strict';
+
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+
+    $(document).ready(function() {
+
+        $('#registerform').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                email: {
+                    required: true,
+                    email: true
+                },
+                telephon: {
+                    required: true
+
+
+                },
+                message: {
+                    required: true
+
+
+                },
+                person_name: {
+                    required: true
+
+                },
+
+                password: {
+                    required: true
+
+                },
+                password_confirm : {
+                    required: true,
+                    equalTo: '#password'
+                },
+                confirm_email : {
+                    required: true,
+                    equalTo: '#email'
+                },
+                
+                
+                country: {
+                    required: true
+
+                },
+
+                ville: {
+                    required: true
+
+                },
+				day: {
+                    required: true
+
+                },
+				month: {
+                    required: true
+
+                },
+				year: {
+                    required: true
+
+                },
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "Champs requis",
+                    },
+                lastname:
+                    {
+                        required: "Champs requis",
+                    },
+                address:
+                    {
+                        required: "Champs requis",
+                    },
+
+                email: {
+                    required: "Champs requis",
+                    email: "Enter Valid Email"
+                },
+                telephon:
+                    {
+                        required: "Champs requis",
+                    },
+                message:
+                    {
+                        required: "Champs requis",
+                    },
+                person_name:
+                    {
+                        required: "Champs requis",
+                    },
+                password:
+                    {
+                        required: "Champs requis",
+                    },
+                password_confirm:
+                    {
+                        required: "Champs requis",
+                        equalTo:" Le mot de passe n'est pas identique"
+                    },
+                confirm_email:
+                    {
+                        required: "Champs requis",
+                        equalTo:"Les emails ne sont pas identiques"
+                    },
+                c_password:
+                    {
+                        required: "Champs requis",
+                    },
+                
+                ville:
+                    {
+                        required: "Champs requis",
+                    },
+					 country:
+                    {
+                        required: "Champs requis",
+                    },
+					day: {
+                    required: "Champs requis",
+
+					},
+					month: {
+						required:"Champs requis",
+
+					},
+					year: {
+						required: "Champs requis",
+
+					},
+
+            }
+        });
+        $('#halfregisterform').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                mymail: {
+                    required: true,
+                    email: true
+                },
+                confirm_mail: {
+                    required: true,
+                    equalTo: "#mymail"
+
+                },
+                telephon: {
+                    required: true
+
+
+                }
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "first name is required",
+                    },
+                lastname:
+                    {
+                        required: "last name is required",
+                    },
+                address:
+                    {
+                        required: "address is required",
+                    },
+
+                mymail: {
+                    required: "Enter Your Email",
+                    email: "Entrez un email valide"
+                },
+                confirm_mail:
+                    {
+                        required: "confirm email  is required",
+                        equalTo:"Email not match"
+                    },
+                telephon:
+                    {
+                        required: "telephone no.  is required",
+                    }
+
+            }
+        });
+    });
+	 function FullRegFormOrder(){
+	 //alert('hello register');
+	 if (!$("#registerform").validate().form()) {
+		//alert('hello validator');
+	 }
+	 else{
+	    // alert('Welcome to full registration');
+         var mydata = $('#registerform').serialize();
+		 var redURL = $("#redUrlRegister").val();
+        // alert(mydata);
+	    $.ajax({
+        type: "get",
+        url: '{{base_url()}}/registerorder',
+        data:mydata ,
+        success: function( data ) {
+					//var obj = jQuery.parseJSON( data);
+					var obj = data; 
+					console.log(obj.status);console.log(obj.msg);console.log(redURL);
+					if(obj.status === '1'){
+						$("#reg_result").html('<div class="alert alert-info" role="alert"><strong></strong> '+obj.msg+'.</div>');
+						window.location.href = redURL;
+						
+					}else{
+						$("#reg_result").html('<div class="alert alert-danger" role="alert"><strong></strong> '+obj.msg+'.</div>');
+					}
+					
+					return false;
+				}
+		});
+		return false;
+	 }
+   }
+
+
+    </script>
+	<script>
+function showpasword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+	<script>
+function showpaswords() {
+    var x = document.getElementById("passwords");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+{% endblock %}

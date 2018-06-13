@@ -1,0 +1,166 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+    <!-- Pagination  Section Start Here 
+  		    ==================================================--> 
+            <div class="paginationCon">
+            	<ul>
+                	<li><a href="{{ base_url()}}/home">Accueil</a></li>
+                    <li> |</li> 
+                    <li> A ne pas manquer</li>
+                </ul>
+            </div>
+            <!-- Pagination Section End Here 
+  		    ==================================================--> 
+            
+            <!-- A ne pas manquer  Section Start Here 
+  		    ==================================================--> 
+            <div class="marechercheCon">
+                    
+                 	<div class="blackTitle votreTitle">
+                    	{{ topHeaderText | raw }} 
+                    </div>
+                    <div class="bookBoxsection">
+						<div class="container">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-12">
+										<div class="row">
+												{% set i = 0 %}
+												{% set j = 0 %}
+												{% for event in rows %}
+												{% set i =i+1 %}
+												{% if (i ==1) %}
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													{% elseif (i >= 3) and (i < 5) %}
+												<div class="col-lg-6 col-md-6 col-sm-12 halfcol">
+
+													{% else  %}
+
+														<div class="col-lg-12 col-md-12 col-sm-12 fullcol">
+													{% set i = 2 %}
+															{% set j = j+1 %}
+
+													{% endif %}
+
+                                                            	<div class="bookBox">
+																		<div class="book"><a href="{{ path_for('eventgroupdetail', { 'id':  event.eventgroup_id}) }}"><img src="{{ egImgURL}}{{event.event_group_picture }}"></a></div>
+																	   <div class="bookDetails">
+																		<h1><a href="#"> {{ event.artist_name }}<span>{{ event.title }}</span></a></h1>
+																		<p>{{ event.date }} à {{ event.timeH }}h {% if (event.timeI !='') %}{{ event.timeI }}m{% endif%}</p>
+																		<p>{{ event.event_auditorium }}  <span>{{event.event_city}}</span></p>
+																		<div class="blockquoteText">
+																			<p><a href="#">Contributeur : {{event.contributor_name}} </a> {{event.short_description | raw}}</p>
+																		</div>
+																		<div class="reserverbtn"> <a  href="javascript:void(0);" onclick="getModelEventGroup('{{ event.id}}')" >Lire la suite</a> </div>
+																		</div>
+																  </div>
+														</div>
+													{% if j==2 %}
+												</div></div>
+													<div class="col-lg-6 col-md-6 col-sm-12">
+														<div class="row">
+															{% set j = 0 %}
+													{% endif %}
+
+												{% endfor %}
+														</div>
+													</div>
+											<div class="col-lg-12">
+												 <div class="pagelink">
+													 <ul >
+														 {% if pages > 1 %}
+
+															 {% set range = 5 %}
+
+															 {% if page != 1 %}
+																 <li > <a href="?page=1">précédent</a></li>
+															 {% endif %}
+
+															 {% set prev = page - 1 %}
+
+															 {% if  page > 1 %}
+																 <li >   <a href="?page={{prev}}">  <  </a></li>
+															 {% endif %}
+
+															 {% for i in (page - range)..((page + range) + 1) %}
+
+																 {% if (i > 0) and (i <= pages) %}
+																	 <li >   <a href="?page={{i}}" {% if page == i %}  {% endif %}>{{i}}</a></li>
+																 {% endif %}
+
+															 {% endfor %}
+
+															 {% if page != pages %}
+
+																 {% set  next = page + 1 %}
+
+																 <li>  <a href="?page={{next}}"> > </a></li>
+																 <li> <a href="?page={{pages}}">suivant</a></li>
+
+															 {% endif %}
+
+														 {% endif %}
+													 </ul>
+													<p>page {{ page }} sur {{ pages }}</p>
+												 </div>
+											</div>                                 
+										</div>
+									</div>
+								</div>                 
+						</div>
+                    </div>
+            <!-- A ne pas manquer Section End Here  ==================================================--> 
+			 <!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					   
+					  <div class="modal-body">
+					   <div class="hantsoncopiemodel" id="modelbody"></div>
+					  </div>
+					   
+					</div>
+				  </div>
+				</div> 
+              
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>   
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+    
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+	
+	
+	
+	
+	
+	
+	function getModelEventGroup(eventgrpid){ 
+			 $('#exampleModal').modal({
+				show:  true 
+			});  
+            $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/ajaxcalleventpopup',
+                data: {eventgrpid}
+            }).done(function( msg ) {
+                $( "#modelbody" ).html( msg );
+            });
+			 ev.preventDefault();
+   }
+	
+    </script>	
+
+
+
+	
+{% endblock %} 	

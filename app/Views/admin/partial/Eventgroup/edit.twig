@@ -1,0 +1,1198 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<link href="{{ base_url() }}/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="{{ base_url() }}/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.has_error{
+  border-color:red !important;
+}
+
+</style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ event_detail.title|raw}} </h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon m--hide"> <i class="la la-gear"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ event_detail.title|raw}} </h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+        <form class="m-form" id="edit_event_group_from" enctype="multipart/form-data">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              <div class="row">
+                <div class="form-group  col-md-12" id="EventGroupTitle">
+                 <label class="control-label" for="">{{ adminLang.event_group_title_label_txt }}</label>
+                 
+                  <textarea name="title" id="title" class="form-control summertitle"  rows="2">{{ event_detail.title}}</textarea>
+                   </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="control-label" for="">{{ adminLang.event_group_section_label_txt }}</label>
+              <br>
+              <select name="section" id="section" class="form-control"  >
+                <option value="">{{ adminLang.event_group_section_label_txt }}</option>
+				{% if (event_detail.section) == -1 %}
+				   <option value="-1" selected = 'selected'>{{ adminLang.common_section_selection_txt }}</option>
+				   {% else %}
+				   <option value="-1" >{{ adminLang.common_section_selection_txt }}</option>
+				{% endif %}
+                   {% if sections %}
+                    {% for row in sections %}
+                    {% set selected = '' %}
+				   {% if (event_detail.section) == row.id %}
+				   {% set selected = 'selected' %}
+				    {% endif %}
+					
+                <option value="{{ row.id }}" {{ selected }}>{{ row.section_title }}</option>
+                   {% endfor %} 
+                   {% endif %}
+              
+              </select>
+                  
+                </div>
+                <div class="form-group col-md-6 ">
+                 <label class="control-label" for="">{{ adminLang.event_group_card_label_txt }}</label>
+                  <input type="text" class="form-control" id="thumbnail_title" name="thumbnail_title" placeholder="{{ adminLang.event_group_card_label_txt }}" value="{{ event_detail.thumbnail_title}}">
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group  col-md-6">
+                  <label class="control-label" for=""> {{ adminLang.event_group_pic_view_label_txt }}</label>
+                  <br>
+                  {% if event_detail.group_thumbnail != '' %} <img src="{{ base_url() }} {{  "/uploads/eventgroups/thumbs/#{event_detail.group_thumbnail}"  }}" class="img-rounded img-thumbnail" width="200" height="200" style="width:200px; height:200px"> {% else %} <img src="{{ base_url() }} {{  "/uploads/default/default.png"  }}" class="img-rounded img-thumbnail"> {% endif %}
+                </div>
+                <div class="form-group  col-md-6">
+                  <label class="control-label" for=""> {{ adminLang.event_group_pic_view_label_txt }}</label>
+                  <br>
+                  {% if event_detail.group_picture != '' %} <img src="{{ base_url() }} {{  "/uploads/eventgroups/#{event_detail.group_picture}"  }}" class="img-rounded img-thumbnail" width="200" height="200" style="width:200px; height:200px"> {% else %} <img src="{{ base_url() }} {{  "/uploads/default/default.png"  }}" class="img-rounded img-thumbnail"> {% endif %}
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 ">
+                <label class="control-label" for="">{{ adminLang.event_group_pic_thumb_label_txt }}</label>
+              <input type="file" class="form-control" id="group_picture_thumb" name="group_picture_thumb" >
+              <span class="help-block duplicate error">{{ adminLang.event_group_pic_dimensions_txt }}</span>
+                 
+                </div>
+                <div class="form-group  col-md-6 ">
+                 <label class="control-label" for="">{{ adminLang.event_group_pic_label_txt }}</label>
+                  <input type="file" class="form-control" id="group_picture" name="group_picture" >
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                   <label class="control-label" for="">{{ adminLang.event_group_price_label_txt }}</label>
+                  <input type="text" class="form-control" id="price_min" name="price_min" placeholder="{{ adminLang.event_group_price_label_txt }}" value="{{ event_detail.price_min}}">
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="control-label" >{{ adminLang.event_group_category_label_txt }}</label>
+                  <br>
+                  <select class="form-control category_id m-select2" id="m_select2_1_validate"  name="category_id"  style="width:100%" data-placeholder="{{ adminLang.event_group_category_label_txt }}">
+                    <option value="">N/A</option>
+                    
+                    
+                {% if categories %}
+                {% for row in categories %}
+				{% set selected = '' %}
+				{% if (event_detail.category_id) == row.id %}
+
+
+
+
+
+
+
+
+
+				   {% set selected = 'selected' %}
+				    {% endif %}
+                    
+                    <option value="{{ row.id }}" {{ selected }}>{{ row.name }}</option>
+                    
+               {% endfor %} 
+               {% endif %}
+                  
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="control-label">{{ adminLang.event_group_date_begin_txt }}</label>
+                  <input type="text" class="form-control date_begin m-input datepicker_class" id="date_begin" readonly placeholder="{{ adminLang.event_group_date_begin_txt }}" name="date_begin" value="{{ event_detail.date_begin|date("d/m/Y", false)}}"/>
+                  
+                </div>
+                <div class="form-group col-md-6 ">
+                  <label class="control-label">{{ adminLang.event_group_date_end_txt }}</label>
+                  <input type="text" class="form-control date_end m-input datepicker_class" id="date_end" readonly placeholder="{{ adminLang.event_group_date_end_txt }}" name="date_end" value="{{ event_detail.date_end|date("d/m/Y", false)}}"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-12" id="EventGroupDescription">
+                  <label class="control-label" for="">{{ adminLang.event_group_description_label_txt }}</label>
+                  <textarea class="form-control summernote" id="m_summernote_1" name="description" rows="5" style="padding-top:50px !important">{{ event_detail.description }}</textarea>
+                </div>
+              </div>
+              <h3>En Savoir Tab</h3>
+              <hr>
+              <div class="row">
+                <div class="form-group  col-md-12">
+                  <label class="control-label" for=""> En Savoir Block 1 Title</label>
+                  <input type="text" class="form-control" id="en_savoir_block1_name" name="en_savoir_block1_name" placeholder="Enter Title" value="{{ event_detail.en_savoir_block1_name}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-12" id="en_savoir_desc1">
+                  <label class="control-label" for=""> 1er Bloc description of the "En savoir plus"</label>
+                  <textarea class="form-control en_savoir_desc1_desc summernote" id="en_savoir_desc1_txt" name="en_savoir_desc1" rows="1">{{ event_detail.en_savoir_desc1 }}</textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-12">
+                  <label class="control-label" for=""> Photo Title</label>
+                  <input type="text" class="form-control" id="photo_title" name="photo_title" placeholder="Enter Photo Title" value="{{ event_detail.photo_title}}">
+                </div>
+              </div>
+              <div class="form-group m-form__group row">
+                <label class="col-form-label col-lg-12 col-sm-12"> Multiple File Upload </label>
+                <br>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="m-dropzone dropzone m-dropzone--primary" action="../upload/{{ event_detail.id }}" id="m-dropzone-two">
+                    <div class="m-dropzone__msg dz-message needsclick">
+                      <h3 class="m-dropzone__msg-title"> Drop files here or click to upload. </h3>
+                      <span class="m-dropzone__msg-desc"> Upload up to 50 files </span> </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <h3>Comments</h3>
+			   {% if picture_comments %}
+			    {% set comnt_loop_counter = 0 %}
+                {% for row in picture_comments %}
+			  <div id="section1_commment_div_data_{{row.id}}" class="col-md-12">
+              <div class="row">
+              <div class="col-md-12" style="border: 2px dashed #5867dd;padding:10px;">
+              <table id="myTable" class="tabl-order-list-sec1-comments">
+                <thead>
+                  <tr>
+                    <td class="col-sm-8">&nbsp;</td>
+                    <td class="col-sm-4"><div  class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill" onclick="removeComment({{row.id}})"> <span> <i class="la la-trash-o"></i> <span> Delete </span> </span> </div></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Title</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" ><input type="text" class="form-control m-input" name="comment_title_old[]" id="title_{{row.id}}" value="{{row.title}}"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Rating</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><div class="m-radio-inline">
+					
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="1" {% if (row.ratings) == 1 %} checked="checked" {% endif %} >
+                          1 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="2" {% if (row.ratings) == 2 %} checked="checked" {% endif %}>
+                          2 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="3" {% if (row.ratings) == 3 %} checked="checked" {% endif %}>
+                          3 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="4" {% if (row.ratings) == 4 %} checked="checked" {% endif %}>
+                          4 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="5" {% if (row.ratings) == 5 %} checked="checked" {% endif %}>
+                          5 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="6" {% if (row.ratings) == 6 %} checked="checked" {% endif %}>
+                          6 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="7" {% if (row.ratings) == 7 %} checked="checked" {% endif %}>
+                          7 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="8" {% if (row.ratings) == 8 %} checked="checked" {% endif %}>
+                          8 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="9" {% if (row.ratings) == 9 %} checked="checked" {% endif %}>
+                          9 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings_old[{{ comnt_loop_counter }}]" value="10" {% if (row.ratings) == 10 %} checked="checked" {% endif %}>
+                          10 <span></span> </label>
+                      </div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Signature</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><input type="text" class="form-control m-input" name="signature_old[]" id="signature_{{row.id}}" value="{{row.signature}}"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Comments</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><textarea class="form-control m-input" rows="5" name="comments_old[]" id="comments_0">{{row.comments}}</textarea>
+					<input type="hidden" name="comment_id[]" value="{{row.id}}">
+					</td>
+                  </tr>
+                </tbody>
+                
+              </table>
+              
+              
+              </div>
+              </div>
+              </div>
+			  <br>
+			  {% set comnt_loop_counter = comnt_loop_counter + 1 %}
+			 {% endfor %} 
+               {% endif %}
+              <div id="section1_commment_div" class="col-md-12">
+              <div class="row">
+              <div class="col-md-12" style="border: 2px dashed #5867dd;padding:10px;">
+              <table id="myTable" class="tabl-order-list-sec1-comments">
+                <thead>
+                  <tr>
+                    <td class="col-sm-8">&nbsp;</td>
+                    <td class="col-sm-4">&nbsp;</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Title</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" ><input type="text" class="form-control m-input" name="comment_tile[]" id="title_0"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Rating</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><div class="m-radio-inline">
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="1" checked>
+                          1 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="2">
+                          2 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="3">
+                          3 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="4">
+                          4 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="5">
+                          5 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="6">
+                          6 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="7">
+                          7 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="8">
+                          8 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="9">
+                          9 <span></span> </label>
+                        <label class="m-radio">
+                          <input type="radio" name="ratings[0]" value="10">
+                          10 <span></span> </label>
+                      </div></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Signature</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><input type="text" class="form-control m-input" name="signature[]" id="signature_0"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4">Comments</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" class="col-sm-4"><textarea class="form-control m-input" rows="5" name="comments[]" id="comments_0"></textarea></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              </div>
+              </div>
+              </div>
+              <div class="row" style="margin-top:10px; margin-left:1px">
+               <div id="addrowComments" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div>
+              </div>
+              
+              <div class="row" style="margin-top:10px">
+                <div class="form-group  col-md-12">
+                  <label class="control-label" for=""> En Savoir Block 2 Title</label>
+                  <input type="text" class="form-control" id="en_savoir_block2_name" name="en_savoir_block2_name" placeholder="Enter Title" value="{{ event_detail.en_savoir_block2_name}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group  col-md-12" id="en_savoir_desc2">
+                  <label class="control-label" for=""> 2eme bloc description "en savoir plus"</label>
+                  <textarea class="form-control summernote" id="en_savoir_desc2_txt" name="en_savoir_desc2" rows="1">{{ event_detail.en_savoir_desc2 }}</textarea>
+                </div>
+              </div>
+              <table id="myTableEvntGroup" class="order-list-event-group-videos">
+                <thead>
+                  <tr>
+                    <td width="165">Video Links</td>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                {% if video_links %}
+                {% set loop_counter = 1 %}
+                {% for row in video_links %}
+                <tr id="rowDel_{{ row.id }}">
+                  <td class="col-sm-4" style="padding-top: 9px; ">
+                   {% if row.video_img != ''  %} <img src="{{ base_url() }} {{  "/uploads/eventgroups/videos/#{row.video_img}"  }}" class="img-rounded img-thumbnail" height="200" width="200"> {% else %} <img src="{{ base_url() }} {{  "/uploads/default/default.png"  }}" class="img-rounded img-thumbnail" height="200" width="200"> {% endif %}
+                   <div  class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill " onclick="remove_link({{row.id}});"> <span> <i class="la la-trash-o"></i> <span> Delete </span> </span> </div>
+                  <input type="text" class="form-control m-input" name="file_name_old[]" id="file_name_{{ loop_counter }}" value="{{ row.file_name}}">
+                  
+                    <input type="hidden" name="old_vid_id[]" value="{{ row.id }}">
+                    <input type="hidden" name="old_video_img[]" value="{{ row.video_img }}">
+                    
+                    </td>
+                 
+                  <td  class="col-sm-2">&nbsp;</td>
+                </tr>
+                {% set loop_counter = loop_counter + 1 %}
+                {% endfor %} 
+                {% endif %}
+                <tr>
+                  <td class="col-sm-4" style="padding-top: 9px; width:68%"><input type="text" class="form-control m-input" name="file_name[]" id="file_name_0"></td>
+                  <td class="col-sm-2" style="width:30%"></td>
+                  <td class="col-sm-2"></td>
+                </tr>
+                  </tbody>
+                
+                <tfoot>
+                  <tr>
+                    <td colspan="6" style="text-align: left;"><div id="addrowVideoLink" style="margin-left:12px; margin-top:10px" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+                  </tr>
+                  <tr> </tr>
+                </tfoot>
+              </table>
+              <br>
+              <div class="row">
+                <div class="form-group col-md-6 ">
+                  <label class="control-label" for=""> Enter Artists</label>
+                  <input type="text" class="form-control" id="artist_name" name="artist_name" placeholder="Enter Artist" value="{{ event_detail.artist_name}}">
+                </div>
+                <div class="form-group  col-md-6 ">
+                  <label class="control-label" for=""> Enter Authors</label>
+                  <input type="text" class="form-control" id="author_name" name="author_name" placeholder="Enter Authors" value="{{ event_detail.author_name}}">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 ">
+                  <label class="control-label" for=""> Enter Productors</label>
+                  <input type="text" class="form-control" id="productor_name" name="productor_name" placeholder="Enter Productors" value="{{ event_detail.productor_name}}">
+                </div>
+                <div class="form-group  col-md-6 ">
+                  <label class="control-label" for=""> Enter Directors</label>
+                  <input type="text" class="form-control" id="director_name" name="director_name" placeholder="Enter Directors" value="{{ event_detail.director_name}}">
+                </div>
+              </div>
+              <div class="row" id="AddEventGroupPersonsDiv" >
+            <div class="col-md-12">
+            <table id="myTableTimeRoles" class="table order-list-event-group-roles">
+            <thead>
+              <tr>
+                <th colspan="5">Event Group Roles</th>
+              </tr>
+            </thead>
+            <tbody id="AddEventGroupRolesDivRow">
+                {% if event_group_roles %}
+                {% set loop_counter = 1 %}
+                {% for row in event_group_roles %}
+                <tr id="eventEVGRole_{{ row.id }}"><td  style="width:40%"><input type="text" class="form-control" required name="event_role_label_old[{{ loop_counter }}]" value="{{ row.role_label }}" id="event_role_label_old_{{ loop_counter }}"  placeholder="Role label" /></td><td  style="width: 60% !important;"><input type="text" class="form-control" required name="event_role_name_old[{{ loop_counter }}]" id="event_role_name_{{ loop_counter }}"  value="{{ row.role_name }}" placeholder="Role name" /></td><td><input type="hidden" name="event_role_label_old_id[{{ loop_counter }}]" value="{{ row.id }}"><a  class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill " onclick="remove_EventGroupRole({{ row.id }})" style="color:#fff"><i class="la la-trash-o"></i> Delete </a></td></tr>
+                {% set loop_counter = loop_counter + 1 %}
+                {% endfor %} 
+                {% endif %}  
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowEVGRole" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+           </div>
+              <div id="mesg_div_event_group"></div>
+            </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                  <input type="hidden" name="group_picture_old" id="group_picture_old" value="{{ event_detail.group_picture }}">
+                  <input type="hidden" name="group_thumbnail_old" id="group_thumbnail_old" value="{{ event_detail.group_thumbnail }}">
+                  <input type="hidden" name="event_id" id="event_id" value="{{ event_detail.id }}">
+                  <button type="button" class="btn btn-primary" onclick="return updateEventGroup();"> Save Changes </button>
+                  <button type="button" class="btn btn-secondary" onClick="history.back(-1)"> Cancel </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+	  
+	  	
+      
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+      <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon"> <i class="flaticon-map-location"></i> </span>
+              <h3 class="m-portlet__head-text"> Events of [{{ event_detail.page_title|raw }}] </h3>
+            </div>
+          </div>
+          <div class="m-portlet__head-tools">
+            <ul class="m-portlet__nav">
+              <li class="m-portlet__nav-item"> <a href="javascript:void(0);"  class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#modal-add-event"> <span> <i class="la la-plus"></i> <span> Add Event </span> </span> </a> </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!--begin::Form-->
+        <form class="m-form">
+          <div class="m-portlet__body">
+          <!--begin: Search Form -->
+								<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+									<div class="row align-items-center">
+										<div class="col-xl-8 order-2 order-xl-1">
+											<div class="form-group m-form__group row align-items-center">
+												<div class="col-md-4" >
+													<input type="hidden" name="table_name" id="table_name" value="events">
+				<input type="hidden" name="datable_table_id" id="datable_table_id" value="m_datatable_group_events">
+								<select class="bs-select form-control drop_down_options" name="selected_fields_edit" onchange="edit_selected_rows_fields((this.value))"  id="selected_fields_edit" style="margin:0; float:left;">
+								   <option value=''>Select Option</option>
+								   <option value='change_status'>Change Status</option>
+								   <option value='delete_selected'>Delete Selected</option>
+								</select>
+													<div class="d-md-none m--margin-bottom-10"></div>
+												</div>
+												
+												<div class="col-md-8">
+													
+												</div>
+											</div>
+										</div>
+										<div class="col-xl-4 order-1 order-xl-2 m--align-right">
+											
+										</div>
+									</div>
+								</div>
+								<!--end: Search Form -->
+            <div class="m-form__section m-form__section--first">
+              
+              <!--begin::Section-->
+              <div class="m-section">
+                <div class="m-section__content">
+				 <!--begin: Datatable -->
+				<div class="m_datatable_group_events" id="ajax_data"></div>
+				<!--end: Datatable -->
+				
+                  
+                </div>
+              </div>
+              <!--end::Section--> 
+              
+            </div>
+          </div>
+        </form>
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+<!-- Model -->
+
+<div class="modal fade" id="modal-add-event">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form name="form_add_event_frm" id="form_add_event_frm" method="post"  autocomplete="Off">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add Event</h4>
+
+
+        </div>
+        <div class="modal-body">
+           <div class="row">
+            <div class="col-md-12">
+            <table id="myTableTime" class="table order-list-event-time">
+            <thead>
+              <tr>
+                <th colspan="2">Event Timings</th>
+              </tr>
+            </thead>
+            <tbody>
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowTime" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+           </div>
+           
+          
+          
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Title</label>
+              <input type="text" class="form-control" id="title_event" name="title_event" placeholder="Enter Event Title">
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Select Date</label>
+              <input type="text" class="form-control date_begin m-input datepicker_class" id="date_event" readonly placeholder="Select date" name="date_event"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label" > Select City</label>
+
+              <br>
+              <select name="city_id" id="m_select2_3" class="form-control city_id m-select2" style="width:100%" >
+                <option value="">N/A</option>
+                
+                   {% if cities_list %}
+                    {% for row in cities_list %}
+                    
+                <option value="{{ row.id }}">{{ row.name }}</option>
+                
+                   {% endfor %} 
+                   {% endif %}
+              
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label" > Select Auditorium</label>
+              <br>
+              <select  class="form-control auditorium_id m-select2" id="m_select2_4"  name="auditorium_id"  style="width:100%" >
+                <option value="">N/A</option>
+                
+               {% if auditoriums %}
+                {% for row in auditoriums %}
+                
+                <option value="{{ row.id }}">{{ row.name }}</option>
+                
+               {% endfor %} 
+               {% endif %}
+              
+              </select>
+            </div>
+          </div>
+		  <div class="row">
+		  <div class="m-form__group form-group col-md-12">
+				<label for="">
+					Select seats option
+				</label>
+				<div class="m-radio-inline">
+					<label class="m-radio col-md-6">
+						<input type="radio" name="seats_on_map" class="form-control" id="seats_on_map1" value="Y" checked> Set up seats on auditorium map
+						<span></span>
+					</label>
+					<label class="m-radio col-md-4">
+						<input type="radio" name="seats_on_map" class="form-control" id="seats_on_map2" value="N"> Enter manual seats
+						<span></span>
+					</label>
+					
+				</div>
+				
+			</div>
+		  </div>
+          
+          <div class="row" id="AddEventTicketDiv" style="display:none">
+            <div class="col-md-12">
+            <table id="myTableTime" class="table order-list-event-tickets">
+            <thead>
+              <tr>
+                <th colspan="5">Event Tickets</th>
+              </tr>
+            </thead>
+            <tbody id="AddEventTicketDivRow">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowTicket" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+           </div>
+          <div class="row">
+            <div class="form-group  col-md-12" id="m_summernote_3Div">
+              <label class="control-label" for=""> Enter Description</label>
+              <textarea class="form-control summernote sum_popup" id="m_summernote_3" name="description" rows="1" ></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Artists</label>
+              <input type="text" class="form-control" id="artist_name" name="artist_name" placeholder="Enter Artist" >
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Enter Authors</label>
+              <input type="text" class="form-control" id="author_name" name="author_name" placeholder="Enter Authors" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Productors</label>
+              <input type="text" class="form-control" id="productor_name" name="productor_name" placeholder="Enter Productors">
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Enter Directors</label>
+              <input type="text" class="form-control" id="director_name" name="director_name" placeholder="Enter Directors" >
+            </div>
+          </div>
+          <div class="row" id="AddEventPersonsDiv" >
+            <div class="col-md-12">
+            <table id="myTableTime" class="table order-list-event-roles">
+            <thead>
+              <tr>
+                <th colspan="5">Event Roles</th>
+              </tr>
+            </thead>
+            <tbody id="AddEventRolesDivRow">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowRole" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+           </div>
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Contributor</label>
+              <input type="text" class="form-control" id="contributor_name" name="contributor_name" placeholder="Enter Contributor">
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Contributor Description</label>
+              <textarea type="text" class="form-control" id="contributor_description" name="contributor_description" ></textarea>
+            </div>
+          </div>
+          <hr>
+          <table id="myTable" class=" table order-list">
+            <thead>
+              <tr>
+                <td>Event Pictures</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-sm-4"><input type="file" class="form-control m-input" name="event_img[]" id="event_img_0">
+				<span class="help-block duplicate error">Please upload an image of 200*200</span></td>
+                <td class="col-sm-2"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrow" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+          <div class="" id="mesg_div_event"></div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" name="eventgroup_id" id="eventgroup_id" value="{{ event_detail.id }}">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="return addEvent();">Save changes</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- End Model  --> 
+<!-- Model -->
+<div class="modal fade" id="modal-view-event">
+  <style type="text/css">
+.rowdiv li {
+    width: 33.3%;
+    float: left;
+    list-style-type: none;
+    margin-bottom: 13px;
+}
+
+
+</style>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form name="form_add_event_view" id="form_add_event_view" method="post"  autocomplete="Off">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="event_title_e"></h4>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+           <div class="form-group col-md-12">
+            <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th colspan="3">Event Timings</th>
+              </tr>
+            </thead>
+            <tbody id="eventTimingsView">
+            </tbody>
+          </table>
+		  <table class="table table-bordered table-hover">
+            <thead>
+		  <tr>
+			    <th colspan="2">Selected seats option</th>
+			  </tr>
+			  </thead>
+			  <tbody> 
+			  <tr>
+                <th style="text-align:left;width: 50%;" >Set up seats of the map of the auditorium</th>
+                <th style="text-align:left" >Manual</th>
+              </tr>
+			  <tr>
+			  <td style="text-align:left" id="map_yes"></td>
+                <td style="text-align:left" id="map_no" ></td>			  
+			  </tr>
+			  </tbody>
+          </table>
+		  <table class="table table-bordered table-hover">
+            <thead>
+			   <tr>
+                <th colspan="5">Event Ticekts</th>
+              </tr>
+            </thead>
+            <tbody id="eventTicketsView">
+            </tbody>
+          </table>
+		  
+            <table id="myTableTimeviewRole" class="table order-list-event-roles-view">
+            <thead>
+              <tr>
+                <th colspan="5">Event Roles</th>
+              </tr>
+            </thead>
+            <tbody id="viewEventRolesRow">
+            </tbody>
+          </table>
+            
+		   
+          <table class="table table-bordered table-hover" style="width:100%">
+            <tbody>
+            <tr>
+                <th  style="text-align:left">Section</th>
+                <th style="text-align:left">Status</th>
+              </tr>
+              <tr>
+                <td style="text-align:left" id="section_e"></td>
+                <td style="text-align:left" id="status_e" ></td>
+              </tr>
+              <tr>
+                <th  style="text-align:left">City</th>
+                <th style="text-align:left">Auditorium</th>
+              </tr>
+              <tr>
+                <td  id="city_e"></td>
+                <td id="auditorium_e"></td>
+              </tr>
+              <tr>
+                <th  style="text-align:left">Artist(s)</th>
+                <th style="text-align:left">Author(s)</th>
+              </tr>
+              <tr>
+                <td  id="artist_name_vev"></td>
+                <td id="author_name_vev"></td>
+              </tr>
+              <tr>
+                <th  style="text-align:left">Productor(s)</th>
+
+                <th style="text-align:left">Director(s)</th>
+              </tr>
+              <tr>
+                <td  id="productor_name_vev"></td>
+                <td id="director_name_vev"></td>
+              </tr>
+              <tr>
+                <th  style="text-align:left">Date</th>
+                <th style="text-align:left">Contributor Name</th>
+              </tr>
+              <tr>
+                <td style="text-align:left" id="date_e"></td>
+                <td style="text-align:left" id="contributor_name_e" ></td>
+              </tr>
+              <tr>
+                <th colspan="2" style="text-align:left">Contributor Description</th>
+              </tr>
+              <tr>
+                <td  colspan="2" id="contributor_description_e"></td>
+              </tr>
+              <tr>
+                <th colspan="2" style="text-align:left">Event Description</th>
+              </tr>
+              <tr>
+                <td colspan="2" id="evevt_description_e"></td>
+              </tr>
+			  
+			  
+            </tbody>
+          </table>
+		   </div>
+            </div>
+          <hr>
+          <h3>Event Pictures</h3>
+          <hr>
+          <div class="row">
+            <div class="rowdiv">
+              <div id="small-img" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+                <ul class="pic-list">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- End Model  --> 
+<!-- Model -->
+
+<div class="modal fade" id="modal-edit-event">
+  
+  <style type="text/css">
+.rowdivEdit li {
+    width: 33.3%;
+    float: left;
+    list-style-type: none;
+    margin-bottom: 13px;
+}
+
+
+</style>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form name="form_add_event_frm_update" id="form_add_event_frm_update" method="post"  autocomplete="Off">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Update Event</h4>
+        </div>
+        <div class="modal-body">
+          
+          <div class="col-md-12">
+            <table id="myTableTimeEdit" class="table order-list-event-time-Edit">
+            <thead>
+              <tr>
+                <th colspan="3">Event Timings</th>
+              </tr>
+            </thead>
+            <tbody id="eventTimings">
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowTimeEdit" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+          
+          
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Title</label>
+              <input type="text" class="form-control" id="title_event_edit" name="title_event" placeholder="Enter Event Title">
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Select Date</label>
+              <input type="text" class="form-control date_begin m-input datepicker_class" id="date_event_edit" readonly placeholder="Select date" name="date_event"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label class="control-label" > Select City</label>
+              <br>
+              <select name="city_id" id="m_select2_3_edit" class="form-control city_id city_edit m-select2" style="width:100%" >
+                <option value="">N/A</option>
+                
+                   {% if cities_list %}
+                    {% for row in cities_list %}                    
+                    
+                <option value="{{ row.id }}" >{{ row.name }}</option>
+                
+                   {% endfor %} 
+                   {% endif %}
+              
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label" > Select Auditorium </label>
+              <br>
+              <select class="form-control auditorium_id aud_edit m-select2" id="m_select2_4_edit"  name="auditorium_id"  style="width:100%" >
+                <option value="">N/A</option>
+                
+               {% if auditoriums %}
+                {% for row in auditoriums %}
+                
+                <option value="{{ row.id }}" >{{ row.name }}</option>
+                
+               {% endfor %} 
+               {% endif %}
+              
+              </select>
+            </div>
+          </div>
+		  <div class="row">
+		  <div class="m-form__group form-group col-md-12">
+				<label for="">
+					Select seats option
+				</label>
+				<div class="m-radio-inline">
+					<label class="m-radio col-md-6">
+						<input type="radio" name="seats_on_map_edit" class="form-control" id="seats_on_map1_edit" value="Y" > Set up seats on auditorium map
+						<span></span>
+					</label>
+					<label class="m-radio col-md-4">
+						<input type="radio" name="seats_on_map_edit" class="form-control" id="seats_on_map2_edit" value="N"> Enter manual seats
+						<span></span>
+					</label>
+					
+				</div>
+				
+			</div>
+		  </div>
+          <div class="row" id="showManualTickets">
+		  <div class="col-md-12" >
+            <table id="myTableTicketEditList" class="table">
+            <thead>
+              <tr>
+                <th colspan="6">Event Tickets</th>
+              </tr>
+            </thead>
+            <tbody id="eventTickets">
+             
+            </tbody>
+            
+          </table>
+		  <table id="myTableTicketEdit" class="table order-list-event-tickets-edit-new">
+            
+            <tbody>
+             
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowTicketEdit" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+			</div>
+          <div class="row">
+            <div class="form-group  col-md-12" id="m_summernote_3_editDiv">
+              <label class="control-label" for=""> Enter Description</label>
+              <textarea class="form-control overview_Desc summernote sum_popup" id="m_summernote_3_edit" name="description" rows="1" ></textarea>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Artists</label>
+              <input type="text" class="form-control" id="artist_name_ev" name="artist_name" placeholder="Enter Artist" >
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Enter Authors</label>
+              <input type="text" class="form-control" id="author_name_ev" name="author_name" placeholder="Enter Authors" >
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Productors</label>
+              <input type="text" class="form-control" id="productor_name_ev" name="productor_name" placeholder="Enter Productors" >
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Enter Directors</label>
+              <input type="text" class="form-control" id="director_name_ev" name="director_name" placeholder="Enter Directors">
+            </div>
+          </div>
+          <div class="row" id="AddEventPersonsDivEdit" >
+            <div class="col-md-12">
+            <table id="myTableTimeEditRole" class="table order-list-event-roles-edit">
+            <thead>
+              <tr>
+                <th colspan="5">Event Roles</th>
+              </tr>
+            </thead>
+            <tbody id="EditEventRolesDivRow">
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowRoleEdit" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+            </div>
+           </div>
+          <div class="row">
+            <div class="form-group col-md-6 ">
+              <label class="control-label" for=""> Enter Contributor</label>
+              <input type="text" class="form-control" id="contributor_name_ev" name="contributor_name" placeholder="Enter Contributor">
+            </div>
+            <div class="form-group  col-md-6 ">
+              <label class="control-label" for=""> Contributor Description</label>
+              <textarea type="text" class="form-control" id="contributor_description_ev" name="contributor_description" ></textarea>
+            </div>
+          </div>
+          <hr>
+          <h3>Event Pictures</h3>
+          <hr>
+          <div class="row">
+            <div class="rowdivEdit">
+              <div id="small-img" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+                <ul class="pic-list-edit">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <table id="myTableEdit" class=" table order-list-edit">
+            <thead>
+              <tr>
+                <td>Event Pictures</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-sm-4"><input type="file" class="form-control m-input" name="event_img[]" id="event_img_0">
+				<span class="help-block duplicate error">Please upload an image of 200*200</span>
+				</td>
+                <td class="col-sm-2"></td>
+              </tr>
+
+            </tbody>
+            <tfoot>
+
+
+              <tr>
+                <td colspan="5" style="text-align: left;"><div id="addrowEdit" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div></td>
+              </tr>
+              <tr> </tr>
+            </tfoot>
+          </table>
+          <div class="" id="mesg_div_event_up"></div>
+        </div>
+        
+        <div class="modal-footer">
+          <input type="hidden" name="id_event_edit" id="id_event_edit" value="{{ event.id }}">
+          <input type="hidden" name="eventgroup_id_edit" id="eventgroup_id_edit" value="{{ event_detail.id }}">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="return updateEvent();">Save changes</button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+<!-- End Model  --> 
+{% endblock %}
+{% block footerscripts %} 
+
+<!--begin::Page Vendors --> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/bootstrap-timepicker.js" type="text/javascript"></script>
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/select2.js" type="text/javascript"></script> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/summernote.js" type="text/javascript"></script> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/form-repeater.js" type="text/javascript"></script> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/dropzone.js" type="text/javascript"></script> 
+{% include "admin/Eventgroup/lang/lang.twig" %}
+<script src="{{ base_url() }}/assets/admin/dynamic_datatables/data-ajax-admin-event-groups-edit.js" type="text/javascript"></script> 
+
+<script>
+/*
+$('#m_summernote_3_editDiv div.note-editor.note-frame .note-editing-area .note-editable').on('show.bs.modal', function () {
+	$(".note-editable").css("padding-top","31px !important");
+});
+*/
+$('.summernote').summernote({
+/*enterHtml: '<p><br></p>',*/
+height: 150,
+dialogsInBody: true,
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['insert', ['picture', 'video', 'link']],
+	
+	
+  ]
+
+});
+
+$('.summertitle').summernote({
+/*enterHtml: '<p><br></p>',*/
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+	
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+	
+	
+  ]
+});
+</script>
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

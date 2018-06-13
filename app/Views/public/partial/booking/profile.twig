@@ -1,0 +1,175 @@
+<div class="mcbTabContent">
+    <div class="mcbTabinner">
+        <div class="mcbleftside">
+            <div class="loginform">
+                <div class="logintitle">
+                    <h2>Déjà membre... je m’identifie</h2>
+                </div>
+                <div class="loginforminner">
+                    <form id="myform" name="myform" onsubmit="return FormLoginOrder()" method="post">
+                        <div class="inputcol">
+                            <input name="email" type="text" placeholder="Email">
+                        </div>
+                        <div class="inputcol">
+                            <input name="password" type="password" placeholder="Mot de passe">
+                        </div>
+                        <a href="#">Mot de passe oublié ?</a>
+                        <div class="inputcol meconnecterbtn">
+                            <input name="" type="submit" value="me connecter" >
+							<input type="hidden" value="{{ base_url() }}/validate-cart" id="redUrlLogin" />
+                        </div>
+                    </form>
+					<input type="hidden" value="{{ base_url() }}/validate-cart" id="redUrlLogin" />
+					<div id="login_result" style="text-align:center;"></div> 	
+                </div>
+            </div> 
+        </div>
+        <div class="mcbrightside">
+
+            <form id="registerform"  name="registerform" onsubmit="return FullRegFormOrder()" method="post" >
+                <div class="formSection">
+                    <b>JE CRÉE MON COMPTE</b>
+                    <div class="cscforminner">
+                        <div class="inputcol radiocontent">
+                            <label> <input name="gender" type="radio" value=""> Mme</label>
+                            <label> <input name="gender" type="radio" value="" checked> M.</label>
+                        </div>
+                        <div class="inputcol inputcolLt">
+
+                            <input type="text" name="firstname" placeholder="Nom*">
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <input name="lastname" type="text" placeholder="Prénom*">
+                        </div>
+                        <div class="inputcol">
+                            <input name="address" type="text" placeholder="Adresse*">
+                        </div>
+                        <div class="inputcol">
+                            <input name="c_address" type="text" placeholder="Complément d'adresse*">
+                        </div>
+
+                        <div class="inputcol inputcolLt">
+                            <input name="postal_code" type="text" placeholder="Code postal*">
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <input name="ville" type="text" placeholder="Ville*">
+                        </div>
+
+                        <div class="inputcol inputcolLt">
+                            <input name="telephon" type="text" placeholder="Téléphone*">
+                            <span class="question" ><i class="fas fa-question-circle"></i></span>
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <div class="select-style"> 
+                               <select name="country">
+								<option value="" >Pays</option>
+									{% if countryList|length >  0 %} 
+ 
+										{% for key,val in countryList %} 
+											<option value="" >Pays</option>
+										{% endfor %}
+											
+										 
+									{% endif %} 
+										
+                                   
+                                    
+                                </select>
+								<!--<option value="{{ key }}" {% if key=='IL' %} selected {% endif %} >{{ val }}</option>-->
+                            </div>
+                        </div>
+
+                        <div class="inputcol dateandtimeCol">
+
+                            <h5>Date de naissance</h5>
+                            <div class="date">
+                                <div class="select-style">
+                                    <select name="day">
+                                        <option value=""  >Jour</option>
+                                         {% for i in 0..31 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="month">
+                                <div class="select-style">
+                                    <select name="month">
+                                        <option value="" >Mois</option>
+                                         {% for i in 0..12 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="year">
+                                <div class="select-style">
+                                    <select name="year">
+                                        <option>Année</option>
+                                        {% for i in 1930..2011 %}
+											<option value ="{{ i }}" >{{ i }}</option> 
+										{% endfor %} 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="email" type="text" placeholder="Email*" id="email">
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="confirm_email" type="text" placeholder="Confirmez votre email*">
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="password" type="password" placeholder="Choisissez votre mot de passe*" id="password" id="password">
+                            <span class="question" ><i class="fas fa-question-circle"></i></span>
+                            <span class="viewicon"onclick="showpasword()" ><i class="fas fa-eye"></i></span>
+                        </div>
+
+                        <div class="inputcol">
+                            <input name="password_confirm" type="password" placeholder="Confirmez votre mot de passe*" id="passwords">
+                            <span class="viewicon" onclick="showpaswords()"><i class="fas fa-eye"></i></span>
+                        </div>
+
+                        <div class="inputcol meconnecterbtn">
+                            <input type="submit" value="valider mon inscription" >
+							<input type="hidden" value="{{ base_url() }}/validate-cart" id="redUrlRegister" />
+							
+                        </div>
+                    </div>
+					<div id="reg_result" style="text-align:center;"></div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<div class="importantCon">
+    <h3>important</h3>
+    <p>Les informations collectées nous permettent de traiter de façon optimale votre commande. Vous êtes avertis en cas d’évènements majeurs (annulations, reports). Cela nous permet également de créer un compte à votre nom. Vous pourrez ainsi accéder à l’historique de vos commandes et avoir toujours vos billets à portée de clic.
+        Nous garantissons l’extrême confidentialité des informations que vous nous transmettez.</p>
+</div>
+
+	<script>
+function showpasword() {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
+	<script>
+function showpaswords() {
+    var x = document.getElementById("passwords");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>

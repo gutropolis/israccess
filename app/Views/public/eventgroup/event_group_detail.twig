@@ -1,0 +1,510 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block headerstyles %}
+ <!-- Custom http://israel-access.comstyles for this template -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFXr1TbvRvut-VEKg5QIMIlj1OEUcCnvQ"></script>
+	 
+	  <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+ {% if eventdetailList|length >  0 %}
+	{% for eventgroup in eventdetailList %} 	
+		  <meta property="og:url"           content="{{ event_fb_url}}" />
+		  <meta property="og:type"          content="website" />
+		  <meta property="og:title"         content="{{eventgroup.event_group_title}}" />
+		  <meta property="og:description"   content="{{event_twitter_desc}}" />
+		  <meta property="og:image"         content="{{ egImgURL}}{{eventgroup.group_picture }}" />
+		  
+		  
+		 
+  
+	{% endfor %}
+{% endif %} 	
+ 
+{% endblock %} 
+{% block maincontent %}
+ {% if eventdetailList|length >  0 %}
+   {% for eventgroup in eventdetailList %} 		
+    <!--  Le cadeau spectacle Section Start Here
+                ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="{{ base_url()}}/category/{{eventgroup.event_category_id}}">{{catDetail.name}}</a></li>
+                            <li> |</li>
+                            <li><a href="#">{{eventgroup.event_group_title|striptags|raw}}</a></li>
+                            <li> |</li>
+                            <li> Réservation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection">
+            <div class="mesplacessection">
+                <div class="container-fluid">
+                    <div class="row">
+					
+                        <div class="col-lg-6 col-sm-12 col-md-6">
+                            <div class="productview">
+                                <div class="productimg"> <a data-fancybox  href="{{ egImgURL}}{{eventgroup.group_picture }}"><img src="{{ egImgURL}}thumbs/{{eventgroup.group_thumbnail}}"></a></div>
+                                <h1><a href="#">{{eventgroup.event_group_title|raw}}</a></h1>
+                                <h3>{{evgrpEventRange|raw}}</h3>
+                                <h4>{% if totalEvent > 1 %}En tournée à {% endif %} {{eventgroup.event_group_cityname}} </h4>
+ 
+                                <h5> <a  href="javascript:void(0);" style="color: #a00057;" data-toggle="modal" data-target="#Modal2" >Localisez les salles</a> </h5>
+
+                                <p> {{eventgroup.event_group_description|raw}}</p>
+
+                                <!--<p><span>Auteur :</span> <a href="#">Olivier Guedj</a><br> <span>Artiste :</span> <a href="#">Olivier Guedj</a><br><span>Metteur en scène :</span> <a href="#">Olivier Guedj</a></p>-->
+								<p>
+								{% if(eventgroup.event_group_author_name!='') %}
+									<strong>Auteur :</strong> {{eventgroup.event_group_author_name}}<br>
+							  	{% endif %}
+								{% if(eventgroup.event_group_artist_name!='') %}	
+									<strong>Artiste :</strong> {{eventgroup.event_group_artist_name}}<br>
+								{% endif %}	
+								{% if(eventgroup.event_group_director_name!='') %}
+									<strong>Metteur en scène :</strong> {{eventgroup.event_group_director_name}}<br>
+								{% endif %}	
+                                {% if eventgrpRolList|length >  0 %}
+									{% for role in eventgrpRolList %} 
+									   {% if role.role_label!='' and role.role_name!=''  %}
+									    <strong>{{role.role_label}} :</strong> {{role.role_name}}<br>
+									   
+									  {% endif %}
+										
+									 {% endfor %}
+								{% endif %}
+								
+								</p>
+								
+
+                                <ul class="sociallink">
+								<!-- Your share button code -->
+  
+  
+                                    <li>
+									
+											 <div id="fb-root"></div>
+												<script>(function(d, s, id) {
+												  var js, fjs = d.getElementsByTagName(s)[0];
+												  if (d.getElementById(id)) return;
+												  js = d.createElement(s); js.id = id;
+												  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=119447995349669&autoLogAppEvents=1';
+												  fjs.parentNode.insertBefore(js, fjs);
+												}(document, 'script', 'facebook-jssdk'));</script>
+									
+									 
+											<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{event_fb_encode_url}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
+											 <img src="{{ base_url() }}/assets/assets/img/facebook.png">
+											</a>
+									 
+										 
+
+								  </li>
+                                    <li> 
+									{% autoescape false %}
+										<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text={{event_twitter_desc}}"><img src="{{ base_url() }}/assets/assets/img/twitter.png"></a> 
+									{% endautoescape %}
+									     
+									</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-md-6">
+                            <div class="mcbSectionright">
+                                <div class="mcbSectionTitle">
+                                    <h2>mes places</h2>
+                                </div>
+
+                                <div class="mseContent">
+                                    <h4><a href="#"><span>à partir de</span>{{eventgroup.event_group_price_min}}  &#8362;</a></h4>
+                                    <div class="mseImg">
+                                        <img src="{{ base_url() }}/assets/assets/img/galleryimg.png">
+                                        <a href="#">RESERVEZ VOS PLACES SUR PLAN &nbsp;&nbsp;&nbsp;BIENTÔT DISPONIBLE</a>
+                                    </div>
+								
+												<div class="representationsCol">
+													<h3>représentations</h3>
+													<ul>
+													{% if eventListRep|length >  0 %}
+														{% for event in eventListRep %} 
+															
+														  
+															<li>
+																<span> {{event.rep_day}} {{event.rep_day_f}}<br />{{event.city_name}}   </span>
+																
+																{%if event.event_times> 0%}
+																{%for evtime in event.event_times%}
+																<a href="javascript:void(0);"  onclick="clickEventBtn('{{event.event_id }}','{{evtime}}');" >
+																{{evtime}}
+																</a>
+																{%endfor%}
+																
+																{%endif%}
+																
+															</li>
+														 {% endfor %}
+													{% endif %}
+													</ul>
+												</div>
+									 
+									
+								 
+									
+                                    
+                                </div>
+                            </div>
+                            <div class="graycontnt">
+									
+									<img src="{{adsUrl}}{{secondAds.ad_picture}}"  />
+									<!--<img src="{{base_url()}}/assets/assets/img/event-people.jpg"  />-->
+                            </div>
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+	  </div>
+	  <div class="mesfootsection">
+          <div class="container">
+          <div class="row">
+          	
+            <div class="mesLeft col-lg-8 ">
+               <div class="tabcontentArea mestab">
+                             <ul class="nav mcbTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="#Reserver" role="tab" data-toggle="tab">
+                                	Reserver
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#ensavoir" role="tab" data-toggle="tab">
+                                	en savoir+
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#infospratiques" role="tab" data-toggle="tab">
+                                	infos pratiques
+                                </a>
+                              </li> 
+                                
+                            </ul>                            
+                             <!-- Tab panes -->
+                             <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade active show" id="Reserver">
+                                  <div class="mescontent">
+                                  	<div class="calendarArea">
+									<!--Start Calendar here ----->
+									  <div id="ajaxCalendar">
+									   {{eventCalendar|raw}}
+									  </div>
+									<!--End Calendar here ----->  
+									   
+                                    </div>
+                                  </div>
+                              </div>
+                              
+                               <div role="tabpanel" class="tab-pane fade " id="ensavoir">
+                                   <div class="mescontent">
+								   
+								   {% if eventgroup.event_group_desc != '' %}
+										 
+									
+                                    	<div class="ensavoirRow">
+                                        	<h2>{{eventgroup.en_savoir_block1_name|raw}}</h2>                                            
+                                            <div class="ensavoirinner">
+                                            	 {{eventgroup.event_group_desc|raw}}
+                                            </div>
+                                        </div>
+									{% endif %}	
+									
+									 {% if commentEventGrpImageList|length >  0 %}
+												<div class="ensavoirRow">
+														<h2>des images</h2>                                            
+														<div class="videoinner">
+														{% for file in commentEventGrpImageList %} 
+															 <div class="videocon">
+															  <a data-fancybox="gallery" href="{{eventdetailImgURL}}{{file.file_name}}"><img src="{{eventdetailImgURL}}{{file.file_name}}"></a>
+																<!--<img src="{{eventdetailImgURL}}{{file.file_name}}">-->
+															 </div>
+														{% endfor %}     
+														</div>
+												 </div>
+										{% endif %}			
+										{% if commentEventGrpList|length >  0 %}
+											<div class="ensavoirRow">
+												<h2>commentaires récents</h2>                                            
+												<div class="ensavoirinner">
+												<!-- Loop Start here -->
+												{% for comment in commentEventGrpList %} 
+													<div class="recentspost">
+														<h1><a href="javascript:void;">{{comment.title}}</a> </h1>
+																<ul>{{comment.star_rating|raw}} </ul>
+														<p>{{comment.comments}}</p>  
+														<h3><a href="#">{{comment.signature}}</a></h3>
+													</div>
+												{% endfor %} 	
+												<!-- End here ----->	
+												</div>
+											</div>
+										{% endif %}	
+                                        {% if eventgroup.event_group_desc2 != '' %}
+										 
+									
+											<div class="ensavoirRow">
+												<h2>{{eventgroup.en_savoir_block2_name|raw}}</h2>                                            
+												<div >
+													 {{eventgroup.event_group_desc2|raw}}
+												</div>
+											</div>
+										{% endif %}	
+									 {% if commentEventGrpVideoList|length >  0 %}
+												<div class="ensavoirRow">
+														<h2>des VideoS</h2>                                            
+														<div class="videoinner">
+														{% for file in commentEventGrpVideoList %} 
+															 <div class="videocon">
+																<a data-fancybox href="{{file.file_name}}"><img src="{{ videoImgURL}}{{file.video_img }}"></a>
+															 </div>
+														{% endfor %}     
+														</div>
+												 </div>
+										{% endif %}		
+                                         
+                                    </div>
+                              </div>
+                              
+                               <div role="tabpanel" class="tab-pane fade " id="infospratiques">
+                                   <div class="mescontent">
+								   
+							   {% if auditoriumList|length >  0 %}
+										{% for auditorium in auditoriumList %} 
+												<div class="ensavoirRow">
+													<h2>{{auditorium.auditorium_name}}</h2>                                            
+													<div class="addressRow">
+														<table style="width: 100%;">
+															<tr>
+																<td class="titletr"><strong>Adresse</strong></td>
+																<td>{{auditorium.auditorium_address}} </td>
+															</tr>
+															<tr>
+																<td class="titletr"><strong>accès</strong></td>
+																<td>{{auditorium.auditorium_access}} </td>
+															</tr>
+															<tr>
+																<td class="titletr"><strong>nom waze</strong></td>
+																<td>{{auditorium.auditorium_waze_name}}  </td>
+															</tr>
+															<tr class="bordernone">
+																<td class="titletr"><strong>un peu plus...</strong></td>
+																<td>{{auditorium.auditorium_detail|raw}}</td>
+															</tr>
+															
+															<tr class="bordernone">
+																<td colspan="2">
+																<div class="map"><iframe  width="100%" height="230" frameborder="0" style="border:0"  src="https://www.google.com/maps/embed/v1/place?q={{auditorium.auditorium_lat}},{{auditorium.auditorium_long}}&amp;key=AIzaSyDHfGhjeXPSD_N04C3W26FK3Vi2KcSz56Q"  allowfullscreen></iframe>
+																 <!--https://www.google.com/maps/embed/v1/view?key=AIzaSyDHfGhjeXPSD_N04C3W26FK3Vi2KcSz56Q&center={{auditorium.auditorium_lat}},{{auditorium.auditorium_long}}&zoom=18&maptype=satellite
+																 -->
+																</div>
+																</td>
+															</tr>
+														</table>
+													</div> 
+												</div>
+											  
+										{% endfor %}
+								{% endif %}
+								   
+								   
+									</div>
+                                   
+                              </div>
+                             </div>
+                         </div>
+            </div>
+            <div class="mesRight col-lg-4" id="cartItedDiv" style="display:none;">
+            	<div class="mesRightgrayInner">                	 
+                  <h2>ma sélection</h2>
+                  <div class="selectiontable" id="cartEvent" >
+                  	<!-- Ajax Bindation part ----->
+					
+					<!-- End here -------------->
+                  </div>      
+              </div>
+            </div>
+			
+			<div class="mesRight col-lg-4" id="divCommunity" >
+            	<div class="mesRightInner">
+                	<div class="logosection">
+               	    	<img src="{{ base_url() }}/assets/assets/img/banner-bottom.jpg" />
+                    </div>
+                    
+                    <!--div class="redinner unchoix">
+                    	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">an incomparable choice </font></font></h2>
+                    </div>
+                    
+                    <div class="redinner unservice">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a customer service at your service</font></font></h2>
+                    </div>
+                    
+                     <div class="redinner unpaiement">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100% secure payment</font></font></h2>
+                    </div>
+                    
+                     <div class="redinner unecommunaute">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a community of passionate people</font></font></h2>
+                    </div-->
+                    
+              </div>
+            </div>
+			 
+           
+          </div>
+          </div> 	 
+        </div>
+		
+		
+		
+		 
+		
+	  {% endfor %}
+{% endif %}
+{% endblock %}
+{% block footerscripts %}
+   
+    <script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+    <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script>
+				/*jslint browser:true*/
+				/*global jQuery, document*/
+
+				jQuery(document).ready(function () {
+					'use strict';
+
+					jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+					 
+				});
+				function getCalendar(month,year){
+					$.ajax({
+						type: "get",
+						url: '{{ base_url() }}/ajaxcalleventgroup/{{evgrpid}}',
+						data: {month,year}
+					}).done(function( msg ) {
+						$( "#ajaxCalendar" ).html( msg );
+					});
+				}
+					
+			function getModelEventGroup(){ 
+					 $('#exampleModal').modal({
+						show:  true 
+					});     
+		   }
+		    
+		   function clickEventBtn(id,dtime){ 
+		   
+				//AJAX here that needs to know the ID
+				var evnt_id= id;       
+				var dataTime= dtime;
+				$.ajax({
+						type: "get",
+						url: '{{ base_url() }}/ajaxcallEventOrder',
+						data: {evnt_id,dataTime}
+					}).done(function( msg ) {
+					 $( "#divCommunity" ).hide();
+					$( "#cartItedDiv" ).show();
+					 $('html,body').animate({
+						scrollTop: $("#cartItedDiv").offset().top -20},
+						'slow');
+			
+						$( "#cartEvent" ).html( msg );
+					});
+		   }
+		//On change the Ticket Categories//
+				$(document).on('change', ".tickrow", function() {
+					    var evnt_id = this.id;
+						var ddlrowValue = this.value;
+						 var arr = ddlrowValue.split('-');
+						 var row_id = arr[0];
+						 var seat_number = arr[1];
+								var choose_seat = "#seat_qty_"+evnt_id; 
+								//var toal_seat_available = "#totalavailabletkt";
+								var toal_seat_available_hdn = "#totalavailabletkthdn_"+evnt_id; 
+								var seat_number_hdn = "#seat_number_hdn_"+evnt_id; 
+						 if(row_id!=''){
+						 
+								//var seatIndexFrom = "#seat_qty_from_"+res;
+								//var seatIndexTo = "#seat_qty_to_"+res;
+								
+										
+												$.ajax({
+													type: "get",
+													url: '{{ base_url() }}/ajaxcallRawSeat/' + row_id,
+													data: {}
+												}).done(function( data ) {
+														//var obj = jQuery.parseJSON( data);
+														var obj = data;
+														console.log(obj.available_ticket_quantity);
+														console.log(obj.choose_ticket_quantity);
+														console.log(choose_seat);
+														$(choose_seat).html('');
+														$(choose_seat).html(obj.choose_ticket_quantity);
+														
+														//$(toal_seat_available).html('');
+														//$(toal_seat_available).html(obj.available_ticket_quantity);
+														$(toal_seat_available_hdn).val('0');
+														$(toal_seat_available_hdn).val(obj.available_ticket_quantity);
+														console.log(seat_number_hdn);
+														console.log(seat_number);
+														$(seat_number_hdn).val(seat_number);
+														
+												
+												});
+							}else{
+									$(choose_seat).html('');
+									//$(toal_seat_available).html('');
+									$(toal_seat_available_hdn).val('0');
+							}
+						  
+				});
+				   
+			  
+		
+		 
+    </script>
+	
+
+ 
+	
+	
+	<style>
+	.videocon a
+	{
+		display:flex;
+		    height: 170px;
+	}
+	.productimg img
+	{
+		width:auto;
+	}
+	</style>
+{% endblock %}

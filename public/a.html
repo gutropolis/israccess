@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Google Maps Multiple Markers</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFXr1TbvRvut-VEKg5QIMIlj1OEUcCnvQ"></script>
+</head>
+<body>
+  <div id="map" style="width: 500px; height: 400px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['Rameshwaram Temple',9.2881189,79.3152032, 1],
+      ['India Gate', 28.6129167,77.227321, 2],
+      ['Kedarnath temple',30.7352354,79.0647063,3],
+      ['Gateway of India',18.9219892,72.8324656,4],
+      ['Badrinath temple',30.7448141,79.4889073,10],
+      ['Radhanagar Beach',11.9831093,92.9309396,1],
+      ['Kolva Beach',15.2173778,73.9346775,3],
+      ['Char Minar',17.3615687,78.4724758,7],
+      ['Bee Falls',22.4740116,78.406409,6],
+      ['Jog Falls',14.2294441,74.8103342,8],
+      
+     
+    ];
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(22.973423, 78.656894),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+ 
+</body>
+</html>

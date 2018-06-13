@@ -1,0 +1,188 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+   <!-- Pagination  Section Start Here 
+  		    ==================================================--> 
+            <div class="paginationCon">
+			<div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+            	<ul>
+                	<li><a href="{{ base_url()}}/home">Accueil</a></li>
+                    <li> |</li> 
+                    <li><a href="{{ base_url()}}/home">recherche </a></li>
+                </ul>
+            </div>
+		</div>
+	</div>
+</div>
+            <!-- Pagination Section End Here 
+  		    ==================================================-->
+  
+    <!-- Ma Recherche  Section Start Here
+     ==================================================-->
+    <div class="marechercheCon">
+	
+        <h2>ma recherche</h2>
+        <div class="blackTitle">
+		{{geturl}}
+		      <h4>{% if searchType != '' %} {{searchType}} |{% endif %} {% if locationname != '' %} {{locationname}} |{% endif %}  {% if searchStartDisplayDate != '' %} {{searchStartDisplayDate}} - {{searchEndDisplayDate}}{% endif %}</h4>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> modifier ma recherche </button>
+        </div>
+        <div class="bookBoxsection">
+            <div class="container">
+                <div class="row">
+			 
+				 {% if rows|length >  0 %} 
+						{% for event in rows %}
+							<div class="col-lg-6 col-md-6 col-sm-12">
+								<div class="bookBox">
+									<div class="book"><a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}" ><img src="{{ egImgURL}}{{event.group_picture }}"></a></div>
+									<div class="bookDetails">
+										<h1><a href="#"><span>{{ event.event_name|raw }}</span></a></h1>
+										<p>{{ event.event_day_time}}</p>
+										<p>{{ event.event_group_auditorium }}  <span>{{ event.event_group_cityname }} </span></p>
+										<div class="reserverbtn"><a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}" >réserver</a></div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+			    {% else  %}
+					<div class="col-lg-12">Aucun événement</div>
+				{% endif %}
+					 {% if pages > 1 %}
+							<div class="col-lg-12">
+							
+								<div class="pagelink">
+									 <ul >
+													 {% if pages > 1 %}
+
+														 {% set range = 5 %}
+
+														 {% if page != 1 %}
+															 <li > <a href="{{currentURL}}&page=1">précédent</a></li>
+														 {% endif %}
+
+														 {% set prev = page - 1 %}
+
+														 {% if  page > 1 %}
+															 <li >   <a href="{{currentURL}}&page={{prev}}">  <  </a></li>
+														 {% endif %}
+
+														 {% for i in (page - range)..((page + range) + 1) %}
+
+															 {% if (i > 0) and (i <= pages) %}
+																 <li >   <a href="{{currentURL}}&page={{i}}" {% if page == i %}  {% endif %}>{{i}}</a></li>
+															 {% endif %}
+
+														 {% endfor %}
+
+														 {% if page != pages %}
+
+															 {% set  next = page + 1 %}
+
+															 <li>  <a href="{{currentURL}}&page={{next}}"> > </a></li>
+															 <li> <a href="{{currentURL}}&page={{pages}}">suivant</a></li>
+
+														 {% endif %}
+
+													 {% endif %}
+												 </ul>
+									<p>page {{ page }} sur {{ pages }}</p>
+								</div>
+							</div>
+					{% endif %}
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- Ma Recherche Section End Here
+      ==================================================-->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="directaccess">
+                        <h3  id="exampleModalLabel">direct access</h3><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="directaccessCol">
+							<form method="get" action="mysearch">
+									<div class="select-style">
+										<select name="type">
+											<option value="" >Par événement</option>
+											
+											{% if searchCateogories|length >  0 %}
+											  {% for event in searchCateogories %} 
+												
+												 <option value="{{event.id}}" {% if event.id==category_id %} selected{% endif %} >{{event.name}}</option>
+											 
+												{% endfor %}
+											{% endif %}
+									  </select>
+									</div>
+									<div class="select-style">
+									<select name="location">
+										<option value="" >Par ville</option>
+										{% if searchCity|length >  0 %}
+											  {% for ct in searchCity %}  
+												<option value="{{ct.id}}" {% if ct.id==searchLocation %} selected{% endif %}  >{{ct.name}}</option> 
+												{% endfor %}
+											{% endif %}
+									</select>
+										 <i class="fas fa-map-marker-alt"></i>
+									</div>
+									
+									<div class="inputrow" id="filters">
+										<label><input type="text"    placeholder="Par date"  value="{{searchFilterDate}}"  name="daterange" id="filter-date"> <i class="far fa-calendar-alt"></i> </label>
+									</div>
+
+									<button  class="dabtn" >c’est parti</button>
+							</form>
+                        </div>
+                        <div class="pictosCon">
+                            <ul>
+                                <li><a href="#"><img src="{{ base_url() }}/assets/assets/img/psa.png" width="37" height="39"> <br> a ne pas manquer</a></li>
+                                <li><a href="#"><img src="{{ base_url() }}/assets/assets/img/hui.png" width="37" height="39"> <br> aujourd’hui on sort</a></li>
+                                <li><a href="#"><img src="{{ base_url() }}/assets/assets/img/spec.png" width="37" height="39"> <br> cadeau  spectacle</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+		
+<script type="text/javascript">
+$(function() {
+
+  $('input[name="filter-date"]').daterangepicker({
+      autoUpdateInput: false,
+      locale: {
+          cancelLabel: 'Clear'
+      }
+  });
+
+  $('input[name="filter-date"]').on('apply.daterangepicker', function(ev, picker) {
+      $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+  });
+
+  $('input[name="filter-date"]').on('cancel.daterangepicker', function(ev, picker) {
+      $(this).val('');
+  });
+
+});
+</script>	
+{% endblock %} 	

@@ -1,0 +1,26 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+           {% include 'public/partial/home/home-slider.twig' %}
+           {% include 'public/partial/home/home-section_1.twig' %}
+		   {% include 'public/partial/home/home-section_2.twig' %}
+		   {% include 'public/partial/home/home-section_3.twig' %}
+		   {% include 'public/partial/home/home-section_4.twig' %}
+		   {% include 'public/partial/home/home-section-logo.twig' %} 
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>   
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+    
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+    </script>		 
+{% endblock %} 	

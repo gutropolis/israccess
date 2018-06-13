@@ -1,0 +1,74 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+
+
+
+
+<h1>Welcome to shoping cart</h1
+  <div class="item col-lg-4">
+            <div class="thumbnail">
+                <div class="caption">
+				<table border="1">
+				<tr>
+				<th>Name </th>
+				<th>Price </th>
+				
+				<th>Description </th>
+				
+				</tr>
+{% for cart in shoppingcart %}
+
+<tr>
+<td> {{cart.name}}</td>
+<td> {{cart.price}}</td>
+<td> {{cart.description}}</td>
+
+</tr>
+
+
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>   
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+    
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+	
+	
+	
+	
+	
+	
+	function getModelEventGroup(eventgrpid){ 
+			 $('#exampleModal').modal({
+				show:  true 
+			});  
+            $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/ajaxcalleventpopup',
+                data: {eventgrpid}
+            }).done(function( msg ) {
+                $( "#modelbody" ).html( msg );
+            });
+			 ev.preventDefault();
+   }
+	
+    </script>	
+
+
+
+	
+{% endblock %} 	

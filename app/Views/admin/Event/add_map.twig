@@ -1,0 +1,136 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+     
+      
+    </style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title }} [{{ data.title|raw}}]</h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon m--hide"> <i class="la la-gear"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ title }} [{{ data.title|raw}}]</h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+        <form class="m-form" id="form_add_aud_e">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              
+              
+			  
+			  <div class="row">
+                <div class="form-group  col-md-12" >
+                  
+                  <div id="auditorium_seat_div" class="col-md-12"></div>
+				  <div class="row" style="margin-top:20px;">
+				<div class="col-md-2" style="margin-top:6px;">Available date</div>
+				<div class="col-md-2" style="margin-left:10px;"><input type="text" class="form-control m_date" name="stock_available_date" id="stock_available_date" placeholder="Available Date" readonly required="required"></div>
+				<div class="col-md-2" style="margin-top:6px; margin-right:-12px;">Expiry date</div>
+				<div class="col-md-2"><input type="text" class="form-control m_date" name="stock_expiry_date"  id="stock_expiry_date"placeholder="Expiry Date" readonly required="required"></div>
+				<div class="col-md-2" style="margin-top:6px; margin-right:-12px;">Even Format?</div>
+				<div class="col-md-2">
+                  
+                  <label class="m-checkbox">
+                    <input type="checkbox" name="seat_order" id="seat_order" value="2" >
+                    Yes <span></span> </label></div>
+				</div>
+                </div>
+              </div>
+			  <div class="row" style="margin-top:10px; margin-left:1px; ">
+               <div id="addrowComments" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide"> <span> <i class="la la-plus"></i> <span> Add More</span> </span> </div>
+              </div>
+              <div class="m-portlet__body">
+                <div class="m-form__section m-form__section--first"> </div>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+			<div class="" id="mesg_div"></div>
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                  <input type="hidden" name="id" id="id" value="{{ data.id }}">
+                  <input type="hidden" name="auditorium_id" id="auditorium_id" value="{{ data.auditorium_id }}">
+				 
+                  <button type="button" class="btn btn-primary" onclick="return saveEventMap();">{{ adminLang.common_save_changes_txt }}</button>
+				  
+                  <button type="button" class="btn btn-secondary" onClick="history.back(-1)">{{ adminLang.common_cancel }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+      
+      <!--begin::Portlet--> 
+      
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+
+<!-- Modal --> 
+
+<!-- Modal --> 
+<!-- Model --> 
+
+<!-- Start Model --> 
+
+<!-- End Model --> 
+{% endblock %}
+{% block footerscripts %} 
+
+<script src="{{ base_url() }}/assets/admin/dynamic_datatables/event-manual-seats.js" type="text/javascript">
+</script>
+<script>
+$(".slider_range_edit").ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 1,
+    max: 200,
+	disable: false
+});
+$('.m_date').datepicker({
+			todayHighlight:!0,
+			orientation:"bottom left",
+			format: 'dd/mm/yyyy',
+			autoclose:!0
+		 });
+</script>
+<!--begin::Page Vendors --> 
+
+
+
+
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

@@ -1,0 +1,100 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<link href="{{ base_url() }}/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="{{ base_url() }}/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.has_error{
+  border-color:red !important;
+}
+
+</style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title}} </h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon m--hide"> <i class="la la-gear"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ title}} </h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+		
+        <form class="m-form" id="site_settings_from" method="post" action="{{ base_url() }}/admin/save_settings">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              <div class="row">
+                <div class="form-group col-md-6 ">
+                  <label class="control-label" for=""> Site Phone</label>
+                  <input type="text" class="form-control" id="site_phone" name="site_phone" placeholder="Site Phone" value="{{ setting_data.site_phone}}">
+                </div>
+                <div class="form-group  col-md-6 ">
+                  <label class="control-label" for=""> Facebook Link </label>
+                  <input type="text" class="form-control" id="facebook_link" name="facebook_link" placeholder="Facebook Link" value="{{ setting_data.facebook_link}}">
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="form-group  col-md-6 ">
+                  <label class="control-label" for=""> Twitter Link</label>
+                  <input type="text" class="form-control" id="twitter_link" name="twitter_link" placeholder="Twitter Link" value="{{ setting_data.twitter_link }}">
+                </div>
+				
+				<div class="form-group col-md-6 ">
+                  <label class="control-label" for=""> Instagram Link</label>
+                  <input type="text" class="form-control" id="instagram_link" name="instagram_link" placeholder="Instagram Link" value="{{ setting_data.instagram_link }}">
+                </div>
+              </div>
+             
+              <div id="mesg_div_event_group"></div>
+            </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                 
+                  <button type="submit" class="btn btn-primary" name="btn_settings" > Save Changes </button>
+                  <button type="button" class="btn btn-secondary"> Cancel </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+      
+      
+    </div>
+  </div>
+</div>
+<!-- Model -->
+
+
+<!-- End Model  --> 
+ 
+{% endblock %}
+{% block footerscripts %} 
+
+
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

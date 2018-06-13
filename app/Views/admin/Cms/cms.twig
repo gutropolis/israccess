@@ -1,0 +1,80 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<link href="{{ base_url() }}/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="{{ base_url() }}/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.has_error{
+  border-color:red !important;
+}
+</style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title }} </h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet " id="m_portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon"> <i class="flaticon-map-location"></i> </span>
+              <h3 class="m-portlet__head-text"> Cms pages </h3>
+            </div>
+          </div>
+          <div class="m-portlet__head-tools"> </div>
+        </div>
+        <div class="m-portlet__body"> 
+          
+          <!--begin: Search Form -->
+          
+          <!--end: Search Form -->
+          <div class="container">
+            <div class="row">
+			 {% if cms_list %}
+              {% for row in cms_list %}
+              <div class="col-sm-4">
+                <div class="m-section__content">
+                  <div class="m-demo" data-code-preview="true" data-code-html="true" data-code-js="false">
+                    <div class="m-demo__preview">
+                      <h3> {{ row.title }} </h3>
+					  <br><a href="{{ base_url()}}/admin/cms/get/{{row.id }}"><small class="text-muted">  Update  <i class="fa fa-pencil" style="margin-left:5px;"></i> </small></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+			   {% endfor %} 
+               {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+
+<!-- Modal --> 
+
+<!-- Modal --> 
+<!-- Model --> 
+
+<!-- Model --> 
+
+{% endblock %}
+{% block footerscripts %} 
+<!--begin::Page Vendors --> 
+
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

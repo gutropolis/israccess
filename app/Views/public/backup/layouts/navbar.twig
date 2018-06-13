@@ -1,0 +1,41 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark text-white">
+    <a href="{{ base_url() }}" class="navbar-brand mb-0 h1">{{ app_settings.site_name.value }}</a> {# Header #}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Toutes les liens</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+                    <ul class="list-inline">
+                        <li class="list-inline-item dropdown-item"><a href="#">Catégorie 1</a></li>
+                        <li class="list-inline-item dropdown-item"><a href="#">Catégorie 2</a></li>
+                    </ul>
+                </div>
+            </li>
+            {% if auth.check %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+                        <ul class="list-inline">
+                            <li class="list-inline-item  dropdown-item"><a href="{{ path_for('admin_home') }}">Aller à l'admin</a></li>
+                            <li class="list-inline-item  dropdown-item"><a href="{{ path_for('auth_signout') }}">Déconexion</a></li>
+                        </ul>
+                    </div>
+                </li>
+            {% endif %}
+        </ul>
+        <div class="extra-info">
+            <p class="mb-0">Extra-info</p>
+        </div>
+    </div>
+</nav>

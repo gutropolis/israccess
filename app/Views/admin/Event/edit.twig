@@ -1,0 +1,109 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+     
+      
+    </style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title }} [{{ data.title|raw}}]</h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon m--hide"> <i class="la la-gear"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ title }} [{{ data.title|raw}}]</h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+        <form class="m-form" id="form_add_aud_e">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              <div class="" id="mesg_div"></div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <iframe src="{{ base_url() }}/map/www/back.html"  style="min-height:700px;width:100%;"></iframe>
+                </div>
+              </div>
+              <div class="m-portlet__body">
+                <div class="m-form__section m-form__section--first"> </div>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                  <input type="hidden" name="id" id="id" value="{{ data.id }}">
+                  <input type="hidden" name="auditorium_seats_map" id="auditorium_seats_map" >
+                  <input type="hidden" name="auditorium_key" id="auditorium_key" >
+				  
+				  <input type="hidden" name="auditorium_key_current" id="auditorium_key_current" value="{{ data.auditorium_key}}" >
+				  <input type="hidden" name="auditorium_seats_map_current" id="auditorium_seats_map_current" value="{{ data.auditorium_seats_map}}" >
+                  <button type="button" class="btn btn-primary" onclick="return updateEventMap();">{{ adminLang.common_save_changes_txt }}</button>
+                  <button type="button" class="btn btn-secondary" onClick="history.back(-1)">{{ adminLang.common_cancel }}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+      
+      <!--begin::Portlet--> 
+      
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+
+<!-- Modal --> 
+
+<!-- Modal --> 
+<!-- Model --> 
+
+<!-- Start Model --> 
+
+<!-- End Model --> 
+{% endblock %}
+{% block footerscripts %} 
+<script>
+localStorage.clear();
+</script> 
+<!--begin::Page Vendors --> 
+
+<script>
+var map_aud_key = $('#auditorium_key_current').val();
+var map_aud_value = $('#auditorium_seats_map_current').val();
+localStorage.setItem(map_aud_key, map_aud_value);
+//sessionStorage.setItem(map_aud_key, map_aud_value);
+
+</script>
+
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

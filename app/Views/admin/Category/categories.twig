@@ -1,0 +1,276 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %} 
+
+<link href="{{ base_url() }}/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="{{ base_url() }}/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.has_error{
+  border-color:red !important;
+}
+</style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title }} </h3>
+    </div>
+    <div>  </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet " id="m_portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon"> <i class="flaticon-map-location"></i> </span>
+              <h3 class="m-portlet__head-text">{{ adminLang.category_list_txt }} </h3>
+            </div>
+          </div>
+          <div class="m-portlet__head-tools">
+            <a href="javascript:void(0);"  class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#modal-add-category">
+												<span>
+													<i class="la la-plus"></i>
+													<span>
+														{{ adminLang.common_add_new_txt }}
+													</span>
+												</span>
+											</a>
+											<div class="m-separator m-separator--dashed d-xl-none"></div>
+          </div>
+        </div>
+		<div class="m-portlet__body">
+		
+				<!--begin: Search Form -->
+								<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+									<div class="row align-items-center">
+										<div class="col-xl-8 order-2 order-xl-1">
+											<div class="form-group m-form__group row align-items-center">
+												<div class="col-md-4">
+													<div class="m-form__group m-form__group--inline">
+														<div class="m-form__label">
+															<label>
+																{{ adminLang.common_status_txt}}:
+															</label>
+														</div>
+														<div class="m-form__control">
+															<select class="form-control m-bootstrap-select" id="m_form_status">
+																<option value="">
+																	{{ adminLang.common_all_txt}}
+																</option>
+																<option value="1">
+																	{{ adminLang.common_active_txt}}
+																</option>
+																<option value="0">
+																	{{ adminLang.common_inactive_txt }}
+																</option>
+															</select>
+														</div>
+													</div>
+													<div class="d-md-none m--margin-bottom-10"></div>
+												</div>
+												
+												<div class="col-md-8">
+													<div class="m-input-icon m-input-icon--left">
+														<input type="text" class="form-control m-input" placeholder="{{ adminLang.common_search_txt }}..." id="generalSearch">
+														<span class="m-input-icon__icon m-input-icon__icon--left">
+															<span>
+																<i class="la la-search"></i>
+															</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xl-4 order-1 order-xl-2 m--align-right">
+											<input type="hidden" name="table_name" id="table_name" value="categories">
+								<select class="bs-select form-control drop_down_options" name="selected_fields_edit" onchange="edit_selected_rows_fields((this.value))"  id="selected_fields_edit" style="margin:0; float:left">
+								   <option value=''>{{ adminLang.common_select_option_txt }}</option>
+								   <option value='change_status'>{{ adminLang.common_change_status_txt }}</option>
+								   <option value='delete_selected'>{{ adminLang.common_delete_selected_txt }}</option>
+								</select>	
+										</div>
+									</div>
+								</div>
+								<!--end: Search Form -->
+		                        <!--begin: Datatable -->
+								<div class="m_datatable_cat" id="ajax_data"></div>
+								<!--end: Datatable -->	
+										
+		</div>
+        
+      </div>
+      <!--end::Portlet--> 
+    </div>
+  </div>
+  
+</div>
+
+<!-- Modal --> 
+
+<div class="modal modal-danger fade" id="modal-delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form name="form_del_data" id="form_del_data" method="post"  autocomplete="Off">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title del_title"></h4>
+      </div>
+      <div class="modal-body">
+        <p class="del_text"></p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="id" id="id">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">{{ adminLang.common_close_txt }}</button>
+        <button type="button" class="btn btn-danger" onClick="return delete_data();">{{ adminLang.common_delete_txt }}</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+ <!-- Modal --> 
+<!-- Model -->
+<div class="modal fade" id="modal-add-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form name="form_add_cat" id="form_add_cat" method="post"  autocomplete="Off">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{ adminLang.category_add_txt }}</h4>
+      </div>
+      <div class="modal-body">
+	  <div class="" id="mesg_div"></div>
+        <div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_name_label_txt }}</label>
+          <input type="text" class="form-control" id="category_name" name="category_name" placeholder="{{ adminLang.category_name_label_txt }}">
+          <span class="help-block "></span>
+        </div>
+		
+		<div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_slug_label_txt }}</label>
+          <input type="text" class="form-control" id="slug" name="slug" placeholder="{{ adminLang.category_slug_label_txt }}">
+          <span class="help-block "></span>
+        </div>
+        
+        <div class="form-group ">
+          <label class="control-label" id="label-photo">{{ adminLang.category_upload_lable_txt}}</label>
+          <input type="file" class="form-control" id="category_logo" name="category_logo" >
+          <span class="help-block duplicate error">{{ adminLang.category_pic_dimensions_txt }}</span>
+        </div>
+		
+		<div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_on_home_txt }}</label><br>
+          <label class="m-checkbox">
+					<input type="checkbox" name="is_for_home" id="is_for_home" value="1" >
+					{{ adminLang.event_group_yes_label_txt }}
+					<span></span>
+				</label>
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_home_slider_lable_txt }}</label>
+          <textarea class="form-control" name="home_slider_title" id="home_slider_title"></textarea>
+          <span class="help-block "></span>
+        </div>
+		<div class="form-group ">
+          <label class="control-label" >{{ adminLang.category_txt }} {{ adminLang.common_status_txt}}</label>
+          <select name="status" id="status" class="form-control">
+		   <option value="1">{{ adminLang.common_active_txt }}</option>
+		   <option value="0">{{ adminLang.common_inactive_txt }}</option>
+		  </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ adminLang.common_close_txt }}</button>
+        <button type="button" class="btn btn-primary" onclick="return addCategory();">{{ adminLang.common_save_changes_txt }}</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+<!-- Model -->
+<div class="modal fade" id="modal-edit-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <form name="form_add_cat_e" id="form_add_cat_e" method="post"  autocomplete="Off">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{ adminLang.category_update_txt }}</h4>
+      </div>
+      <div class="modal-body">
+	  <div class="" id="mesg_div_e"></div>
+        <div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_name_txt }}</label>
+          <input type="text" class="form-control" id="category_name_e" name="category_name" placeholder="{{ adminLang.category_name_txt }}">
+          <span class="help-block "></span>
+        </div>
+		<div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_slug_txt }}</label>
+          <input type="text" class="form-control" id="slug_e" name="slug" placeholder="{{ adminLang.category_slug_txt }}">
+          <span class="help-block "></span>
+        </div>
+        <div class="form-group" id="photo-preview-edit">
+                <label class="control-label ">{{ adminLang.category_pic_txt}}</label>
+                <div class="col-md-9"> (No photo) <span class="help-block"></span> </div>
+         </div>
+        <div class="form-group ">
+          <label class="control-label" id="label-photo">{{ adminLang.category_upload_lable_txt}}</label>
+          <input type="file" class="form-control" id="category_logo_e" name="category_logo" >
+          <span class="help-block duplicate error">{{ adminLang.category_pic_dimensions_txt }}</span>
+        </div>
+		<div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_on_home_txt }}</label><br>
+          <label class="m-checkbox">
+					<input type="checkbox" name="is_for_home" id="is_for_home_e"  >
+					{{ adminLang.event_group_yes_label_txt }}
+					<span></span>
+				</label>
+        </div>
+		<div class="form-group">
+          <label class="control-label" for="">{{ adminLang.category_home_slider_lable_txt }}</label>
+          <textarea class="form-control" name="home_slider_title" id="home_slider_title_e"></textarea>
+          <span class="help-block "></span>
+        </div>
+		<div class="form-group ">
+          <label class="control-label" >{{ adminLang.category_txt }} {{ adminLang.common_status_txt}}</label>
+          <select name="status" id="status_e" class="form-control">
+		  <option value="1">{{ adminLang.common_active_txt }}</option>
+		   <option value="0">{{ adminLang.common_inactive_txt }}</option>
+		  </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+      <input type="hidden" name="id" id="id_e">
+	  <input type="hidden" name="category_logo_old" id="category_logo_old">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">{{ adminLang.common_close_txt }}</button>
+        <button type="button" class="btn btn-primary" onclick="return updateCategory();">{{ adminLang.common_save_changes_txt }}</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+{% endblock %}
+{% block footerscripts %} 
+<!--begin::Page Vendors --> 
+{% include "admin/Category/lang/lang.twig" %}
+<script src="{{ base_url() }}/assets/admin/dynamic_datatables/data-ajax-admin-category.js" type="text/javascript"></script>
+
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

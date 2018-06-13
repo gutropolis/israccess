@@ -1,0 +1,713 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+    <!--  Le cadeau spectacle Section Start Here
+               ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li>LE CADEAU SPECTACLE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pagetitle">
+                    <h2>LE CADEAU SPECTACLE<br>UN PLAISIR A OFFRIR… UN BONHEUR A RECEVOIR</h2>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="tabcontentArea">
+                        <ul class="nav lcsTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#Mescartes" role="tab" data-toggle="tab">
+                                    <span>1.</span>Mes CARTEs<br>CADEAUx
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Coordonnées" role="tab" data-toggle="tab">
+                                    <span>2.</span> coordonnées
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Recapitulatif" role="tab" data-toggle="tab">
+                                    <span>3.</span> récapitulatif
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Paiement" role="tab" data-toggle="tab">
+                                    <span>4.</span> paiement
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Confirmation" role="tab" data-toggle="tab">
+                                    <span>5.</span> Confirmation
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active show" id="Mescartes">
+                                <div class="tabcontent">
+                                    <h2>1. JE CHOISIS MA CARTE CADEAU </h2>
+
+                                    <div class="box-row">
+                                        <div class="cardbox">
+                                            <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-11.png" width="265" height="173"></a>
+                                            <h4>Valeur <span>120$</span></h4>
+                                            <div class="selectitem">
+                                                <label>Dhcisissez la quantite</label>
+                                                <div class="select-style"><select name="">
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cardbox">
+                                            <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-22.png" width="265" height="173"></a>
+                                            <h4>Valeur <span>120$</span></h4>
+                                            <div class="selectitem">
+                                                <label>Dhcisissez la quantite</label>
+                                                <div class="select-style"><select name="">
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cardbox">
+                                            <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-33.png" width="265" height="173"></a>
+
+                                            <div class="selectitem indiquezselect">
+                                                <label> indiquez votre montant</label>
+                                                <div class="select-style"><select name="">
+                                                        <option> >200$</option>
+                                                        <option>>300$</option>
+                                                        <option>>400$</option>
+                                                        <option>>500$</option>
+                                                        <option>>100$</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="selectitem">
+                                                <label>Dhcisissez la quantite</label>
+                                                <div class="select-style"><select name="">
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tabcontent">
+                                    <h2>2. JE personnalise mon cadeau</h2>
+
+
+                                    <div class="cardform">
+
+                                        <form id="myform" name="myform" action="{{ base_url()}}/add-order" method="post">
+                                        <div class="row">
+                                            <div class="cardinput cardinputfirst col-lg-12">
+
+                                                <input name="person_name" type="text" placeholder="Nom de ou des personnes qui offrent le cadeau*">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="firstname" type="text" placeholder="Prénom du bénéficiaire* ">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="lastname" type="text" placeholder="Nom du bénéficiaire* ">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="email" type="text" placeholder="Mail du béneficiaire* ">
+                                            </div>
+
+                                            <div class="cardtextarea">
+                                                <textarea name="message" cols="" rows="" placeholder="Message d’accompagnement"></textarea>
+                                                <a href="#">*Champs obligatoires</a>
+                                            </div>
+                                            <div class="cardinput cardinputfirst btnje col-lg-12">
+                                            <input name="" type="submit" value="je valide ma commande">
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="tabcontent macommCon">
+                                    <h2>3. ma commande</h2>
+                                    <div class="checkoutCol">
+                                        <div class="box-row">
+                                            <div class="cardbox">
+                                                <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-1-1.png"></a>
+                                            </div>
+                                            <div class="checkouttable">
+                                                <table cellpadding="0" spellcheck="0">
+                                                    <tr class="headerow">
+                                                        <td>date de ma commande</td>
+                                                        <td>type de carte</td>
+                                                        <td>quantité</td>
+                                                        <td>PRIX UNITAIRE</td>
+                                                        <td>total</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Mardi 2 janvier 2018</td>
+                                                        <td>Offre Solo</td>
+                                                        <td>1</td>
+                                                        <td>120 $</td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="action">
+                                                <ul>
+                                                    <li><input name="" type="radio" value=""></li>
+                                                    <li><a href="#"><i class="far fa-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="totlaRow">
+                                                <table>
+                                                    <tr>
+                                                        <td align="left">MONTANT TOTAL des cartes cadeaux</td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="totlaRow commandetable">
+                                                <table>
+                                                    <tr>
+                                                        <td align="left" class="blackbg">MONTANT TOTAL de la  </td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cartbtn">
+                                        <a href="#"> < retour</a>
+                                        <a href="{{ base_url() }}/myorder" class="commandelink">je valide ma commande</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Coordonnées">
+                                <div class="tabcontent">
+                                    <h2>2. JE personnalise mon cadeau</h2>
+
+
+                                    <div class="cardform">
+                                        <div class="row">
+                                            <div class="cardinput cardinputfirst col-lg-12">
+                                                <input name="" type="text" placeholder="Nom de ou des personnes qui offrent le cadeau*">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="" type="text" placeholder="Prénom du bénéficiaire* ">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="" type="text" placeholder="Nom du bénéficiaire* ">
+                                            </div>
+
+                                            <div class="cardinput">
+                                                <input name="" type="text" placeholder="Mail du béneficiaire* ">
+                                            </div>
+
+                                            <div class="cardtextarea">
+                                                <textarea name="" cols="" rows="" placeholder="Message d’accompagnement"></textarea>
+                                                <a href="#">*Champs obligatoires</a>
+                                            </div>
+                                            <div class="cardinput cardinputfirst btnje col-lg-12">
+                                              <a href="{{ base_url() }}/myorder">   <input name="" type="button" value="je valide ma commande"> </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Recapitulatif">
+                                <div class="tabcontent macommCon">
+                                    <h2>3. ma commande</h2>
+                                    <div class="checkoutCol">
+                                        <div class="box-row">
+                                            <div class="cardbox">
+                                                <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-1-1.png"></a>
+                                            </div>
+                                            <div class="checkouttable">
+                                                <table cellpadding="0" spellcheck="0">
+                                                    <tr class="headerow">
+                                                        <td>date de ma commande</td>
+                                                        <td>type de carte</td>
+                                                        <td>quantité</td>
+                                                        <td>PRIX UNITAIRE</td>
+                                                        <td>total</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>Mardi 2 janvier 2018</td>
+                                                        <td>Offre Solo</td>
+                                                        <td>1</td>
+                                                        <td>120 $</td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="action">
+                                                <ul>
+                                                    <li><input name="" type="radio" value=""></li>
+                                                    <li><a href="#"><i class="far fa-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="totlaRow">
+                                                <table>
+                                                    <tr>
+                                                        <td align="left">MONTANT TOTAL des cartes cadeaux</td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="totlaRow commandetable">
+                                                <table>
+                                                    <tr>
+                                                        <td align="left" class="blackbg">MONTANT TOTAL de la  </td>
+                                                        <td width="100" align="center"><b>120$</b></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cartbtn">
+                                        <a href="#"> < retour</a>
+                                        <a href="{{ base_url() }}/myorder" class="commandelink"><i class="fas fa-lock"></i> &nbsp;&nbsp;&nbsp; je valide ma commande</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Paiement">
+                                <div class="tabcontent">
+                                    <h2>Paiement</h2>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="Confirmation">
+                                <div class="tabcontent">
+                                    <h2>Confirmation</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Mobile Content Code-->
+                    <div id="accordion" role="tablist" style="display:none;">
+                        <div class="card">
+                            <div class="cardheader" role="tab" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span>1.</span>Mes CARTEs CADEAUx
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="tabcontent">
+                                        <h2>1. JE CHOISIS MA CARTE CADEAU </h2>
+
+                                        <div class="box-row">
+                                            <div class="cardbox">
+                                                <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-11.png" width="265" height="173"></a>
+                                                <h4>Valeur <span>120$</span></h4>
+                                                <div class="selectitem">
+                                                    <label>Dhcisissez la quantite</label>
+                                                    <div class="select-style"><select name="">
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardbox">
+                                                <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-22.png" width="265" height="173"></a>
+                                                <h4>Valeur <span>120$</span></h4>
+                                                <div class="selectitem">
+                                                    <label>Dhcisissez la quantite</label>
+                                                    <div class="select-style"><select name="">
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="cardbox">
+                                                <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-33.png" width="265" height="173"></a>
+
+                                                <div class="selectitem indiquezselect">
+                                                    <label> indiquez votre montant</label>
+                                                    <div class="select-style"><select name="">
+                                                            <option> >200$</option>
+                                                            <option>>300$</option>
+                                                            <option>>400$</option>
+                                                            <option>>500$</option>
+                                                            <option>>100$</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="selectitem">
+                                                    <label>Dhcisissez la quantite</label>
+                                                    <div class="select-style"><select name="">
+                                                            <option>01</option>
+                                                            <option>02</option>
+                                                            <option>03</option>
+                                                            <option>04</option>
+                                                            <option>05</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tabcontent">
+                                        <h2>2. JE personnalise mon cadeau</h2>
+
+                                        <div class="cardform">
+                                            <div class="row">
+                                                <div class="cardinput cardinputfirst col-lg-12">
+                                                    <input name="" type="text" placeholder="Nom de ou des personnes qui offrent le cadeau*">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Prénom du bénéficiaire* ">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Nom du bénéficiaire* ">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Mail du béneficiaire* ">
+                                                </div>
+
+                                                <div class="cardtextarea">
+                                                    <textarea name="" cols="" rows="" placeholder="Message d’accompagnement"></textarea>
+                                                    <a href="#">*Champs obligatoires</a>
+                                                </div>
+                                                <div class="cardinput cardinputfirst btnje col-lg-12">
+                                                    <input name="" type="button" value="je valide ma commande">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tabcontent macommCon">
+                                        <h2>3. ma commande</h2>
+                                        <div class="checkoutCol">
+                                            <div class="box-row">
+                                                <div class="cardbox">
+                                                    <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-1-1.png"></a>
+                                                </div>
+                                                <div class="checkouttablemobo">
+                                                    <table cellpadding="0" spellcheck="0">
+                                                        <tr>
+                                                            <td class="headerow"> date de ma commande</td>
+                                                            <td>Mardi 2 janvier 2018</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">type de carte</td>
+                                                            <td>Offre Solo</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td class="headerow">quantité</td>
+                                                            <td>1</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">PRIX UNITAIRE</td>
+                                                            <td>120 $</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">total</td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+                                                <div class="action">
+                                                    <ul>
+                                                        <li><input name="" type="radio" value=""></li>
+                                                        <li><a href="#"><i class="far fa-trash-alt"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="totlaRow">
+                                                    <table>
+                                                        <tr>
+                                                            <td align="left">MONTANT TOTAL des cartes cadeaux</td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="totlaRow commandetable">
+                                                    <table>
+                                                        <tr>
+                                                            <td align="left" class="blackbg">MONTANT TOTAL de la  </td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cartbtn">
+                                            <a href="#"> < retour</a>
+                                            <a href="#" class="commandelink">je valide ma commande</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="cardheader" role="tab" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span>2.</span> coordonnées
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="tabcontent">
+                                        <h2>2. JE personnalise mon cadeau</h2>
+
+                                        <div class="cardform">
+                                            <div class="row">
+                                                <div class="cardinput cardinputfirst col-lg-12">
+                                                    <input name="" type="text" placeholder="Nom de ou des personnes qui offrent le cadeau*">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Prénom du bénéficiaire* ">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Nom du bénéficiaire* ">
+                                                </div>
+
+                                                <div class="cardinput">
+                                                    <input name="" type="text" placeholder="Mail du béneficiaire* ">
+                                                </div>
+
+                                                <div class="cardtextarea">
+                                                    <textarea name="" cols="" rows="" placeholder="Message d’accompagnement"></textarea>
+                                                    <a href="#">*Champs obligatoires</a>
+                                                </div>
+                                                <div class="cardinput cardinputfirst btnje col-lg-12">
+                                                    <input name="" type="button" value="je valide ma commande">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="cardheader" role="tab" id="headingThree">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span>3.</span> récapitulatif
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="tabcontent macommCon">
+                                        <h2>3. ma commande</h2>
+                                        <div class="checkoutCol">
+                                            <div class="box-row">
+                                                <div class="cardbox">
+                                                    <a href="#"><img src="{{ base_url() }}/assets/assets/img/card-1-1.png"></a>
+                                                </div>
+                                                <div class="checkouttablemobo">
+                                                    <table cellpadding="0" spellcheck="0">
+                                                        <tr>
+                                                            <td class="headerow"> date de ma commande</td>
+                                                            <td>Mardi 2 janvier 2018</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">type de carte</td>
+                                                            <td>Offre Solo</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td class="headerow">quantité</td>
+                                                            <td>1</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">PRIX UNITAIRE</td>
+                                                            <td>120 $</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="headerow">total</td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+
+                                                    </table>
+                                                </div>
+                                                <div class="action">
+                                                    <ul>
+                                                        <li><input name="" type="radio" value=""></li>
+                                                        <li><a href="#"><i class="far fa-trash-alt"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="totlaRow">
+                                                    <table>
+                                                        <tr>
+                                                            <td align="left">MONTANT TOTAL des cartes cadeaux</td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="totlaRow commandetable">
+                                                    <table>
+                                                        <tr>
+                                                            <td align="left" class="blackbg">MONTANT TOTAL de la  </td>
+                                                            <td width="100" align="center"><b>120$</b></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cartbtn">
+                                            <a href="#"> < retour</a>
+                                            <a href="#" class="commandelink">je valide ma commande</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="cardheader" role="tab" id="headingFour">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        <span>4.</span> paiement
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                                <div class="card-body">
+                                    4
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="cardheader" role="tab" id="headingFive">
+                                <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        <span>5.</span> Confirmation
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                                <div class="card-body">
+                                    5
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Mobile Content Code-->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="gifttitleCon">
+                        <h2>LE CADEAU SPECTACLE <br>VRAIMENT FACILE </h2>
+                    </div>
+
+                    <div class="giftContentlist">
+                        <div class="giftContent">
+                            <p>Une fois votre commande passée, votre bénéficiaire à un statut VIP chez CulturAccess.</p>
+                            <p>Un collaborateur dédié va prendre en charge ses demandes : </p>
+                            <ul>
+                                <li>Accès privilégié aux offres </li>
+                                <li>Meilleures places </li>
+                                <li>Service personnalisé </li>
+                            </ul>
+                        </div>
+                        <div class="giftContent">
+                            <h4>FONCTIONNEMENT</h4>
+                            <p>La carte cadeau est utilisable de la manière suivante : </p>
+                            <ul>
+                                <li>Nous gardons dans nos données le numéro de carte ainsi que les coordonnées du bénéficiaire </li>
+                                <li> En cas de perte nous saurons la retrouver </li>
+                                <li>La carte est valable 2 ans </li>
+                                <li> Nous relancerons régulièrement le bénéficiaire pour lui rappeler son cadeau et lui faire des propositions </li>
+                                <li>La carte est cessible</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script src="{{ base_url() }}/assets/js/validation.js"></script>
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+
+    jQuery(document).ready(function () {
+    'use strict';
+
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+    </script>
+{% endblock %}

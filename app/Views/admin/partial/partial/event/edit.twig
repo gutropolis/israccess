@@ -1,0 +1,66 @@
+
+
+<form action="" method="post">
+   {{mytable}}
+    <div class="form-group">
+        <label for="date">Event Date</label>
+        <input type="date" class="form-control{{ validatorError.date ? ' is-invalid' : '' }}" name="date" id="date" value="{{ oldInputs.date }}" placeholder="date"/>
+        {% if validatorError.date %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.date %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="eventgroup_id">Event Group ID</label>
+        <input type="text" class="form-control{{ validatorError.eventgroup_id ? ' is-invalid' : '' }}" name="eventgroup_id" id="eventgroup_id" value="{{ oldInputs.eventgroup_id }}" placeholder="eventgroup_id"/>
+        {% if validatorError.eventgroup_id %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.eventgroup_id %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	<div class="form-group">
+        <label for="city_id">City ID</label>
+        <input type="city_id" class="form-control{{ validatorError.city_id ? ' is-invalid' : '' }}" name="city_id" id="city_id" value="{{ oldInputs.city_id }}" placeholder="city_id"/>
+        {% if validatorError.city_id %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.city_id %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="auditorium_id">Auditorium ID</label>
+        <input type="auditorium_id" class="form-control{{ validatorError.auditorium_id ? ' is-invalid' : '' }}" name="auditorium_id" id="auditorium_id" placeholder="auditorium_id"/>
+        {% if validatorError.auditorium_id %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.auditorium_id %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	<div class="form-group">
+        <label for="status">Status</label>
+        <input type="text" class="form-control{{ validatorError.status ? ' is-invalid' : '' }}" name="status" id="status" placeholder="status"/>
+        {% if validatorError.status %}
+        <div class="invalid-feedback">
+            {% for msg in validatorError.status %}
+            <p class="mb-0">{{ msg }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+	   
+    <div class="float-right">
+        <button type="submit" class="btn btn-primary">Edit Event</button>
+        <a id="btn-annuler" class="btn btn-secondary" href="" role="button">Close</a>
+    </div>
+</form>
+

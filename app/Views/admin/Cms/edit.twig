@@ -1,0 +1,141 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+
+
+{% block maincontent %}
+<link href="{{ base_url() }}/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
+<link href="{{ base_url() }}/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.has_error{
+  border-color:red !important;
+}
+
+</style>
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ cms_data.title}} </h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  
+  <!--Begin::Section-->
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon m--hide"> <i class="la la-gear"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ cms_data.title}} </h3>
+            </div>
+          </div>
+        </div>
+        <!--begin::Form-->
+        <form class="m-form" id="edit_cms_from">
+          <div class="m-portlet__body">
+            <div class="m-form__section m-form__section--first">
+              <div class="row">
+                <div class="form-group  col-md-6">
+                 <label class="control-label" for=""> Enter Title</label>
+                 
+                  <input type="text" name="title" id="title" class="form-control" value="{{ cms_data.title}}"  >
+                   </div>
+              </div>
+              
+              
+              
+              
+              <div class="row">
+                <div class="form-group  col-md-12">
+                  <label class="control-label" for=""> Enter Description</label>
+                  <textarea class="form-control summernote" id="m_summernote_1" name="description" rows="1">{{ cms_data.description }}</textarea>
+                </div>
+              </div>
+          
+              
+              <div id="mesg_div_cms"></div>
+            </div>
+          </div>
+          <div class="m-portlet__foot m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions">
+              <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                 
+                  <input type="hidden" name="id" id="id" value="{{ cms_data.id }}">
+                  <button type="button" class="btn btn-primary" onclick="return updateCms();"> Save Changes </button>
+                  <button type="button" class="btn btn-secondary" onclick="history.back(-1);"> Cancel </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!--end::Form--> 
+      </div>
+      <!--end::Portlet--> 
+      
+      <!--begin::Portlet-->
+      
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+<!-- Model -->
+
+
+<!-- End Model  --> 
+<!-- Model -->
+
+<!-- End Model  --> 
+<!-- Model -->
+
+
+<!-- End Model  --> 
+{% endblock %}
+{% block footerscripts %} 
+
+<!--begin::Page Vendors --> 
+
+
+
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/summernote.js" type="text/javascript"></script> 
+
+
+<script src="{{ base_url() }}/assets/admin/dynamic_datatables/data-ajax-admin-cms-edit.js" type="text/javascript"></script> 
+<script>
+$('.summernote').summernote({
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+	
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['insert', ['picture', 'video', 'link']],
+	
+	
+  ]
+});
+
+$('.summertitle').summernote({
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+	
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+	
+	
+  ]
+});
+</script>
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 

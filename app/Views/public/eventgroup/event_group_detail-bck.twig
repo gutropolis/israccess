@@ -1,0 +1,475 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block headerstyles %}
+ <!-- Custom http://israel-access.comstyles for this template -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFXr1TbvRvut-VEKg5QIMIlj1OEUcCnvQ"></script>
+	 
+	  <!-- You can use Open Graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+ {% if eventdetailList|length >  0 %}
+	{% for eventgroup in eventdetailList %} 	
+		  <meta property="og:url"           content="{{ event_fb_url}}" />
+		  <meta property="og:type"          content="website" />
+		  <meta property="og:title"         content="{{eventgroup.event_group_title}}" />
+		  <meta property="og:description"   content="{{event_twitter_desc}}" />
+		  <meta property="og:image"         content="{{ egImgURL}}{{eventgroup.group_picture }}" />
+		  
+		  
+		 
+  
+	{% endfor %}
+{% endif %} 	
+ 
+{% endblock %} 
+{% block maincontent %}
+ {% if eventdetailList|length >  0 %}
+   {% for eventgroup in eventdetailList %} 		
+    <!--  Le cadeau spectacle Section Start Here
+                ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="{{ base_url()}}/category/{{eventgroup.event_category_id}}">{{catDetail.name}}</a></li>
+                            <li> |</li>
+                            <li><a href="#">{{eventgroup.event_group_title|striptags|raw}}</a></li>
+                            <li> |</li>
+                            <li> Réservation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection">
+            <div class="mesplacessection">
+                <div class="container-fluid">
+                    <div class="row">
+					
+                        <div class="col-lg-6 col-sm-12 col-md-6">
+                            <div class="productview">
+                                <div class="productimg"> <a data-fancybox="gallery" href="{{ egImgURL}}{{eventgroup.group_picture }}"><img src="{{ egImgURL}}{{eventgroup.group_picture }}"></a></div>
+                                <h1><a href="#">{{eventgroup.event_group_title|raw}}</a></h1>
+                                <h3>DU {{eventgroup.event_group_begin}} AU {{eventgroup.event_group_end }} </h3>
+                                <h4>En tournée à Tel {{eventgroup.event_group_cityname}} </h4>
+ 
+                                <h5> <a  href="javascript:void(0);" style="color: #a00057;" onclick="getModelEventGroup()" >Localisez les salles</a> </h5>
+
+                                <p> {{eventgroup.event_group_description|raw}}</p>
+
+                                <!--<p><span>Auteur :</span> <a href="#">Olivier Guedj</a><br> <span>Artiste :</span> <a href="#">Olivier Guedj</a><br><span>Metteur en scène :</span> <a href="#">Olivier Guedj</a></p>-->
+								<p>
+									<span>Auteur :</span> {{eventgroup.event_group_author_name}}<br> 
+									<span>Artiste :</span> {{eventgroup.event_group_artist_name}}<br>
+									<span>Metteur en scène :</span> {{eventgroup.event_group_director_name}}
+								</p>
+								
+
+                                <ul class="sociallink">
+								<!-- Your share button code -->
+  
+  
+                                    <li>
+									
+											 <div id="fb-root"></div>
+												<script>(function(d, s, id) {
+												  var js, fjs = d.getElementsByTagName(s)[0];
+												  if (d.getElementById(id)) return;
+												  js = d.createElement(s); js.id = id;
+												  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=119447995349669&autoLogAppEvents=1';
+												  fjs.parentNode.insertBefore(js, fjs);
+												}(document, 'script', 'facebook-jssdk'));</script>
+									
+									 
+											<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{event_fb_encode_url}}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore"> 
+											 <img src="{{ base_url() }}/assets/assets/img/facebook.png">
+											</a>
+									 
+										 
+
+								  </li>
+                                    <li> 
+									{% autoescape false %}
+										<a class="twitter-share-button"   href="https://twitter.com/intent/tweet?text={{event_twitter_desc}}"><img src="{{ base_url() }}/assets/assets/img/twitter.png"></a> 
+									{% endautoescape %}
+									     
+									</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-md-6">
+                            <div class="mcbSectionright">
+                                <div class="mcbSectionTitle">
+                                    <h2>mes places</h2>
+                                </div>
+
+                                <div class="mseContent">
+                                    <h4><a href="#"><span>à partir de</span>{{eventgroup.event_group_price_min}}  <strong>&#8362;</strong></a></h4>
+                                    <div class="mseImg">
+                                        <img src="{{ base_url() }}/assets/assets/img/galleryimg.png">
+                                        <a href="#">choisissez vos places sur plan</a>
+                                    </div>
+								
+												<div class="representationsCol">
+													<h3>représentations</h3>
+													<ul>
+													{% if eventListRep|length >  0 %}
+														{% for event in eventListRep %} 
+															
+														  
+															<li>
+																<span> {{event.rep_day}} {{event.rep_day_f}}<br />{{event.city_name}}   </span>
+																<a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}">{{event.rep_day_time}} </a>
+															</li>
+														 {% endfor %}
+													{% endif %}
+													</ul>
+												</div>
+									 
+									
+								 
+									
+                                    
+                                </div>
+                            </div>
+                            <div class="graycontnt">
+
+                            </div>
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+	  </div>
+	  <div class="mesfootsection">
+          <div class="container">
+          <div class="row">
+          	
+            <div class="mesLeft col-lg-8 ">
+               <div class="tabcontentArea mestab">
+                             <ul class="nav mcbTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="#Reserver" role="tab" data-toggle="tab">
+                                	Reserver
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#ensavoir" role="tab" data-toggle="tab">
+                                	en savoir+
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#infospratiques" role="tab" data-toggle="tab">
+                                	infos pratiques
+                                </a>
+                              </li> 
+                                
+                            </ul>                            
+                             <!-- Tab panes -->
+                             <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade active show" id="Reserver">
+                                  <div class="mescontent">
+                                  	<div class="calendarArea">
+									  <div id="ajaxCalendar">
+									   {{eventCalendar|raw}}
+									  </div>
+									  
+									   
+                                    </div>
+                                  </div>
+                              </div>
+                              
+                               <div role="tabpanel" class="tab-pane fade " id="ensavoir">
+                                   <div class="mescontent">
+								   
+								   {% if eventgroup.event_group_desc != '' %}
+										 
+									
+                                    	<div class="ensavoirRow">
+                                        	<h2>{{eventgroup.en_savoir_block1_name|raw}}</h2>                                            
+                                            <div class="ensavoirinner">
+                                            	 {{eventgroup.event_group_desc|raw}}
+                                            </div>
+                                        </div>
+									{% endif %}	
+									
+									 {% if commentEventGrpImageList|length >  0 %}
+												<div class="ensavoirRow">
+														<h2>des images</h2>                                            
+														<div class="videoinner">
+														{% for file in commentEventGrpImageList %} 
+															 <div class="videocon">
+															  <a data-fancybox="gallery" href="{{eventdetailImgURL}}{{file.file_name}}"><img src="{{eventdetailImgURL}}{{file.file_name}}"></a>
+																<!--<img src="{{eventdetailImgURL}}{{file.file_name}}">-->
+															 </div>
+														{% endfor %}     
+														</div>
+												 </div>
+										{% endif %}			
+										{% if commentEventGrpList|length >  0 %}
+											<div class="ensavoirRow">
+												<h2>commentaires récents</h2>                                            
+												<div class="ensavoirinner">
+												<!-- Loop Start here -->
+												{% for comment in commentEventGrpList %} 
+													<div class="recentspost">
+														<h1><a href="javascript:void;">{{comment.title}}</a> </h1>
+																<ul>{{comment.star_rating|raw}} </ul>
+														<p>{{comment.comments}}</p>  
+														<h3><a href="#">{{comment.signature}}</a></h3>
+													</div>
+												{% endfor %} 	
+												<!-- End here ----->	
+												</div>
+											</div>
+										{% endif %}	
+                                        {% if eventgroup.event_group_desc2 != '' %}
+										 
+									
+											<div class="ensavoirRow">
+												<h2>{{eventgroup.en_savoir_block2_name|raw}}</h2>                                            
+												<div class="ensavoirinner">
+													 {{eventgroup.event_group_desc2|raw}}
+												</div>
+											</div>
+										{% endif %}	
+									 {% if commentEventGrpVideoList|length >  0 %}
+												<div class="ensavoirRow">
+														<h2>des VideoS</h2>                                            
+														<div class="videoinner">
+														{% for file in commentEventGrpVideoList %} 
+															 <div class="videocon">
+																<a data-fancybox href="{{file.file_name}}"><img src="{{ videoImgURL}}{{file.video_img }}"></a>
+															 </div>
+														{% endfor %}     
+														</div>
+												 </div>
+										{% endif %}		
+                                         
+                                    </div>
+                              </div>
+                              
+                               <div role="tabpanel" class="tab-pane fade " id="infospratiques">
+                                   <div class="mescontent">
+								   
+							   {% if auditoriumList|length >  0 %}
+										{% for auditorium in auditoriumList %} 
+												<div class="ensavoirRow">
+													<h2>{{auditorium.auditorium_name}}</h2>                                            
+													<div class="addressRow">
+														<table style="width: 100%;">
+															<tr>
+																<td class="titletr"><strong>Adresse</strong></td>
+																<td>{{auditorium.auditorium_address}} </td>
+															</tr>
+															<tr>
+																<td class="titletr"><strong>accès</strong></td>
+																<td>{{auditorium.auditorium_access}} </td>
+															</tr>
+															<tr>
+																<td class="titletr"><strong>nom waze</strong></td>
+																<td>{{auditorium.auditorium_waze_name}}  </td>
+															</tr>
+															<tr class="bordernone">
+																<td class="titletr"><strong>un peu plus...</strong></td>
+																<td>{{auditorium.auditorium_detail|raw}}</td>
+															</tr>
+															
+															<tr class="bordernone">
+																<td colspan="2">
+																<div class="map"><iframe  width="100%" height="230" frameborder="0" style="border:0"  src="https://www.google.com/maps/embed/v1/place?q={{auditorium.auditorium_lat}},{{auditorium.auditorium_long}}&amp;key=AIzaSyDHfGhjeXPSD_N04C3W26FK3Vi2KcSz56Q"  allowfullscreen></iframe>
+																 <!--https://www.google.com/maps/embed/v1/view?key=AIzaSyDHfGhjeXPSD_N04C3W26FK3Vi2KcSz56Q&center={{auditorium.auditorium_lat}},{{auditorium.auditorium_long}}&zoom=18&maptype=satellite
+																 -->
+																</div>
+																</td>
+															</tr>
+														</table>
+													</div> 
+												</div>
+											  
+										{% endfor %}
+								{% endif %}
+								   
+								   
+									</div>
+                                   
+                              </div>
+                             </div>
+                         </div>
+            </div>
+            <div class="mesRight col-lg-4" id="cartItedDiv" style="display:none;">
+            	<div class="mesRightgrayInner">                	 
+                  <h2>ma sélection</h2>
+                  <div class="selectiontable" id="cartEvent" >
+                  	<!-- Ajax Bindation part ----->
+					
+					<!-- End here -------------->
+                  </div>      
+              </div>
+            </div>
+			
+			<div class="mesRight col-lg-4" id="divCommunity" >
+            	<div class="mesRightInner">
+                	<div class="logosection">
+               	    	<img src="{{ base_url() }}/assets/assets/img/logo-red-section.png" width="261" height="48">
+                    </div>
+                    
+                    <div class="redinner unchoix">
+                    	<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">an incomparable choice </font></font></h2>
+                    </div>
+                    
+                    <div class="redinner unservice">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a customer service at your service</font></font></h2>
+                    </div>
+                    
+                     <div class="redinner unpaiement">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100% secure payment</font></font></h2>
+                    </div>
+                    
+                     <div class="redinner unecommunaute">
+                    <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a community of passionate people</font></font></h2>
+                    </div>
+                    
+              </div>
+            </div>
+			 
+           
+          </div>
+          </div> 	 
+        </div>
+		
+		
+		
+		 <!-- A ne pas manquer Section End Here  ==================================================--> 
+			 <!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+					<div class="modal-content">
+					   
+					  <div class="modal-body">
+					   <div class="hantsoncopiemodel" id="modelbody">
+					   <!-- Google Map  ------------->
+					    <div id="map" style=" height: 400px;"></div>
+					
+					    <script type="text/javascript">
+							var locations = [
+											 {% if mapAudiEventList|length >  0 %}
+															{% for audiEvent in mapAudiEventList %} 
+																 ['{{audiEvent.event_info|raw}}','{{audiEvent.lat}}','{{audiEvent.lng}}',' {{loop.index}}'], 
+																  
+															{% endfor %}
+											 {% endif %}
+											 ];
+						
+								
+								var map = new google.maps.Map(document.getElementById('map'), {
+								  zoom: 3,
+								  center: new google.maps.LatLng(48.864716, 2.349014),
+								  mapTypeId: google.maps.MapTypeId.ROADMAP
+								});
+								var infowindow = new google.maps.InfoWindow();
+								var marker, i;
+								for (i = 0; i < locations.length; i++) {
+								  marker = new google.maps.Marker({
+									position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+									map: map
+								  });
+								  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+									return function() {
+									  infowindow.setContent(locations[i][0]);
+									  infowindow.open(map, marker);
+									}
+								  })(marker, i));
+								}
+							  </script>
+					   <!-- End Google map ------------>
+					   
+					   </div>
+					  </div>
+					   
+					</div>
+				  </div>
+				</div> 
+		
+	  {% endfor %}
+{% endif %}
+{% endblock %}
+{% block footerscripts %}
+   
+    <script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+    <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script>
+				/*jslint browser:true*/
+				/*global jQuery, document*/
+
+				jQuery(document).ready(function () {
+					'use strict';
+
+					jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+					 
+				});
+				function getCalendar(month,year){
+					$.ajax({
+						type: "get",
+						url: '{{ base_url() }}/ajaxcalleventgroup',
+						data: {month,year}
+					}).done(function( msg ) {
+						$( "#ajaxCalendar" ).html( msg );
+					});
+				}
+					
+			function getModelEventGroup(){ 
+					 $('#exampleModal').modal({
+						show:  true 
+					});     
+		   }
+		   
+		   $(".showEvn").click(function() {
+				//AJAX here that needs to know the ID
+				var evnt_id= $(this).attr('id');       
+				$.ajax({
+						type: "get",
+						url: '{{ base_url() }}/ajaxcallEventOrder',
+						data: {evnt_id}
+					}).done(function( msg ) {
+					 $( "#divCommunity" ).hide();
+					$( "#cartItedDiv" ).show();
+			
+						$( "#cartEvent" ).html( msg );
+					});
+			});
+    </script>
+	
+
+ 
+	
+	
+	<style>
+	.videocon a
+	{
+		display:flex;
+		    height: 170px;
+	}
+	.productimg img
+	{
+		width:auto;
+	}
+	</style>
+{% endblock %}

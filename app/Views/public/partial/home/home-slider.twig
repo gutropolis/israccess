@@ -1,0 +1,71 @@
+  
+            <!-- Home Content Section Start Here 
+  		    ==================================================--> 
+           <div class="homeTopcontent">
+           	<div class="slider">
+						<!--Slider start here -->
+						
+				<div id="carouselExampleIndicators" class="owl-carousel owl-theme" data-ride="carousel">
+						
+				{% if homeSliders|length >  0 %}
+					{% for slider in homeSliders %} 
+						<div class="item"><a href="{{slider.redirect_link}}">  <img class="d-block img-fluid"  src="{{sliderImgURL}}{{slider.slider_picture}}" alt="First slide"></a></div>
+					 {% endfor %}	
+					 
+				{% else %} 	
+							<div class="item"><a href="{{ base_url() }}/theater-comedy-01">  <img class="d-block img-fluid"  src="{{ base_url() }}/assets/assets/img/slider-1.png" alt="First slide"></a></div>				
+													 				  
+											 		 
+				{% endif %} 			 
+					
+							 
+							 
+						 
+						</div>   
+		 
+            </div>
+           <div class="directaccess">
+            	<h3>direct access</h3>
+                <div class="directaccessCol">
+							<form method="get" action="mysearch">
+									<div class="select-style">
+									<select name="type">
+										<option value="" >Par événement</option>
+											{% if searchCateogories|length >  0 %}
+											  {% for event in searchCateogories %}  
+												<option value="{{event.id}}" >{{event.name}}</option> 
+												{% endfor %}
+											{% endif %}
+									</select>
+									</div>
+									<div class="select-style">
+									<select name="location">
+										<option value="" >Par ville</option>
+										{% if city|length >  0 %}
+											  {% for ct in city %}  
+												<option value="{{ct.id}}" >{{ct.name}}</option> 
+												{% endfor %}
+											{% endif %}
+									</select>
+										 <i class="fas fa-map-marker-alt"></i>
+									</div>                  
+									<div class="inputrow" id="filters">
+										<label><input type="text" placeholder="Par date De-A" name="daterange" id="daterange"> <i class="far fa-calendar-alt"></i> </label>
+									</div>
+									<button  class="dabtn" >c’est parti</button>
+									 
+							</form>
+                </div>
+                <div class="pictosCon">
+                	<ul>
+                    	<li><a href="javascript:void()" data-toggle="modal" data-target="#Modal6"><img src="{{ base_url() }}/assets/assets/img/psa.png" width="37" height="39"> <br> a ne pas manquer</a></li>
+                    	<li><a href="javascript:void()" data-toggle="modal" data-target="#Modal6"><img src="{{ base_url() }}/assets/assets/img/hui.png" width="37" height="39"> <br> aujourd’hui on sort</a></li>
+                    	<li><a href="javascript:void()" data-toggle="modal" data-target="#Modal6"><img src="{{ base_url() }}/assets/assets/img/spec.png" width="37" height="39"> <br> cadeau  spectacle</a></li>
+						
+						<!-- href="{{ base_url() }}/order"-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+            <!-- Home Content  Section End Here 
+  		    ==================================================-->      

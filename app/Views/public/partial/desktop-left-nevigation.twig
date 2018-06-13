@@ -1,0 +1,29 @@
+ <!-- Left Side Start Here  ==================================================-->
+    	   <div class="left-side">
+                <div class="col-lg-12">
+                    <ul>
+					 
+						{% if leftMenuCateogories|length >  0 %}
+								{% for cat in leftMenuCateogories %} 
+								 
+                                    <li ><a href="{{ path_for('category-events', { 'id':  cat.id }) }}"   {% if active_category and active_category == cat.id  %} class="active" {%  endif  %}  ><figure><img src="{{ categoryURL}}{{cat.picto_file }}"   ></figure><span>{{ cat.name }} </span></a> </li>
+								{% endfor %}
+						{% endif %}
+ 
+                        <li><a href="javascript:void()" data-toggle="modal" data-target="#Modal6" {% if giftitem and giftitem == '1'  %} class="active" {%  endif  %}  ><figure><img src="{{ base_url() }}/assets/assets/img/icon-n-7.png"    class="activeicon"></figure><span>Le cadeau spectacle</span></a></li>
+                        <li><a href="{{ base_url() }}/la-communaute" {% if communitynev and communitynev == '1'  %} class="active" {%  endif  %}   ><figure><img src="{{ base_url() }}/assets/assets/img/icon-n-8.png"   class="activeicon"></figure><span>la communauté cultur <strong class="text-pink">access</strong></span></a></li>
+
+				       <!--
+					    <li><a href="{{ base_url() }}/theater-comedy">Théâtre / Humour</a></li>
+                    	<li><a href="{{ base_url() }}/concerts-musique">Concerts / Musique</a></li>
+                    	<li><a href="{{ base_url() }}/opera-danse" class="active">Opera / Danse</a></li>
+                    	<li><a href="{{ base_url() }}/culture-expos">culture / Expos</a></li>
+                    	<li><a href="{{ base_url() }}/tourisme-visite-guide">Tourisme / visite guidée</a></li>
+                    	<li><a href="{{ base_url() }}/sports-loisirs">sports / loisirs</a></li>
+                    	<li><a href="{{ base_url() }}/order">Le cadeau spectacle</a></li>
+                    	<li><a href="{{ base_url() }}/culturaccess-community">la communauté cultur<span>access</span></a></li>
+                    	-->
+                    </ul>
+                </div>
+         	</div>
+<!-- Left Side End Here  ==================================================-->

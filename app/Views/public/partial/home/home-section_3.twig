@@ -1,0 +1,90 @@
+  {% if concertEvents|length >  0 %}
+<!-- Carousel Section Start Here    		    ==================================================--> 
+<div class="ligneSection ligneSection-white">
+             <div class="container">
+                <div class="row">
+                    
+                    
+                   
+                     
+					   <div class="col-lg-12">
+							<h2>Se faire plaisir, s’évader, <span>être heureux !</span></h2>
+						</div> 
+					    <div class="owl-carousel owl-theme">
+									{% for event in concertEvents %} 
+									 <div class="item">
+										 <div class="col-lg-12">
+											<div class="ligneBox">
+												<div class="ligneImg"><img src="{{ egImgURL}}{{event.group_picture }}"></div>
+												<div class="lignedetails">
+													<h1>{{event.event_group_title}}</h1>                                    
+											         <p><span>en tournée</span> à partir du {{event.event_group_begin }}</p>
+													
+													<div class="showonhover"><a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}">RÉSERVER</a></div>
+												</div>
+											</div>
+										 </div>
+										</div> 
+									{% endfor %}
+							  <div class="item">
+									 <div class="col-lg-12">
+										<div class="ligneBox tousbox">
+											 <h4>tous nos évènements</h4>
+											 <ul>
+																		{% if sectionSlider|length >  0 %}
+																			{% for cat in sectionSlider %}  
+																			  <li><a href="{{ path_for('category-events', { 'id':  cat.id }) }}"  {% if secondCatId ==   cat.id %}class="active"{% endif %} >{{ cat.name }}</a></li>
+																				
+																			{% endfor %}
+																		{% endif %}
+<!--
+												<li><a href="{{ base_url() }}/theater-comedy">théâtre/humour</a></li>
+
+												<li><a href="{{ base_url() }}/concerts-musique" class="active">concerts / musique</a></li>
+												
+												<li><a href="{{ base_url() }}/opera-danse">opéra / danse</a></li>
+												
+												<li><a href="#">jeune public</a></li> -->
+											 </ul>
+										</div>
+									 </div>
+								</div> 
+							</div>
+				 
+				   
+								  
+					<!--			 
+                        <div class="item">
+                         <div class="col-lg-12">
+                         	<div class="ligneBox">
+                            	<div class="ligneImg"><img src="{{ base_url() }}/assets/assets/img/ligne-6.jpg"></div>
+                                <div class="lignedetails">
+                                	<h1>TAKE THAT </h1>                                    
+                                    <p><span>park hayarkon</span>le 21/06/2018</p>
+                                    
+                                    <div class="showonhover"><a href="{{ base_url() }}/theater-comedy-01">RÉSERVER</a></div>
+                                </div>
+                            </div>
+                         </div>
+					 
+                        </div>
+                        <div class="item">
+                         <div class="col-lg-12">
+                         	<div class="ligneBox">
+                            	<div class="ligneImg"><img src="{{ base_url() }}/assets/assets/img/ligne-7.jpg"></div>
+                                <div class="lignedetails">
+                                	<h1>LIOR NARKIS</h1>                                    
+                                    <p><span>amphithéâtre de</span> le 04/05/2018</p>
+                                    
+                                    <div class="showonhover"><a href="{{ base_url() }}/theater-comedy-01">RÉSERVER</a></div>
+                                </div>
+                            </div>
+                         </div>
+                        </div>   
+						-->	 						
+                                           
+                </div>
+             </div>
+        	</div>
+<!-- Carousel Section Start Here    		    ==================================================-->
+{% endif %}	

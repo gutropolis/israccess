@@ -1,0 +1,386 @@
+ 
+  <!-- Footer Start Here 
+  ==================================================-->
+ 	<footer>
+    	<div class="container">
+          <div class="row">
+            <!-- Footer Left Side Start Here 
+  		   ==================================================--> 	
+    	   <div class="foot-left-side">
+                <div class="col-lg-12">
+                     <a href="#"><img src="{{ base_url() }}/assets/assets/img/footlogo.png" width="261" height="48"></a>
+                     <h3>culturaccess © 2018 Tous droits réservés</h3>
+                     <ul>
+                        <li><a href="{{setting.facebook_link}}"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{setting.facebook_link}}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{setting.instagram_link}}"><i class="fab fa-instagram"></i></a></li>
+                    </ul>  
+                                      
+                </div>
+         	</div>
+            <!-- Footer Left Side End Here 
+  		   ==================================================-->
+           
+           <!-- Footer Right Side Start Here 
+  		   ==================================================--> 	
+           <div class="foot-right-side">
+         	    <div class="col-lg-12">
+                	<div class="newslatterCon">
+                    	<h2>INFOS ET OFFRES EXCLUSIVES, inscrivez vous à notre newsletter</h2>
+                        <div class="newslatterForm">
+                        	<input name="" type="text" placeholder="votre e-mail">
+                            <input name="" type="button" value="biensur" class="ne-btn">
+                        </div>
+                    </div>
+                    
+                    <div class="foot-nav">
+                    	<ul>
+                        	<li><a href="{{ base_url() }}/home">Accueil </a></li>
+                            <li><a href="javascript:void()" data-toggle="modal" data-target="#exampleModal">Mon compte</a></li>
+                            <li><a href="javascript:void()" data-toggle="modal" data-target="#Modal1">mon panier</a></li>
+                            <li><a href="{{ base_url() }}/contactus">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-nav">
+                    	<ul>
+                        	<li><a href="{{ base_url() }}/category/389">Théâtre / humour</a></li>
+                            <li><a href="{{ base_url() }}/category/390">concerts / musique</a></li>
+                            <li><a href="{{ base_url() }}/category/391">opéra / danse</a></li>
+                            <li><a href="{{ base_url() }}/category/392">Expos  musées</a></li>
+                            <li><a href="{{ base_url() }}/category/393">visites guidées</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-nav">
+                    	<ul>
+                        	<li><a href="#">excursions / tourisme</a></li>
+                            <li><a href="{{ base_url() }}/category/394">Sports / loisirs</a></li>
+                            <li><a href="#">libre access</a></li>
+                            <li><a href="{{ base_url() }}/order">Cadeau spectacle</a></li>
+                            <li><a href="{{ base_url() }}/culturaccess-community">la communauté culturaccess</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-nav">
+                    	<ul>
+                        	<li><a href="#">ISRAEL ACCESS</a></li>
+                            <li><a href="#">Rezo culture</a></li>
+                            <li><a href="#">event access</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot-nav">
+                    	<ul>
+                        	<li><a href="#">crédits</a></li>
+                            <li><a href="#">mentions légales</a></li>
+                            <li><a href="#">conditions générales</a></li>
+                        </ul>
+                    </div>
+                </div>
+           </div>
+           <!-- Footer Right Side End Here
+  		   ==================================================--> 
+           
+            <!-- Mobile Footer Left Side Start Here 
+  		   ==================================================--> 	
+    	   <div class="mobofoot foot-left-side">
+                <div class="col-lg-12">
+                     <a href="#"><img src="{{ base_url() }}/assets/assets/img/footlogo.png" width="261" height="48"></a>
+                     <h3>culturaccess © 2018 Tous droits réservés</h3>
+                     <ul>
+                        <li><a href="{{setting.facebook_link}}"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{setting.facebook_link}}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{setting.instagram_link}}"><i class="fab fa-instagram"></i></a></li>
+                    </ul>  
+                                      
+                </div>
+         	</div>
+            <!-- Mobile Footer Left Side End Here 
+  		   ==================================================-->	
+          </div>
+        </div>
+    </footer>
+  <!-- Footer  End Here
+  ================================================== --> 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal_element">
+      <div class="modal-header">
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_block">
+			<div class="col-md-6">
+				<div class="modal_block-content">
+				<h3>PAS ENCORE MEMBRE <span>Je crée mon profil</span></h3>
+
+					<p>Avec un compte sur CulturAccess :</p>
+					<ul>
+						<li>Je fais partie d'une communauté passionnée de toutes les cultures</li>
+						<li>Je simplifie mes réservations  </li>
+						<li>J'ai un accès direct à mes billets imprimables  </li>
+						<li>J'ai un statut privilégié : je suis informé en priorité </li>
+					</ul>
+					<a href="{{base_url()}}/registration" class="dark_pin-btn">je créé mon compte</a>
+				</div>
+			</div>
+			<div class="col-md-6">
+					<div class="modal_block-content">
+								<h3>déjà membre<span>Je m’identifie</span></h3>
+
+								<form id="myformpopup" >
+									<div class="login_profile">
+									<div class="form-group">
+										<input name="email" id="emailpopup"  type="text" placeholder="Email">
+									</div>
+									<div class="form-group">
+										<input name="password" id="passwordpopup"  type="password" placeholder="Mot de passe">
+									</div>
+									<p><a href="javascript:void()" id="forget-pass">Mot de passe oublié ?</a></p>
+									
+									
+									<div class="inputcol meconnecterbtn">
+										<input type="submit" id="btnloginpopup"  value="me connecter" class="dark_pin-btn" /> 
+									</div>
+                                    <div class="form-group">
+										<div id="loginpop_result" style="text-align:center;"></div> 
+									</div>
+									</div>
+									<div class="forget_password">
+										<div class="form-group ">
+										<label class="text-left">Entrer votre Email</label>
+										<input name="forgetemail" id="forgetemail"  type="text" placeholder="Email">
+									</div>
+									<div class="inputcol meconnecterbtn">
+										<input type="submit" id="btnloginpopup1"  value="me connecter" class="dark_pin-btn" /> 
+									</div>
+									<div class="form-group">
+										<div id="forget_result" style="text-align:center;"></div> 
+									</div>
+									</div>
+								</form>
+								
+					
+					</div>
+			</div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bonjouar_element">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_block">
+        <div class="col-md-12">
+			<div class="modal_block-content">
+			<h3>Bonjour Alain, </h3>				
+				<ul>
+					<li><a href="#">Mes commandes </a></li>
+					<li><a href="#">Accéder à vos coordonnées </a></li>
+					<li><a href="#"> Envoyer un mail à traitement prioritaire  </a></li>
+				</ul>
+				<!-- <a href="{{base_url()}}/account" class="dark_pin-btn">Je Cree Mon Compte</a> -->
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- map popup -->
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bonjouar_element">
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_block">
+        <div class="col-md-12">
+			 <div class="hantsoncopiemodel" >
+					   <!-- Google Map  ------------->
+					    <div id="map" style=" height: 400px;"></div>
+					
+					    <script type="text/javascript">
+							var locations = [
+											 {% if mapAudiEventList|length >  0 %}
+															{% for audiEvent in mapAudiEventList %} 
+																 ['{{audiEvent.event_info|raw}}','{{audiEvent.lat}}','{{audiEvent.lng}}',' {{loop.index}}'], 
+																  
+															{% endfor %}
+											 {% endif %}
+											 ];
+						
+								
+								var map = new google.maps.Map(document.getElementById('map'), {
+								  zoom: 8,
+								  center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+								  mapTypeId: google.maps.MapTypeId.ROADMAP
+								});
+								var infowindow = new google.maps.InfoWindow();
+								var marker, i;
+								for (i = 0; i < locations.length; i++) {
+								  marker = new google.maps.Marker({
+									position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+									map: map
+								  });
+								  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+									return function() {
+									  infowindow.setContent(locations[i][0]);
+									  infowindow.open(map, marker);
+									}
+								  })(marker, i));
+								}
+								
+					 
+							  </script>
+					   <!-- End Google map ------------>
+					   
+					   
+					   </div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- payment popup -->
+<div class="modal fade" id="Modal3" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content pay_element">
+      
+      <div class="modal-body modal_block">
+        <div class="col-md-12">
+			<div class="modal_block-content">
+			<h4>votre paiement <span>par carte cadeau ou pilier<span></h4>				
+				<div class="actionsection actionsection_popup">
+        <div class="asCon">
+            <div class="asLT">
+                <p>MONTANT TOTAL des billets</p>
+            </div>
+            <div class="asRT">
+
+                <p><b>{{ total }} <span>&#8362;</span></b></p>
+            </div>
+        </div>
+        <div class="asCon">
+            <div class="asLT">
+                <p>frais de réservation</p>
+            </div>
+            <div class="asRT">
+                <p><b>400 <span>&#8362;</span></b></p>
+            </div>
+        </div>
+
+
+        <div class="asCon blackcol">
+            <div class="asLT">
+                <p>RESTE À RÉGLER</p>
+            </div>
+            <div class="asRT">
+                <p class="text-pink"><b>{{totalamount}} <span>&#8362;</span></b></p>
+            </div>
+        </div>
+       
+    </div>
+				<a href="#" class="dark_pin-btn">I settled the balance</a>
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- reservation popup -->
+<div class="modal fade" id="Modal4" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content pay_element">
+      
+      <div class="modal-body modal_block">
+        <div class="col-md-12">
+			<div class="modal_block-content">
+			<h4>votre paiement <span>par carte cadeau ou pilier<span></h4>				
+				<div class="actionsection actionsection_popup">
+        
+        <div class="asCon blackcol">
+            <div class="asLT">
+                <p>Amount to be paid</p>
+            </div>
+            <div class="asRT">
+                <p class="text-pink"><b>{{totalamount}} <span>&#8362;</span></b></p>
+            </div>
+        </div>
+		<form>
+			<div class="form-group">            
+				<input type="text" Placeholder="Mon numero de carte cadeau" />			
+			</div>
+       </form>
+    </div>
+				<a href="#" class="dark_pin-btn">I settled the balance</a>
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div>
+<!-- logo popup -->
+<div class="modal fade" id="Modal6" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content pay_element">
+      
+      <div class="modal-body modal_block">
+        <div class="text-center">
+			<div class="modal_logo_box">
+			<h5>Toute l’équipe</h5>				
+				<div class="">                
+            
+				<figure><img  src="{{ base_url() }}/assets/assets/img/logo.png"  alt="logo" /></figure>
+				  <p >est mobilisée pour vous présenter une version achevée du site.</p>
+
+				  <p >Très bientôt tout fonctionnera sur <a href="#" class="text-pink block_element">culturaccess.com</a> 
+     
+		
+			</div>
+				
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div>
+ {% if is_popup_show== '1' %}
+<div class="modal fade" id="coming-soon" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content coming-soon">
+      
+      <div class="modal-body coming-soon">
+        <div class="text-center">
+			<div class="modal_logo_box">
+			<figure><img  src="{{ base_url() }}/assets/assets/img/home-coming.jpg"  alt="logo" /></figure>		
+				
+				
+			</div>
+		</div>
+		
+      </div>
+     
+    </div>
+  </div>
+</div> 
+ {% endif %}

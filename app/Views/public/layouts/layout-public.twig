@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ base_url() }}/assets/assets/img/favicons/favicons.png">
+
+    <title>Cultur Access :: Home </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ base_url() }}/assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ base_url() }}/assets/css/layout.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/css/responsive.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/css/fontawesome.css" rel="stylesheet"> 
+     <link rel="stylesheet" href="{{ base_url() }}/assets/css/owl.carousel.css">
+    
+    <!-- Google Fonts styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet"> 
+    <!-- == Header Style  here ========== -->
+		{% block headerstyles %}{% endblock %} 
+    <!-- Footer scripts end here  ------------------>
+   </head>
+  <body>
+  {% include './public/partial/topbar.twig' %}
+  {% include './public/partial/header.twig' %} 
+  <!-- Wrapper Start Here 
+  ==================================================-->
+  	<section class="wrapper">
+         {% include './public/partial/mobile-left-nevigation.twig' %}
+    	<div class="container">
+			  <div class="row">
+			  {% include './public/partial/desktop-left-nevigation.twig'%}
+			   
+			   <!-- Right Side Start Here 
+			   ==================================================--> 	
+			   <div class="right-side">
+					 <!-- == Main Content  start here ========== -->
+					     {% block maincontent %}
+						 {% endblock %} 
+					<!-- End of content here  ------------------>
+			   </div>
+			   <!-- Right Side End Here  =================================================--> 	
+			  </div>
+        </div>
+    </section>  
+  <!-- Wrapper End Here 
+  ==================================================-->  
+  
+  <!-- Footer Start Here  ==========================-->
+ 	 {% include './public/partial/footer.twig'%}  
+  <!-- Footer  End Here   ========================== --> 
+   
+ 
+  	
+ 
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->	 	
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>	
+	<script> 
+	
+	
+		$( "#btnloginpopup1" ).click(function() {
+					var forgetemail = $("#forgetemail").val();
+					
+					   
+
+				    $.ajax({
+							type: "get",
+							url: '{{ base_url() }}/forget-pwd',
+							data: { email:forgetemail },  
+							success: function( data ) {
+								//var obj = jQuery.parseJSON( data);
+								 var obj = data;
+								console.log(obj.status);console.log(obj.msg);
+								if(obj.status === '1'){
+									$("#forget_result").html('<div class="alert alert-info" role="alert"><strong>Success!</strong> '+obj.msg+'.</div>');
+									
+									 
+									
+									
+								}else{
+									$("#forget_result").html('<div class="alert alert-danger" role="alert"><strong>Sorry!</strong> '+obj.msg+'.</div>');
+								}
+								
+								return false;
+							}
+					});
+					return false;
+					 
+		});
+		 
+		
+		$("#myformpopup").submit(function(){
+			  
+			   //alert('Welcome to full registration');
+				 
+					var email = $("#emailpopup").val();
+					var password = $("#passwordpopup").val();
+					 
+				    $.ajax({
+							type: "get",
+							url: '{{ base_url() }}/login',
+							data: { email:email, password:password },  
+							success: function( data ) {
+								//var obj = jQuery.parseJSON( data);
+								 var obj = data;
+								console.log(obj.status);console.log(obj.msg);
+								if(obj.status === '1'){
+									$("#loginpop_result").html('<div class="alert alert-info" role="alert"><strong>Success!</strong> '+obj.msg+'.</div>');
+									
+									location.href ='{{base_url()}}/mon-compte/mes-commandes';
+									
+									
+								}else{
+									$("#loginpop_result").html('<div class="alert alert-danger" role="alert"><strong>Sorry!</strong> '+obj.msg+'.</div>');
+								}
+								
+								return false;
+							}
+					});
+					return false;
+		   
+		});  
+	</script>	
+		
+    <script>window.jQuery || document.write('<script src="{{ base_url() }}/assets/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{{ base_url() }}/assets/assets/js/vendor/popper.min.js"></script>
+    <script src="{{ base_url() }}/assets/js/bootstrap.min.js"></script>
+    <script src="{{ base_url() }}/assets/js/script.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	
+	
+    <!-- == Footer Scripts start here ========== -->
+		{% block footerscripts %} {% endblock %} 
+	 <!-- Footer scripts end here  ------------------>
+	
+
+  </body>
+</html>

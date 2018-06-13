@@ -1,0 +1,400 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+
+    <!--  Le cadeau spectacle Section Start Here
+  		    ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="#">Accueil</a></li>
+                            <li> |</li>
+                            <li> Mes commandes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection myordersection">
+            <div class="mesplacessection">
+                <div class="container-fluid">
+                    <div class="tabcontentArea mestab">
+                        <ul class="nav mcbTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#mes-1" role="tab" data-toggle="tab">
+                                    mes commandes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#mes-2" role="tab" data-toggle="tab">
+                                    MES coordonnées
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#mes-3" role="tab" data-toggle="tab">
+                                    MES coordonnées
+                                </a>
+                            </li>
+
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade active show" id="mes-1">
+
+                                <div class="myorderstabInner">
+                                    <h3>iNFORMATIONS CONCERnanT votre achat de billets</h3>
+                                    <div class="orderrow">
+                                        <h5>1</h5>
+                                        <div class="orderCol">
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>éVèNEMENT</h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <p><span class="red">OLIVIER GUEDJ</span> |<strong> «OLIVIER GUEDJ VOUS REDONNE LE SOURIRE» </strong>|<span class="red"> HABIMOT ASHDOD / DIM 15/07 20H30</span>  </p>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="ltOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>N° de commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">12765895</span>  </p>
+                                                    </div>
+                                                </div>
+                                                <div class="rtOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>montant de  la commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">400NIS / 2 Places </span>  </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>Placement </h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <p><span class="red">Porte P 	Rang 28 	Place 31 	Fauteuil<br> Porte P 	Rang 28 	Place 32 	Fauteuil  </span>  </p>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>Impression De mes E-Tickets </h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <div class="orderColLt1">
+                                                        <p>Les E-Tickets sont munis d’un code barre qui autorise l’accès à l’événement à un seul spectateur.
+                                                            En cas de perte ou d’une double duplication seule la première personne détentrice du billet pourra accéder à l’évènement. </p></div>
+                                                    <div class="imgcon"><a href="#"><img src="{{ base_url() }}/assets/assets/img/ticket.png"></a></div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="orderrow">
+                                        <h5>2</h5>
+                                        <div class="orderCol">
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>éVèNEMENT</h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <p><span class="red">OLIVIER GUEDJ</span> |<strong> «OLIVIER GUEDJ VOUS REDONNE LE SOURIRE» </strong>|<span class="red"> HABIMOT ASHDOD / DIM 15/07 20H30</span>  </p>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="ltOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>N° de commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">12765895</span>  </p>
+                                                    </div>
+                                                </div>
+                                                <div class="rtOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>montant de  la commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">400NIS / 2 Places </span>  </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>Placement </h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <p><span class="red">Porte P 	Rang 28 	Place 31 	Fauteuil<br> Porte P 	Rang 28 	Place 32 	Fauteuil  </span>  </p>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>Impression De mes E-Tickets </h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <div class="orderColLt1">
+                                                        <p>Les E-Tickets sont munis d’un code barre qui autorise l’accès à l’événement à un seul spectateur.
+                                                            En cas de perte ou d’une double duplication seule la première personne détentrice du billet pourra accéder à l’évènement. </p></div>
+                                                    <div class="imgcon"><a href="#"><img src="{{ base_url() }}/assets/assets/img/ticket.png"></a></div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <h3>MON HISTORIQUE DE COMMANDE </h3>
+                                    <div class="orderrow">
+
+                                        <div class="orderCol">
+                                            <div class="orderinner">
+                                                <div class="orderColLt">
+                                                    <h4>éVèNEMENT</h4>
+                                                </div>
+                                                <div class="orderColRt">
+                                                    <p><span class="red">OLIVIER GUEDJ</span> |<strong> «OLIVIER GUEDJ VOUS REDONNE LE SOURIRE» </strong>|<span class="red"> HABIMOT ASHDOD / DIM 15/07 20H30</span>  </p>
+                                                </div>
+                                            </div>
+                                            <div class="orderinner">
+                                                <div class="ltOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>N° de commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">12765895</span>  </p>
+                                                    </div>
+                                                </div>
+                                                <div class="rtOrderrow">
+                                                    <div class="orderColLt">
+                                                        <h4>montant de  la commande</h4>
+                                                    </div>
+                                                    <div class="orderColRt">
+                                                        <p><span class="red">400NIS / 2 Places </span>  </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade " id="mes-2">
+                                <div class="coordinatestab">
+                                    <div class="leftcoor">
+                                        <div class="coorform">
+                                            <h3>Confirmer ou modifier mon profil </h3>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                    <h4>Changer mon adresse mail</h4>
+													<form name="myform" id="myform" action="{{base_url()}}/updateemail" method="post" validate="true" >
+                                                    <div class="inputcol">
+                                                        <input name="mymail" type="text" placeholder="nergy@laposte.net">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="nymail" type="text" placeholder="Nouvelle adresse e-mail" id="nymail">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="cymail" type="text" placeholder="Confirmer adresse e-mail"  >
+                                                    </div>
+
+                                                    <div class="inputcol meconnecterbtn">
+                                                        <input name="submit" type="submit" value="envoyer" >
+                                                    </div>
+													</form>
+                                                </div>
+                                            </div>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                    <h4>Changer mon mot de passe </h4>
+													<form name="changepass" id="changepass" action="{{base_url()}}/updatepass" method="post">
+                                                    <div class="inputcol">
+                                                        <input name="mypass" type="text" placeholder="Mot de passe annuel">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="nypass" type="text" placeholder="Nouveau mot de passe" id="nypass">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="cypass" type="text" placeholder="Confirmer mot de passe"  >
+                                                    </div>
+
+                                                    <div class="inputcol meconnecterbtn">
+                                                        <input name="submit" type="submit" value="envoyer" >
+                                                    </div>
+													</form>
+                                                </div>
+                                            </div>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                    <h4>Modifier des éléments de mon profil </h4>
+													<form id="uform" name="uform"action="{{base_url()}}/edituser" method="post">
+                                                    <div class="inputcol">
+                                                        <input name="address" type="text" placeholder="Mot de passe annuel" required>
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="street" type="text" placeholder="34, rue Drouot">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="addressline" type="text"  >
+                                                    </div>
+
+                                                    <div class="inputcol inputcolLt">
+                                                        <input name="postalcode" type="text" placeholder="75009">
+                                                    </div>
+                                                    <div class="inputcol inputcolRt">
+                                                        <input name="country" type="text" placeholder="PARIS">
+                                                    </div>
+
+                                                    <div class="inputcol inputcolLt">
+                                                        <input name="phoneno" type="text" placeholder="+972 54 57 89644">
+                                                        <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                    </div>
+                                                    <div class="inputcol inputcolRt">
+                                                        <div class="select-style">
+                                                            <select name="language">
+                                                                <option name="FRANCE">FRANCE</option>
+                                                                <option name="ENGLISH">ENGLISH</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="inputcol">
+                                                        <input name="email" type="text" placeholder="nergy@laposte.net">
+                                                    </div>
+
+
+
+                                                    <div class="inputcol meconnecterbtn">
+                                                        <input name="name" type="submit" value="envoyer" >
+                                                    </div>
+													</form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rightcoor">
+                                        <div class="mesRight">
+                                            <div class="mesRightInner">
+                                                <div class="logosection">
+                                                    <img src="{{ base_url() }}/assets/assets/img/logo-red-section.png" width="261" height="48">
+                                                </div>
+
+                                                <div class="redinner unchoix">
+                                                    <h2>un choix incomparable </h2>
+                                                </div>
+
+                                                <div class="redinner unservice">
+                                                    <h2>un service client à votre écoute</h2>
+                                                </div>
+
+                                                <div class="redinner unpaiement">
+                                                    <h2>un paiement 100% sécurisé</h2>
+                                                </div>
+
+                                                <div class="redinner unecommunaute">
+                                                    <h2>une communauté de passionnés</h2>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <img src="{{ base_url() }}/assets/assets/img/logoh.png" width="100%" class="logoh">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade " id="mes-3">
+                                <div class="coordinatestab">
+                                    <div class="fullcoor">
+
+                                        <p>Parce que vous êtes la raison d’être Culturaccess...<br>Parce que vous adhérer à un projet culturel d’envergure...<br>Parce que pour nous, vous êtes unique...</p>
+                                        <p><span>Alors votre mail sera traité en priorité absolue et nous ferons tout pour accéder à votre demande, c’est un engagement.</span></p>
+                                        <div class="formSection">
+
+
+                                            <div class="cscforminner">
+
+                                                <div class="inputcol inputcol33">
+                                                    <label>De : </label>
+                                                    <input name="" type="text" placeholder="nergy@laposte.net">
+                                                </div>
+                                                <div class="inputcol inputcol33">
+                                                    <label>à :</label>
+                                                    <input name="" type="text" placeholder="logginpriority@culturaccess.com">
+                                                </div>
+                                                <div class="fullcoortext">
+                                                    <textarea name="" cols="" rows="" placeholder="Votre message"></textarea>
+                                                </div>
+
+                                                <div class="inputcol meconnecterbtn">
+                                                    <input name="" type="button" value="envoyer" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block footerscripts %}
+
+    <script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+    <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+    <script src="{{ base_url() }}/assets/js/ordervalidation.js"></script>
+   <script src="{{ base_url() }}/assets/js/edituser.js"></script>
+
+    <script>
+        /*jslint browser:true*/
+        /*global jQuery, document*/
+
+        jQuery(document).ready(function () {
+            'use strict';
+
+            jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+        });
+		
+    </script>
+{% endblock %}

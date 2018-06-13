@@ -1,0 +1,243 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+
+    <!--  Le cadeau spectacle Section Start Here
+                 ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li>{{catDetail.name}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection">
+            <div class="ligne1Section">
+                <div class="container-fluid">
+					<div class="row white-row">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							 <div class="row">
+							 {% if eventlistSection1|length >  0 %} 
+							 {% for event in eventlistSection1 %}  
+ 									
+									  <div class="col-sm-6 mb-4">
+                                       	<div class="ligneBox">
+												<div class="ligneImg">
+												{%if event.event_group_status==0%}
+												<a href="javascript:void(0);"><img src="{{ egImgURL}}{{event.group_picture }}">
+												</a>
+												{%else%}
+												<a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}"><img src="{{ egImgURL}}{{event.group_picture }}">
+												</a>
+												{%endif%}
+												</div>
+												<div class="lignedetails">
+													 <h1>{{event.event_group_cardtitle|raw}}</h1>                                    
+														<p>{%if event.event_city!=''%}
+														<span>
+														{{event.event_city.name}}
+														</span>
+														{%endif%}
+														
+														{%if event.event_f_t!=''%}
+														<span> 
+														 {%if event.event_group_total_events > 1 %} En tournée{%else%}{{event.event_group_cityname}}{%endif%} 
+														</span> 
+														{{event.event_f_t |raw}}</p>
+														{%endif%}
+													<div class="showonhover">
+													{%if event.event_group_status==0%}
+													<a href="javascript:void(0);"> BIENTÔT DISPONIBLE</a>
+													{%else%}
+													<a href="{{ path_for('eventgroupdetail', { 'id':  event.event_group_id }) }}">RÉSERVER</a>
+													{%endif%}
+													</div>
+												</div>
+											</div>
+                                    </div>   
+							{% endfor %}
+						  
+							{% endif %}
+                         
+							 {% if pages > 1 %}
+							<div class="col-lg-12">
+							
+								<div class="pagelink">
+									 <ul >
+													 {% if pages > 1 %}
+
+														 {% set range = 5 %}
+
+														 {% if page != 1 %}
+															 <li > <a href="?page=1">précédent</a></li>
+														 {% endif %}
+
+														 {% set prev = page - 1 %}
+
+														 {% if  page > 1 %}
+															 <li >   <a href="?page={{prev}}">  <  </a></li>
+														 {% endif %}
+
+														 {% for i in (page - range)..((page + range) + 1) %}
+
+															 {% if (i > 0) and (i <= pages) %}
+																 <li >   <a href="?page={{i}}" {% if page == i %}  {% endif %}>{{i}}</a></li>
+															 {% endif %}
+
+														 {% endfor %}
+
+														 {% if page != pages %}
+
+															 {% set  next = page + 1 %}
+
+															 <li>  <a href="?page={{next}}"> > </a></li>
+															 <li> <a href="?page={{pages}}">suivant</a></li>
+
+														 {% endif %}
+
+													 {% endif %}
+												 </ul>
+									<p>page {{ page }} sur {{ pages }}</p>
+								</div>
+							</div>
+					{% endif %}
+                                     
+                                </div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+						<!-- coupde -->
+					  <!--Ads Section 1 ---------->
+							
+									{% if advSliders|length >  0 %} 
+										<div class="coupde mb-4">
+											<!-- Add Slider here ---------------->
+											<div id="owl-single" class="owl-carousel owl-theme">
+												 
+												{% for advslider in advSliders %}  
+												<div class="item"> <a href="{{advslider.redirect_link}}" target="_blank"><img src="{{ egAdvSliderUrl }}{{advslider.slider_picture}}" class=""></a></div> 
+												 
+												{% endfor %}
+												
+												</div>
+										    <!-- End Slider here ---------------->     
+										</div>
+									{% endif %}
+								
+						<!--End Section 1 ---------->	
+						 <!--Ads Section 2 ---------->
+						 
+							<div class="soutienactifcon mb-4">
+							<h3>soutien actif</h3>
+							   <a href="http://google.com" target="_blank"><div>
+							   <iframe id="bloxFrame" src="https://static.issuu.com/widgets/shelf/index.html?folderId=a9286dc2-657f-4daa-b040-d48ce8d0cead&theme=theme1&rows=1&thumbSize=medium&roundedCorners=false&showTitle=true&showAuthor=true&shadow=true&effect3d=true" name="bloxFrame" width="100%" height="200px" frameborder="0" scrolling="auto"></iframe>
+							   </div></a>
+							
+									<!--{{catrightSecondAds|raw}}
+									
+								<h3>soutien actif</h3>
+								<img src="{{ base_url() }}/assets/assets/img/lph.png" width="82" height="41" class="lph">
+								<ul>
+									<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/b-1.jpg"></a></li>
+									<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/b-2.jpg"></a></li>
+									<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/b-3.jpg"></a></li>
+									<li><a href="#"><img src="{{ base_url() }}/assets/assets/img/b-4.jpg"></a></li>
+								</ul>
+
+								<a href="#" class="lphinfobtn">lphinfo.com</a>-->
+							</div>
+							<!--End Section 2 ---------->	
+							
+							<!--Ads Section 3 ---------->
+							
+							<!-- simplecon -->
+							 <div class="simplecon">
+								{{catrightThirdAds|raw}}
+								<!--
+                                <h3>TELLEMENT SIMPLE </h3>
+                                <div class="tellementrow">
+                                    <img src="{{ base_url() }}/assets/assets/img/monitor.png" >
+                                    <h2>SUR NOTRE SITE </h2>
+                                    <ul>
+                                        <li>• En quelques clics (vraiment…). </li>
+                                        <li>• Paiement sécurisé </li>
+                                        <li>• Un choix incomparable </li>
+                                    </ul>
+                                </div>
+                                <div class="tellementrow">
+                                    <img src="{{ base_url() }}/assets/assets/img/phone.png">
+                                    <h2>par téléphone  </h2>
+                                    <ul>
+                                        <li>• De 8 à 22 h -  7/7 </li>
+                                        <li>• Paiement sécurisé </li>
+                                        <li>• Accueil et écoute de qualité </li>
+                                    </ul>
+                                </div>
+                                <div class="tellementrow">
+                                    <img src="{{ base_url() }}/assets/assets/img/users.png"  >
+                                    <h2>POINTS DE VENTE PARTENAIRES</h2>
+                                    <ul>
+                                        <li>• Achat de vos billets en boutique </li>
+                                        <li>• Tous modes de paiement acceptés </li>
+                                        <li>• Plus facile et plus accessible </li>
+                                    </ul>
+                                </div>
+								-->
+                            </div>
+						<!-- End Section 3 here ------------->	
+							
+						</div>
+					</div> 
+					<!--
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="pagelink">
+                                <ul>
+                                    <li><a href="#"> &lt; précédent</a></li>
+                                    <li><a href="#"> 1</a></li>
+                                    <li><a href="#"> 2</a></li>
+                                    <li><a href="#"> 3</a></li>
+                                    <li><a href="#">suivant &gt; </a></li>
+                                </ul>
+                                <p>page 1 sur 3</p>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+	   
+
+{% endblock %}
+{% block footerscripts %}
+
+    <script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+    <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+    <script>
+        /*jslint browser:true*/
+        /*global jQuery, document*/
+
+        jQuery(document).ready(function () {
+            'use strict';
+
+            jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+        });
+    </script>
+{% endblock %}

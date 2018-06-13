@@ -1,0 +1,206 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+    <!--  Le cadeau spectacle Section Start Here
+             ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="{{ base_url()}}/home">Accueil</a></li>
+                            <li> |</li>
+                            <li><a href="{{ base_url()}}/reset_password">Reset Password</a></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+		     <div class="col-md-12">
+		 <!-- for ajax perpose	onsubmit="return ResetPassword()"-->
+		 <!-- for testing perpose action="{{base_url()}}/password_reset"-->
+            <form id="resetform"  name="resetform" onsubmit="return ResetPassword()"  method="post" >
+                <div class="formSection rest_password">
+                    <b>Reset Password</b>
+					
+                    <div class="cscforminner">
+                        
+                        <div class="inputcol inputcolLt">
+
+                            <input type="password" name="npass" placeholder="New Password*" id="npass"/>
+                        </div>
+                        <div class="inputcol inputcolRt">
+                            <input name="cpass" type="password" placeholder="Confirm Password*" />
+                        </div>
+							<input type="hidden" value="{{token}}" name="token"/>
+                      
+                            <input type="submit" value="Reset Password" />
+							
+							
+                        </div>
+						
+                    </div>
+					<div id="res_result" style="text-align:center;"></div>
+                </div>
+            </form>
+        </div>
+		  
+		{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ base_url }}/assets/admin/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+   
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+
+    jQuery(document).ready(function () {
+    'use strict';
+
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+
+    $(document).ready(function() {
+
+        $('#resetform').validate({
+            rules: {
+
+
+                npass: {
+                    required: true
+
+                },
+                cpass: {
+                    required: true,
+					 equalTo: '#npass'
+
+                },
+            },
+            messages: {
+                npass:
+                    {
+                        required: "Champs requis",
+                    },
+                cpass:
+                    {
+                        required: "Champs requis",
+						equalTo:" Le mot de passe n'est pas identique"
+                    },
+
+            }
+        });
+        $('#halfregisterform').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                mymail: {
+                    required: true,
+                    email: true
+                },
+                confirm_mail: {
+                    required: true,
+                    equalTo: "#mymail"
+
+                },
+                telephon: {
+                    required: true
+
+
+                }
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "first name is required",
+                    },
+                lastname:
+                    {
+                        required: "last name is required",
+                    },
+                address:
+                    {
+                        required: "address is required",
+                    },
+
+                mymail: {
+                    required: "Enter Your Email",
+                    email: "Entrez un email valide"
+                },
+                confirm_mail:
+                    {
+                        required: "confirm email  is required",
+                        equalTo:"Email not match"
+                    },
+                telephon:
+                    {
+                        required: "telephone no.  is required",
+                    }
+
+            }
+        });
+    });
+	 function ResetPassword(){
+	 //alert('hello register');
+	 if (!$("#resetform").validate().form()) {
+		//alert('hello validator');
+	 }
+	 else{
+	     //alert('Welcome to full registration');
+         var mydata = $('#resetform').serialize();
+		// var redURL = $("#redUrlRegister").val();
+        // alert(mydata);
+	    $.ajax({
+        type: "get",
+        url: '{{base_url()}}/password_reset',
+        data:mydata ,
+        success: function( data ) {
+					//var obj = jQuery.parseJSON( data);
+					//console.log(obj);
+					//console.log(data);
+					var obj = data; 
+					console.log(obj.status);console.log(obj.msg);
+					if(obj.status === '1'){
+					
+						$("#res_result").html('<div class="alert alert-info" role="alert"><strong></strong> '+obj.msg+'.</div>');
+						window.location.href = redURL;
+						
+					}else{
+					
+						$("#res_result").html('<div class="alert alert-danger" role="alert"><strong></strong> '+obj.msg+'.</div>');
+					}
+					
+					return false;
+				}
+		});
+		return false;
+	 }
+   }
+
+
+    </script>
+{% endblock %}

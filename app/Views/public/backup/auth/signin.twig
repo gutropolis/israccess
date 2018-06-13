@@ -1,0 +1,50 @@
+{% extends "partials/layout-blank.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-lg-5">
+            <h1 class="text-center">Slim3 Starter MVC</h1>
+
+            <div class="flash-messages">
+                {% include 'partials/flash.twig' %}
+            </div>
+
+            <div class="p-3 bg-white">
+                <form action="{{ path_for('auth_signin') }}" method="post">
+                    {{ csrf_field() | raw }}
+                    <div class="form-group">
+				        <label for="email">Adresse email</label>
+				        <input type="email" class="form-control{{ validatorError.email ? ' is-invalid' : '' }}" name="email" id="email" value="{{ oldInputs.email }}" placeholder="name@email.me"/>
+				        {% if validatorError.email %}
+				            <div class="invalid-feedback">
+				                {% for msg in validatorError.email %}
+				                    <p class="mb-0">{{ msg }}</p>
+				                {% endfor %}
+				            </div>
+				        {% endif %}
+				    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input class="form-control{{ validatorError.password ? ' is-invalid' : '' }}" id="password" name="password" placeholder="Mot de passe" type="password"/>
+                        {% if validatorError.password %}
+	                        <div class="invalid-feedback">
+	                            {% for msg in validatorError.password %}
+	                            	<p class="mb-0">{{ msg }}</p>
+	                            {% endfor %}
+	                        </div>
+                        {% endif %}
+                    </div>
+					<div class="clearfix">
+	                    <div class="float-right">
+	                        <button class="btn btn-primary" type="submit">
+	                            Se connecter
+	                        </button>
+	                    </div>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

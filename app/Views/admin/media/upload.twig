@@ -1,0 +1,28 @@
+{% extends "partials/layout-admin.twig" %}
+
+{% block TitlePage %}Ajouter un média{% endblock %}
+{% block BtnPage %}
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ path_for('admin_media_upload') }}" method="post" class="dropzone" id="appMediasDropzone">
+                {{ csrf_field() | raw }}
+                <div class="fallback">
+                    <input name="file" type="file" multiple />
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block addfooter %}
+    <script type="text/javascript">
+        Dropzone.options.appMediasDropzone = {
+            paramName: "mediaFile", // The name that will be used to transfer the file
+            maxFilesize: 2, // MB
+            acceptedFiles: "image/png,image/gif,image/jpeg,image/svg+xml",
+        };
+    </script>
+{% endblock %}

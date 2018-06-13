@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>{{ app_settings.site_name.value }} - {{ app_settings.site_baseline.value }}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link href="{{ base_url() }}/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ base_url() }}/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/css/app.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/css/main.css" rel="stylesheet">
+
+    {% block addheader %}{% endblock %}
+</head>
+<body class="blank-layout">
+
+    <div id="main" class="my-5">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ base_url() }}/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="{{ base_url() }}/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="{{ base_url() }}/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="{{ base_url() }}/assets/js/app.js"></script>
+
+    {% block addfooter %}{% endblock %}
+</body>
+</html>

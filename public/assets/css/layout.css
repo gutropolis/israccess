@@ -1,0 +1,1642 @@
+/* font-family: 'Ubuntu', sans-serif; */
+
+
+/*
+-----------------------------------------------
+Header Top Section Style Start Here
+-----------------------------------------------------
+*/
+.header-top{ width:100%; clear:both; overflow:hidden; margin:0; padding:4px 0 0; background:url(../assets/img/top-bg.png) repeat-x top left; min-height:35px; -webkit-box-shadow: 0px 10px 7px 0px rgba(16,15,14,0.16); -moz-box-shadow: 0px 10px 7px 0px rgba(16,15,14,0.16);box-shadow: 0px 10px 7px 0px rgba(16,15,14,0.16);} 
+.top-lt{}
+.top-lt ul{ margin:0; padding:0; float:left;}
+.top-lt ul li{ display:block; float:left; list-style:none; font-size:13px; text-transform:uppercase; font-weight:400; color:#fff; margin-right:20px;}
+.top-lt ul li span{ display:block; padding:4px 0;}
+.top-lt ul li a{ display:block; background:url(../assets/img/phone-icon.png) no-repeat 0 50%; font-size:18px; font-weight:700; text-decoration:none; color:#fff; padding:0 0 0 25px;}
+
+.top-rt{}
+.top-rt ul{ margin:0; padding:0; float:right;}
+.top-rt ul li { display:block; float:left; list-style:none; font-size:13px;   font-weight:400; color:#fff; margin-left:20px;}
+.top-rt ul li span{ display:block; padding:4px 0;}
+.top-rt ul li a{ color:#fff; font-size:18px; text-decoration:none;}
+
+/*
+-----------------------------------------------
+Header Top Section Style End Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+Header  Style Start Here
+-----------------------------------------------------
+*/
+header{ width:100%; clear:both; float:left; padding:10px 0 8px; border-bottom:6px solid #a00057;}
+.logo{ text-align:center; padding-top:20px;}
+.logo a img{max-width:100%;}
+.header-menu{}
+.header-menu ul{ float:right; margin:0; padding:0;}
+.header-menu ul li{ display:block; float:left; list-style:none; margin:0 0 0 15px;}
+.header-menu ul li  a{ display:block; text-decoration:none; font-size: 16px; color:#636363;}
+.header-menu ul li  a .fa-home{  width:1em; height:.9em; color:#a00057; margin-right:5px;}
+.header-menu ul li  a .fa-user{  width:.8em; height:.9em; color:#a00057;  margin-right:5px;}
+.header-menu ul li  a .fa-shopping-cart{  width:.9em; height:.9em; color:#a00057;  margin-right:5px;}
+.header-menu ul li .dropdown-menu
+{
+	    transform: translate3d(-72px, 21px, 0px) !important;
+		    padding: 0px 0px;
+}
+.header-menu ul li:hover .dropdown-menu
+{
+	display:block;
+	top:0px;
+}
+.header-menu ul li.dropdown .dropdown-menu a.current
+{
+	background-color:#9c014f;
+	color:#fff;
+}
+.header-menu ul li .dropdown-menu p
+{
+	font-size: 20px;
+    font-weight: 600;
+    background: #f4f4f4;
+}
+.header-menu ul li.active a, .header-menu ul li:hover a{ color:#9c014f;}
+
+.header-menu ul li:hover  a .fa-home{  width:1em; height:.9em; color:#323232}
+.header-menu ul li.hover  a .fa-user{  width:.8em; height:.9em; color:#323232}
+.header-menu ul li.hover  a .fa-shopping-cart{  width:.9em; height:.9em; color:#323232}
+
+.header-menu ul li.active  a .fa-home{  width:1em; height:.9em; color:#323232}
+.header-menu ul li.active  a .fa-user{  width:.8em; height:.9em; color:#323232}
+
+.header-menu ul li.active a.dropdown-menu, .header-menu ul li a.dropdown-menu{
+color:#ccc;
+}
+.header-menu ul li a.dropdown-item:hover ,.header-menu ul li a.dropdown-item:focus
+
+{
+	background-color:#eee;
+}
+.header-menu ul li.active  a .fa-shopping-cart{  width:.9em; height:.9em; color:#323232}
+
+/*
+-----------------------------------------------
+Header  Style End Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+wrapper  Style Start Here
+-----------------------------------------------------
+*/
+.wrapper{ width:100%; clear:both; overflow:hidden;background-color:#f4f4f4;}
+
+/*Left Side Start Here */
+.left-side{ width:300px; float:left;background:#fff;height:inherit;    box-shadow: 4px 0px 6px rgba(195, 195, 195, 0.52);
+    position: relative;}
+.left-side ul{ margin:0; padding:0; display:block;}
+.left-side ul li{ display:block; clear:both; list-style:none; margin:15px 0;}
+.left-side ul li a{     display: flex;
+    font-size: 14px;
+    color: #434343;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0px 0 0px 0px;
+    align-items: center;}
+.left-side ul li a figure{width:50px;margin:0px;margin-right:10px;}
+.left-side ul li a figure img{max-width:100%;}
+.left-side ul li a span{
+	padding-bottom: 3px;
+	border-bottom: solid 2px transparent;
+}
+.left-side ul li a:hover span,.left-side ul li a.active,.left-side ul li a.active span{
+	color:#a00057;
+	
+		font-weight:bold;
+		text-decoration:none;
+		border-color: #434343;
+}
+.left-side ul li:hover{
+	backgroud-color: #fafafa;
+}
+/* .left-side ul li:nth-child(1) a{ background:url(../assets/img/icon-n-1.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(2) a{ background:url(../assets/img/icon-n-2.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(3) a{ background:url(../assets/img/icon-n-3.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(4) a{ background:url(../assets/img/icon-n-4.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(5) a{ background:url(../assets/img/icon-n-5.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(6) a{ background:url(../assets/img/icon-n-6.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(7) a{ background:url(../assets/img/icon-n-7.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(8) a{ background:url(../assets/img/icon-n-8.png) no-repeat 0 50%;}
+
+
+.left-side ul li:nth-child(1):hover a, .left-side ul li:nth-child(1) a.active{ background:url(../assets/img/icon-h-1.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(2):hover a, .left-side ul li:nth-child(2) a.active{ background:url(../assets/img/icon-h-2.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(3):hover a, .left-side ul li:nth-child(3) a.active{ background:url(../assets/img/icon-h-3.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(4):hover a, .left-side ul li:nth-child(4) a.active{ background:url(../assets/img/icon-h-4.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(5):hover a, .left-side ul li:nth-child(5) a.active{ background:url(../assets/img/icon-h-5.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(6):hover a, .left-side ul li:nth-child(6) a.active{ background:url(../assets/img/icon-h-6.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(7):hover a, .left-side ul li:nth-child(7) a.active{ background:url(../assets/img/icon-h-7.png) no-repeat 0 50%;}
+.left-side ul li:nth-child(8):hover a, .left-side ul li:nth-child(8) a.active{ background:url(../assets/img/icon-h-8.png) no-repeat 0 50%;} */
+
+
+.navbar { padding:5px 0 0; display:none;}
+.navbar-collapse {background: #fff;padding: 15px;margin: 0 0 0;border-top: 2px solid #a00057;}
+ul.navbar-nav{ margin:0; padding:0; display:block;}
+ul.navbar-nav li{ display:block; clear:both; list-style:none; margin:15px 0;}
+ul.navbar-nav li a{ display:block; font-size: 14px; color:#434343; font-weight:400; text-transform:uppercase; text-decoration:none;  padding: 12px 0 12px 65px;}
+ul.navbar-nav li:nth-child(1) a{ background:url(../assets/img/icon-n-1.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(2) a{ background:url(../assets/img/icon-n-2.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(3) a{ background:url(../assets/img/icon-n-3.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(4) a{ background:url(../assets/img/icon-n-4.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(5) a{ background:url(../assets/img/icon-n-5.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(6) a{ background:url(../assets/img/icon-n-6.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(7) a{ background:url(../assets/img/icon-n-7.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(8) a{ background:url(../assets/img/icon-n-8.png) no-repeat 0 50%;}
+
+
+ul.navbar-nav li:nth-child(1):hover a, ul.navbar-nav li:nth-child(1) a.active{ background:url(../assets/img/icon-h-1.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(2):hover a, ul.navbar-nav li:nth-child(2) a.active{ background:url(../assets/img/icon-h-2.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(3):hover a, ul.navbar-nav li:nth-child(3) a.active{ background:url(../assets/img/icon-h-3.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(4):hover a, ul.navbar-nav li:nth-child(4) a.active{ background:url(../assets/img/icon-h-4.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(5):hover a, ul.navbar-nav li:nth-child(5) a.active{ background:url(../assets/img/icon-h-5.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(6):hover a, ul.navbar-nav li:nth-child(6) a.active{ background:url(../assets/img/icon-h-6.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(7):hover a, ul.navbar-nav li:nth-child(7) a.active{ background:url(../assets/img/icon-h-7.png) no-repeat 0 50%;}
+ul.navbar-nav li:nth-child(8):hover a, ul.navbar-nav li:nth-child(8) a.active{ background:url(../assets/img/icon-h-8.png) no-repeat 0 50%;}
+
+.navbar-dark .navbar-brand{ margin-left:15px;}
+.navbar-dark .navbar-toggler{ margin-right:15px; margin-bottom:5px;}
+
+/*Left Side End Here */
+
+/*Right Side Start Here */
+.right-side{ width:930px; float:left; height:100%;}
+
+.slider{ width:630px;  overflow:hidden; float:left;    height: 278px;}
+.carousel-item img{ width:100%;}
+.carousel-caption{ font-family: 'Ubuntu', sans-serif; height:100%; bottom:0; width:300px; text-align:left; 
+padding:40px 0 0 30px;}
+.carousel-caption h3{ font-size:25px; font-weight:700; color:#fff; text-transform:uppercase; line-height:26px; margin:0; padding:0;}
+.carousel-caption p{ color:#c4c4c4; font-size:15px; margin:12px 0; padding:0;}
+.carousel-caption h4{ color:#fff; font-size:15px; margin:0; padding:0; text-transform:uppercase; font-weight:400;}
+
+.carousel-caption a {display: block;width: 100%;clear: both;border: 1px solid #a00057;color: #a00057;font-size: 14px;font-weight: 700;text-decoration: none;text-transform: uppercase; 
+text-align: center;    padding: 4px 0;margin: 25px 0 0;width: 230px;display:none;}
+.carousel-caption a:hover { background:#a00057;color: #fff;}
+
+
+.carousel-indicators li{ width:11px; height:11px; border:1px solid #a00057; background:#fff; border-radius:100%; margin-right: 12px;}
+.carousel-indicators li.active{ width:11px; height:11px; border:1px solid #a00057; background:#a00057; border-radius:100%;}
+.carousel-indicators{ width:300px; margin-left: 10%}
+
+
+.homeTopcontent{ width:100%; clear:both; overflow:hidden;}
+.homeTopcontent .slider .owl-carousel .owl-item img{width:100%;}
+.homeTopcontent .slider .owl-carousel .owl-dots{    width: 100%;display: block; position: absolute;   bottom: 0;}
+.homeTopcontent .slider .owl-carousel .owl-dots .owl-dot.active span, .homeTopcontent .slider .owl-carousel .owl-theme .owl-dots .owl-dot:hover span{background:#a00057;} 
+.homeTopcontent .slider .owl-carousel .owl-nav{display:none;}
+.directaccess{ float:right; width:300px; position:relative;  }
+.directaccess h3{ color:#a00057; font-size:20px; text-transform:uppercase; margin:0; padding:7px 0; display:block; 
+background:url(../assets/img/icon-1.png) no-repeat 15px 50% #dcdcdc; text-align:center;}
+
+.directaccessCol{width:100%; padding:11px 15px 10px; background:#f5f5f5; float:left;}
+.select-style {padding: 0;margin: 0 0 10px;border:none;width: 100%;overflow: hidden; background-color: #fff;
+background: #fff   url(../assets/img/select-btn.png)  no-repeat 100% 50%; font-size:14px; 
+font-weight:300; color:#434343;height:25px;}
+.select-style select {width: 270px;border: none;box-shadow: none;background-color: transparent;background-image: none;
+-webkit-appearance: none;-moz-appearance: none;appearance: none;padding: 2px 5px;}
+.select-style select:focus {outline: none;}
+
+.inputrow{ width:100%; clear:both; float:left; padding:0 28px 0 0; position:relative; margin-bottom:10px;}
+.inputrow input{ width:100%; height:25px; background:#fff; border:none; font-size:14px; font-weight:400; color:#434343; padding: 2px 15px;}
+.inputrow ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #000;
+}
+.inputrow ::-moz-placeholder { /* Firefox 19+ */
+  color: #000;
+}
+.inputrow :-ms-input-placeholder { /* IE 10+ */
+  color: #000;
+}
+.inputrow :-moz-placeholder { /* Firefox 18- */ 
+  color: #000;
+}
+.inputrow svg {position: absolute;top: 4px;right: 8px; color:#a00057;}			
+.inputrow label{ display:block; margin:0; padding:0; width:100%;}
+
+
+.directaccessCol a.dabtn{ width:125px;height:32px;display:block; margin:0 auto; text-align:center; font-size:14px;text-transform:uppercase;font-family: 'Ubuntu', sans-serif;
+font-weight:700;color:#fff; 
+padding:5px 0 0; clear:both; background:#a00057;}
+.directaccessCol a.dabtn:hover{ background:#313132; text-decoration:none;}
+.directaccessCol .dabtn{display:block; margin:0 auto; text-align:center; font-size:14px;text-transform:uppercase;font-family: 'Ubuntu', sans-serif;font-weight:700;color:#fff; padding: 7px 30px; clear:both; background:#a00057;border:1px solid #a00057;}
+.directaccessCol .dabtn:hover{ background:#313132; text-decoration:none;}
+
+
+.pictosCon{ width:100%; text-align:center; background:#313132; padding:0 0; clear:both; overflow:hidden; }
+.pictosCon ul{ display:block; padding:0; margin:0; text-align:center; width:100%;} 
+.pictosCon ul li{ display:block; list-style:none; width:33.3333333%; text-align:center; float:left; padding:5px 0;}
+.pictosCon ul li a {font-size: 12px;color: #fff;text-transform: uppercase;text-decoration: none;padding: 0 12px;display: block; line-height: 14px;}
+.pictosCon ul li:nth-child(2) a { border-left: 2px solid #fff;  border-right: 2px solid #fff;}
+.pictosCon ul li:hover  { background:#a00057;}
+
+
+.ligneSection{ width:100%; clear:both; overflow:hidden; padding: 15px 15px 20px; background:#eeeeee;}
+.ligneSection-white{ background:#fff;}
+.ligneSection h2{ font-size:25px; color:#575756; text-transform:uppercase; margin:0 0 20px; padding:0; font-weight:500; font-family: 'Ubuntu', sans-serif;}
+.ligneSection h2 span{ color:#a00057;}
+
+.ligneBox{ width:182px; margin:0 auto; overflow:hidden; position:relative; background:#fff;}
+.ligneImg{ width:100%; clear:both; overflow:hidden; border-bottom:2px solid #313132; padding: 0 0 0 0;    height: 150px;text-align:center;}
+.ligneImg img{max-width:100%;}
+.lignedetails{ width:100%; position:relative; padding:10px; border-bottom:8px solid #a00057;height:135px;}
+.lignedetails:hover{  border-bottom:8px solid #313132}
+.lignedetails h1{ font-size:15px; color:#434343; font-weight:500; text-transform:uppercase; margin:0; padding:0; font-family: 'Ubuntu', sans-serif; display:block; height:50px; 
+line-height:14px;}
+.lignedetails h1 span{ text-transform:capitalize !important; display:block; font-weight:400;}
+.lignedetails p{ font-size:13px; margin:0; padding:0;   font-family: 'Ubuntu', sans-serif;     bottom: 8px;position:absolute;}
+.lignedetails p span{ display:block; clear:both; font-weight:700; color:#a00057; text-transform:uppercase;}
+
+.showonhover{ display:none;}
+.lignedetails:hover .showonhover{ position:absolute; top:0; left:0; z-index:999; background:#a00057; height:100%; width:100%; display: flex;align-items: center; 
+vertical-align: middle; text-align:center;}
+.showonhover a{ display:block; border:2px solid #fff; color:#fff; font-size:14px; text-transform:uppercase;  font-family: 'Ubuntu', sans-serif; font-weight:700; text-decoration:none; 
+width:124px; margin:0 auto; padding:3px 0;}
+.showonhover a:hover{ background:#313132;}
+
+
+.tousbox{ background:#eeeeee; overflow:hidden;  font-family: 'Ubuntu', sans-serif;  border-bottom:8px solid #a00057 }
+.tousbox h4{ display:block; background:#313132; text-align:center; font-size:13.5px;  color:#fff; font-weight:700; text-transform:uppercase; padding:11px 0; margin:0; }
+
+.tousbox ul{ margin:18px 0 0 0; padding:0; width:100%; clear:both; overflow:hidden; position:relative; z-index:9999999999999;}
+.tousbox ul li{ display:block; list-style:none; clear:both;}
+.tousbox ul li a {display: block;font-size: 11.5px;font-weight:700;text-transform:uppercase;color:#434343;text-decoration: none; background-size: 35px !important;
+padding: 17px 0 17px 48px;	}
+
+.tousbox ul li:nth-child(1) a{ background:url(../assets/img/icon-h-1.png) no-repeat 7px 50%;}	
+.tousbox ul li:nth-child(2) a{ background:url(../assets/img/icon-h-2.png) no-repeat 7px 50%;}	
+.tousbox ul li:nth-child(3) a{ background:url(../assets/img/icon-h-3.png) no-repeat 7px 50%;}	
+.tousbox ul li:nth-child(4) a{ background:url(../assets/img/cra-nor-icon.png) no-repeat 7px 50%;}	
+
+.tousbox ul li:nth-child(1):hover a, .tousbox ul li:nth-child(1) a.active{ background:url(../assets/img/icon-h-1-w.png) no-repeat 7px 50% #a00057; color:#fff;}	
+.tousbox ul li:nth-child(2):hover a, .tousbox ul li:nth-child(2) a.active{ background:url(../assets/img/icon-h-2-w.png) no-repeat 7px 50% #a00057; color:#fff;}	
+.tousbox ul li:nth-child(3):hover a, .tousbox ul li:nth-child(3) a.active{ background:url(../assets/img/icon-h-3-w.png) no-repeat 7px 50% #a00057; color:#fff;}	
+.tousbox ul li:nth-child(4):hover a, .tousbox ul li:nth-child(4) a.active{ background:url(../assets/img/cra--hov-icon.png) no-repeat 7px 50% #a00057; color:#fff;}	
+
+
+.moduleaccess{ width:100%; background:#fff; text-align:center; padding:25px 0 ;}	
+.moduleaccess h2{ font-size:13px; color:#434343; text-transform:uppercase; margin:10px 0; padding:0;}
+.moduleaccess a{ width:125px;height:32px;display:block; margin:0 auto; text-align:center; font-size:14px;text-transform:uppercase;font-family: 'Ubuntu', sans-serif;
+font-weight:700;color:#fff; padding:5px 0 0}
+.moduleaccess a.blue{ background:#1d70b8;}
+.moduleaccess a.red{ background:#d10a11;}
+.moduleaccess a.green{ background:#96c11f;}
+
+
+
+.logos{ width:100%; clear:both; overflow:hidden; background:#a00057; padding:15px 30px; margin:30px 0 0;}
+.logos h2{ font-size:25px; color:#fff; font-weight:500; margin:0; padding:0; text-transform:uppercase; font-family: 'Ubuntu', sans-serif;}
+.logos ul{ display:block; width:100%; text-align:center; margin:25px 0 0; padding:0;}
+.logos ul li{ display:inline-block; list-style:none; text-align:center; padding:0 21px 0 0;}
+.logos ul li:last-child{ padding:0;}
+.logos ul li a{     width: 100px;    height: 100px;    display: flex;    align-items: center;}
+.logos ul li a:hover{ opacity:.6;}
+.logos .owl-carousel.owl-loaded.owl-theme .owl-nav {
+    height: 0;
+    top: 0%;
+    color: #fff;
+}
+.owl-carousel.owl-loaded.owl-theme .owl-nav button{
+outline:none;
+}
+.logos  .owl-carousel .owl-item img{
+	    max-width: 100%;
+}
+/*Left Side End Here */
+
+/*
+-----------------------------------------------
+wrapper  Style End Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+Footer  Style Start Here
+-----------------------------------------------------
+*/
+footer{ background:url(../assets/img/footer-bg.jpg) repeat top left; width:100%; clear:both; overflow:hidden; padding:25px 0 30px; min-height:340px;}
+.mobofoot{ display:none;}
+.foot-left-side img{max-width:100%;}
+/* Footer Left Side Start Here */
+.foot-left-side{ width:300px; float:left; height:100%; text-align:center;}
+.foot-left-side h3{ font-size:11.8px; font-family: 'Ubuntu', sans-serif; text-transform:uppercase; font-weight:400; color:#fff; margin:15px 0; padding:0;}
+.foot-left-side ul{ display:block; width:100%; padding:0; margin:0; text-align:center;}
+.foot-left-side ul li { display:inline-block; list-style:none; padding:0 10px;}
+.foot-left-side ul li a{ color:#fff; font-size:18px; text-decoration:none;}
+/*Footer Left Side End Here */
+
+/*Footer Right Side Start Here */
+.foot-right-side{ width:930px; float:left; height:100%; padding:0 0 0 15px;}
+.newslatterCon{ width:100%; clear:both; overflow:hidden; margin:0 0 15px; }
+.newslatterCon h2{ font-size:20px; text-transform:uppercase; font-weight:700; text-transform:uppercase; color:#fff; margin:0 0 12px; padding:0;}
+
+.newslatterForm{width:100%; clear:both; overflow:hidden;}
+.newslatterForm input{ width:390px; float:left; height:36px; color:#313132; font-size:12.5px; padding:0 20px; text-transform:uppercase; border:none; margin:0 45px 0 0;}
+.newslatterForm input.ne-btn{ background:#a00057; width:92px; text-align:center; font-size:14px; font-weight:700; font-family: 'Ubuntu', sans-serif; color:#fff; padding:0; margin:0;}
+.newslatterForm input.ne-btn:hover{ background:#202020; cursor:pointer;}
+
+
+.foot-nav{ float:left; width:20%;}
+.foot-nav ul{ margin:0; padding:0; display:block;}
+.foot-nav ul li{ display:block; list-style:none;  clear:both; margin:20px 0 0;}
+.foot-nav ul li a{ display:block; text-decoration:none; font-size:12.5px; text-transform:uppercase; color:#fff;}
+.foot-nav ul li:hover a{ color:#a00057;}	
+/*Footer Right Side End Here */
+
+/*
+-----------------------------------------------
+Footer  Style Start Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+Pagination  Style Start Here
+-----------------------------------------------------
+*/
+.paginationCon{ width:100%; clear:both; overflow:hidden;}
+.paginationCon ul{ margin:10px 0; padding:0; display:block; overflow:hidden;}
+.paginationCon ul li{ display:block; list-style:none; float:left; font-size:12px; color:#2b2b2c; font-weight:200; font-family: 'Ubuntu', sans-serif; margin:0 5px 0;}
+.paginationCon ul li a{ display:block; list-style:none; float:left; font-size:12px; color:#2b2b2c; font-weight:200; font-family: 'Ubuntu', sans-serif; text-decoration:none;}
+.paginationCon ul li:first-child{ margin-left:0;}
+
+/*
+-----------------------------------------------
+Pagination  Style End Here
+-----------------------------------------------------
+*/
+
+/*
+-----------------------------------------------
+Ma Recherche  Style Start Here
+-----------------------------------------------------
+*/
+.marechercheCon{ width:100%; clear:both; overflow:hidden;}
+.marechercheCon h2{ color:#575756; margin:0 30px 5px; padding:0; font-weight:700; font-family: 'Ubuntu', sans-serif; text-transform:uppercase; font-size:25px;}
+.blackTitle{ width:100%; clear:both; background:#434343; overflow:hidden; padding: 0 30px}
+.blackTitle h4{ background:url(../assets/img/icon-title.png) no-repeat 0 50%; font-size:20px; color:#fff; margin:0; padding: 20px 0 20px 75px; font-family: 'Ubuntu', sans-serif; 
+text-transform:uppercase; float:left;}
+.blackTitle h4 span{ font-size:15px; font-weight:400; display:block; text-transform:lowercase;}
+
+.blackTitle button {float: right;display: block;width: 220px;height: 32px;border: 1px solid #fff;text-align: center;font-size: 16px;font-family: 'Ubuntu', sans-serif;
+text-transform: uppercase; background:none; border-radius:0;text-decoration: none;color: #fff;font-weight: 500;margin: 16px 0;padding: 1px 0 0;}
+.blackTitle button:hover{ background:#9d0056; border:1px solid #9d0056;}
+
+
+.bookBoxsection{ width:100%; clear:both; overflow:hidden; padding:15px; background:#fff; min-height:500px;}
+.bookBox{ background:#dcdcdc; padding:15px; position:relative; overflow:hidden; margin:15px auto;}
+
+.book{ /* border-bottom:6px solid #a00057; */ padding:0 0 0; float:left; margin-right:15px; width:129px;     height: 190px;}
+.book img{ display:block; max-width:100%; height:auto;border-bottom: 6px solid #a00057;}
+
+.bookDetails{ float:right; width:246px; }
+.bookBox h1{font-family: 'Ubuntu', sans-serif; font-size:16px; font-weight:700; color:#434343; text-transform:uppercase; margin:0 0 10px; padding:0;}
+.bookBox h1 a{ font-size:16px; font-weight:700; color:#434343; text-transform:uppercase; margin:0; padding:0;}
+.bookBox h1 a span{ text-transform:capitalize; display:block;}
+.bookBox h1 a:hover{ color:#a00057; text-decoration:none}
+
+.bookBox p{font-family: 'Ubuntu', sans-serif; font-size:15px; font-weight:400; color:#434343;   margin:0 0 10px; padding:0;}
+.bookBox p span{ text-transform:uppercase; display:block;}
+.reserverbtn {width: 100%;text-align: center;position: absolute;bottom: 20px;overflow: hidden;left: 0; padding:0 16px 0 0}
+.reserverbtn a {width: 85px;height: 22px;display: block;margin: 0 auto;text-align: center;font-size: 12px;text-transform: uppercase;font-family: 'Ubuntu', sans-serif;font-weight: 300;
+color: #fff;padding: 2px 0 0;background: #a00057;}
+.reserverbtn a:hover{ background:#434343; text-decoration:none}
+
+.pagelink{ width:100%; text-align:center; padding:10px 0;}
+.pagelink ul{ margin:0; padding:0; display:block ; width:100%;}
+.pagelink ul li{ display:inline-block; list-style:none; text-align:center;}
+.pagelink ul li a{ display: block;
+    font-size: 14px;
+    color: #434343;
+    font-weight: 500;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 14px;
+    padding: 10px 15px;
+    border: 1px solid #a00057;}
+.pagelink ul li:first-child a,
+.pagelink ul li:last-child a{ border:1px solid #434343;}
+.pagelink ul li a:hover,.pagelink ul li.active a:hover{ background:#a00057; color:#fff;}
+
+.pagelink p{font-family: 'Ubuntu', sans-serif; font-size:14px; font-weight:400; color:#434343;   margin:10px 0 ; padding:0; font-weight:500;}
+
+
+/*
+-----------------------------------------------
+Ma Recherche  Style End Here
+-----------------------------------------------------
+*/
+
+
+/*
+-----------------------------------------------
+A ne pas manquer  Style Start Here
+-----------------------------------------------------
+*/
+.pasmanquerTitle  h4{ background:url(../assets/img/love.png) no-repeat 0 50%; font-size:20px; color:#fff; margin:0; padding: 20px 0 20px 75px; 
+font-family: 'Ubuntu', sans-serif; text-transform:uppercase; float:left;}
+.votreTitle h4{ background:url(../assets/img/ticket-icon.png) no-repeat 0 50%; font-size:20px; color:#fff; margin:0; padding: 20px 0 20px 75px; font-family: 'Ubuntu', sans-serif; 
+text-transform:uppercase; float:left;}
+.blockquoteText {width: 100%;overflow: hidden;background: #fff;padding: 5px;margin: 0 0 40px;}		
+.blockquoteText p{ color:#434343; font-size:12px; font-weight:400; margin:0; padding:0; font-family: 'Ubuntu', sans-serif; line-height:14px;}
+.blockquoteText p a{ color:#434343; display:block; font-weight:700; color:#a00057}
+.halfcol .book {width: 129px;text-align: center;margin: 0 auto 15px;float: none;}
+.halfcol .bookDetails {float: right;width: 100%;}  
+.halfcol .reserverbtn { padding: 0;}
+/*
+-----------------------------------------------
+A ne pas manquer  Style End Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+Le cadeau spectacle  Style Start Here
+-----------------------------------------------------
+*/
+.lcsSection{ width:100%; overflow:hidden; padding:0 0px; font-family: 'Ubuntu', sans-serif;}
+.pagetitle h2{ font-size:28px; color:#575756; margin:20px 0 30px; padding:0; font-weight:700; line-height:36px;}
+.gifttitleCon h2 {background: url(../assets/img/gift-icon.png) no-repeat 20px 50% #a00057;width: 100%;display: block;font-size: 24px;color: #fff;margin: 0;
+padding: 20px 0 20px 95px;font-family: 'Ubuntu', sans-serif;text-transform: uppercase;float: left;}
+.giftContentlist{ width:100%; clear:both; overflow:hidden; background:#eee; padding:0 20px ; margin-bottom:30px;}
+.giftContent{ border-bottom:1px solid #d2d2d2; padding:20px 0}
+.giftContent p{ font-size:14px; color:#434343; font-weight:400; margin:0 0 10px; padding:0;  }
+
+.giftContent ul{ margin:0; padding:0; display:block; width:100%;}
+.giftContent ul li{font-size:14px; color:#a00057; font-weight:400; margin:0 0 10px; padding:0 0 0 10px; display:block; list-style:none; 
+background:url(../assets/img/listicon.png) no-repeat 0 50%}
+
+.giftContent h4{ display:inline-block; background:#d2d2d2; text-align:center; font-size:16px; text-transform:uppercase; margin:0 0 20px; padding:5px 10px; color:#a00057;}
+
+.tabcontentArea{ width:100%; clear:both; overflow:hidden;}
+.lcsTab{}
+.lcsTab li{ display:block; float:left; width:20%; border-left:1px solid #dcdcdc; padding: 0 20px;}
+.lcsTab li:first-child{ border:none; padding-left:0;}
+.lcsTab li a {padding: 12px 0 0 45px;margin: 0;display: block;font-size: 12px;color: #bfbfbf;text-transform: uppercase;text-decoration: none;position: relative; font-weight:500;}
+.lcsTab li:first-child a {padding: 0 0 0 45px;line-height: 15px;}
+.lcsTab li a span {display: block;width: 40px;height: 30px;text-align: center;font-size: 30px;font-weight: 500;color: #fff;font-family: 'Ubuntu', sans-serif;background: #dcdcdc;
+float: left;padding: 0;margin: 0;line-height: 29px;position: absolute;top: 0;left: 0;}
+
+.lcsTab li a.active{ color:#a00057;}
+.lcsTab li a.active span{ background:#a00057;}
+
+.tabcontentArea p{font-weight:400;}
+.tabcontent{ width:100%; clear: both; overflow:hidden; padding:10px 0;}
+.tabcontent h2 {background: #4e4e4f;font-size: 18px;text-transform: uppercase;font-weight: 700;color: #fff;display: block;width: 100%;padding: 6px 15px;margin: 15px 0;}
+.box-row{width:100%; clear: both; overflow:hidden; padding:10px 0;}
+.cardbox{ width:33.33333%; float:left; overflow:hidden; position:relative; text-align:center;}
+
+.cardbox h4{ font-size:14px; color:#afaeae; font-weight:400; margin:12px 0; padding:0;}
+.cardbox h4 span{ font-weight:700; color:#a00057; font-size:18px;}
+
+.selectitem {width: 207px;clear: both;overflow: hidden;position: relative;text-align: left;padding: 0 0 0 143px;margin: 0 auto;}
+.selectitem label {font-size: 14px;color: #afaeae;font-weight: 400;margin: 0;padding: 0;position: absolute;left: 0;}
+.selectitem  .select-style{ border:1px solid #4e4e4f !important; background: #fff url(../assets/img/select-btn-d.png) no-repeat 100% 50%;}
+.selectitem  .select-style select {width: 100%;padding: 2px 4px;}
+
+.indiquezselect {width: 88%;clear: both;overflow: hidden;position: relative;text-align: left;padding: 0 0 0 165px;margin: 10px auto 0;}
+
+
+.cardform{ width:100%; clear:both; overflow:hidden; padding:10px 0 30px 0; text-align:center;}
+.cardinput{ width:33.33333%; display:block; float: left; margin:10px auto; padding:0 15px;}
+.cardinputfirst { clear:both; margin:0 auto; float:none;}
+.cardinput input{ display:block; width:100%; height:32px; border:1px solid #4e4e4f; color:#4e4e4f; font-size:14px; margin:0 auto; padding:0 10px;}
+.cardtextarea{ width:100%; clear:both; overflow:hidden; padding:0 15px;}
+.cardtextarea textarea{ display:block; width:100%; height:100px; border:1px solid #4e4e4f; color:#4e4e4f; font-size:14px; margin:0 auto; padding:10px;}
+.cardtextarea a{ display:block; clear:both; font-size:12px; color:#4e4e4f; text-decoration:none; text-align:left; padding:5px 0; }
+.cardtextarea a:hover{ color:#a71464;}
+.btnje input{ font-size:14px; font-weight:700; color:#fff; font-family: 'Ubuntu', sans-serif; text-align:center; display:block; background:#a71464; text-transform:uppercase; width:220px;}
+.btnje input:hover{ background:#4e4e4f;} 
+
+.checkoutCol {position: relative;padding: 10px 50px 0 250px; background:#eeeeee;}
+.checkoutCol .cardbox{ width:227px; position:absolute; left:10px; top:20px;}
+.checkouttable {float: left;width: 100%;}
+.checkouttable table{ width:100%; border:1px solid #4e4e4f; overflow:hidden; font-family: 'Roboto Condensed', sans-serif;}
+.checkouttable table tr.headerow{}
+.checkouttable table tr.headerow td{  background:#ececec; font-size:12px; font-weight:700; text-transform:uppercase; text-align:center; border-left:1px solid #4e4e4f; padding:7px 0;  }
+.checkouttable table tr td{ background:#fff; text-align:center; border-left:1px solid #4e4e4f; padding:44px 0;}
+
+
+.action {width: 40px;text-align: center;position: absolute;top: 98px;right: 0;}
+.action ul{ margin:0; padding:0;}
+.action ul li{ display:block; float:left; list-style:none; margin:0 2px; color:#4e4e4f;}
+.action ul li a{  color:#4e4e4f;}
+
+.totlaRow {width: 397px;clear: both;overflow: hidden;float: right;margin: 12px 0 0;}
+.totlaRow table{ float:right; width:100%; border:1px solid #4e4e4f; overflow:hidden; font-family: 'Roboto Condensed', sans-serif;}
+.totlaRow table tr td{   background:#fff; font-size:15px; font-weight:700; text-transform:uppercase;  border-left:1px solid #4e4e4f; padding:7px 15px;  }
+.totlaRow table tr td.blackbg{ background:#49494a; color:#fff;}
+.commandetable tr td{ color:#a00057;} 
+
+.cartbtn{ width:100%; clear:both ; padding: 15px 50px 25px 15px; background:#eeeeee; margin:0 0 35px; overflow:hidden;}
+.cartbtn a{ font-size:12px; color:#a61363; float:left;}
+
+.cartbtn a.commandelink{ float:right; background:#a61363; text-align:center; color:#fff; font-size:14px; font-weight:700; text-transform:uppercase; padding:3px 15px; text-decoration:none;}
+.cartbtn a.commandelink:hover{ float:right; background:#4e4e4f;  text-decoration:none;}
+
+.macommCon  h2{ margin-bottom:0;} 
+
+/*
+-----------------------------------------------
+Le cadeau spectacle Style End Here
+-----------------------------------------------------
+*/
+
+
+/*
+-----------------------------------------------
+Réservation Style Start Here
+-----------------------------------------------------
+*/
+.mcbSection{ width:100%; clear:both; overflow:hidden; padding:15px 0;background: url(../assets/img/shadow.png);
+    background-repeat: repeat-y;
+    padding-left: 20px;    min-height: 505px;background-color: #fff;}
+.mcbTab{ margin:0; padding:0; width:100%; clear:both; overflow:hidden; background:#313132;}
+.mcbTab li{ display:block; list-style:none; float:left; width:20%; text-align:center;}
+.mcbTab li a{ border-left: 1px solid #cdcdcd; display:block;    font-size: 14px;
+    font-weight: 600; text-transform:uppercase; text-decoration:none; color:#fff; font-family: 'Ubuntu', sans-serif;position:relative;}
+.mcbTab li a:before
+{
+    content: '';
+    position: absolute;
+    right: -15px;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 15px solid #eeeeee;
+    top: 0;
+    z-index: 99;
+	
+}
+.mcbTab li a:after
+{
+    content: '';
+    position: absolute;
+    right: -15px;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 15px solid #313132;
+    top: 0;
+    z-index: 99;
+	
+}
+.mcbTab li a.active{ background:#eeeeee; color:#313132;}
+.mcbTab li a.active:after{border-left: 15px solid #eeeeee;}
+
+.mcbTab li:first-child a{ border:none;}
+.mcbTab li:last-child a:before,.mcbTab li:last-child a:after{ border:none;display:none;}
+.mcbTabContent{ width:100%; clear:both; overflow:hidden; padding:30px ; background:#eeeeee;}
+.mcbTabinner{ width:100%; clear:both; overflow:hidden; background:url(../assets/img/line.png) repeat-y top center; min-height:250px;}
+.mcbleftside{ float:left; width:48%; min-height:250px; float:left;}
+.mcbrightside{ float:left; width:48%; min-height:250px; float:right;}
+.mcbTabContent .carttable  h2{display:none;}
+.mcbTabContent .carttable:first-child  h2{display:block;}
+.mcbTabContent .carttable .cartdetails:last-child {
+    border-top: none;
+}
+.loginform{ width:100%; clear:both; overflow:hidden; background:#a00057; margin:0 0 35px;}
+.logintitle{width:100%; clear:both; overflow:hidden; background:#810046;}
+.logintitle h2{ font-family: 'Ubuntu', sans-serif; font-size:14px; font-weight:700; color:#fff; margin:0; padding:8px 15px; text-transform:uppercase;}
+.loginforminner{width:100%; clear:both; overflow:hidden; padding:20px 10px;}
+.inputcol{ width:100%; clear:both; overflow:hidden; margin:0 0 10px; position:relative;}
+.inputcol input{ display:block; width:100%; clear:both; padding:0 10px; color:#434343; font-size:12px; font-family: 'Roboto Condensed', sans-serif; height:35px; border:1px solid #313132;}  
+.loginforminner a{ display:block; text-align:right;  color:#fff; text-decoration:underline; font-size:12px; font-family: 'Roboto Condensed', sans-serif; margin:0 0 15px; } 
+
+.meconnecterbtn input{ width:150px; height:33px; border:1px solid #fff; text-align:center;font-family: 'Ubuntu', sans-serif; font-weight:700; text-transform:uppercase; margin:0 auto; 
+background:#a00057; color:#fff; cursor:pointer; } 
+.meconnecterbtn input:hover {background:#4e4e4f; color:#fff; }  
+
+.formSection{ width:100%; clear:both; overflow:hidden; padding:0 0;}
+.formSection h2{ font-family: 'Ubuntu', sans-serif; font-size:14px; font-weight:400; color:#575756; margin:0; padding:8px 15px; text-transform:uppercase; background:#cdcdcd;}
+
+.inputcolLt{ float:left; width:48%; clear:none;}
+.inputcolRt{ float:right; width:48%; clear:none;}
+.inputinfo p {display:block;    color:#313132;   font-size:12px; font-family: 'Roboto Condensed', sans-serif; margin:0 0 0; font-weight:300; } 
+.inputinfo p strong{ font-weight:700;} 
+.cscforminner .meconnecterbtn input {width: 200px; margin-top:10px; background:#4e4e4f; color:#fff; }  
+.cscforminner .meconnecterbtn input:hover{background:#a00057;}
+
+.radiocontent{ padding-top:10px;}
+.radiocontent label{ display:inline-block; margin:0; padding:0; font-size:12px; font-family: 'Roboto Condensed', sans-serif; margin:0 15px 0 0; font-weight:300; } 
+.radiocontent label input {float: left;width: auto;height: auto;margin: 2px 5px 0 0;}
+
+span.question svg{ width:15px; height:15px; position:absolute; top:10px; right:10px; color:#bfbfbf;}
+span.viewicon svg{ width:15px; height:15px; position:absolute; top:10px; right:30px; color:#404041;}
+.inputcol .select-style{height:auto;    background: none;}
+.inputcol .select-style select{border: 1px solid #313132;height: 35px; margin: 0;background: #fff url(../assets/img/select-btn-d1.png) no-repeat 100% 50%;width:100%;color:#000;}
+/* .inputcol .select-style select { width:100%; height: 33px; color:#313132;   font-size:12px; font-family: 'Roboto Condensed', sans-serif; margin:0 0 0; font-weight:300; }  */
+
+.dateandtimeCol {position: relative;padding: 0 0 0 100px;}
+.dateandtimeCol h5 {font-size: 12px;font-family: 'Roboto Condensed', sans-serif;margin: 0 0 0;font-weight: 300;position: absolute;top: 10px;left:0;}
+.dateandtimeCol .date{ width:30%; float:left;}
+.dateandtimeCol .month {width: 28%;float: left;margin: 0 15px;}
+.dateandtimeCol .year{ width:30%; float:left;}
+	.importantCon h2{font-size: 20px; text-transform: uppercase;padding-bottom:10px;}
+.importantCon{ width:100%; overflow:hidden; padding: 30px;}
+.importantCon .importantCon_inner{padding-bottom:20px;}
+.importantCon h3{ font-size:14px; color:#a00057; text-transform:uppercase; margin:0 0 0px; padding:0; font-weight:600;}
+.importantCon  p{font-size: 12px;font-family: 'Roboto Condensed', sans-serif;margin: 0 0 0;font-weight: 400; padding:0;}
+
+
+
+.cartaction{ width:40px; float:left;display:flex;align-items:center;}
+.cartaction ul {margin: 0px 0 0 0;padding: 0;}
+.cartaction ul li:first-child{ padding:2px 0 0;}
+.cartaction ul li{ display:block; float:left; list-style:none;}
+.cartimg{ width:75px; float:left;padding:10px 0px;}
+/* .cartimg a{    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+	} */
+.cartimg img{ width:100%}
+.cartdetails {padding: 0;border: 1px solid #313132;margin: 0 0 0 15px;display: flex;    background: #fff}
+.mcbTabContent .carttable #repeatble{
+	display:flex;
+}
+.mcbTabContent .carttable #repeatble .cartdetails:last-child{border-top:none;}
+.mcbTabContent .carttable #repeatble .cartdetails h2{display:none;}
+.mcbTabContent .carttable #repeatble:first-child .cartdetails h2{display:block;    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;}
+.cartdetails  h2{ font-family: 'Roboto Condensed', sans-serif; font-size:12px; text-transform:uppercase; color:#404041; margin:0; padding:0; font-weight:700; background:#ececec; padding:5px 10px;}
+.cartdetails p {font-size: 12px;color: #2b2b2c;margin: 0;padding: 0;font-weight: 400;display: table-cell;align-content: center;vertical-align: middle;font-family: 'Roboto Condensed', sans-serif; }
+.evencon {width: 100%;clear: both;padding: 10px;background: #fff;display: table;}
+.cartItem {width: 160px;float:left;}
+.cartlefu{width: 160px;float:left;border-left:1px solid #313132;}
+.cartdate{width: 80px;float:left;border-left:1px solid #313132;text-align:center;}
+.cartnbre{width: 110px;float:left;border-left:1px solid #313132;text-align:center;}
+.cartcat{width: 90px;float:left;border-left:1px solid #313132;text-align:center;}
+.cartprice{width: 117px;float:left;border-left:1px solid #313132;text-align:center;}
+.cartaction ul li a{ font-size:13px; padding:2px; color:#313132}
+
+.actionsection{ float:right; margin:0; padding:0; width:320px;}
+.asCon{ width:100%; clear:both; overflow:hidden; border:1px solid #313132; background:#fff; margin:5px 0 0;}
+.asLT {float: left;width: 228px;}
+.asRT{ float:left;  width: 90px;float:left;border-left:1px solid #313132; text-align:center;}
+.asCon p{font-family: 'Ubuntu', sans-serif; font-size:11px; color:#313132; margin:0; padding:5px 10px; font-weight:700; text-transform:uppercase; }
+
+.redcol p{ color:#a00057;}
+.blackcol .asLT{ background:#313133;}
+.blackcol .asLT p{ color:#fff;} 
+
+.actionsection a.commandelink {float: right;background: #a61363;text-align: center;color: #fff;font-size: 12px;font-weight: 700;text-transform: uppercase;padding: 7px 15px;text-decoration: none;width:100%;margin:20px 0 0;}
+.actionsection a.commandelink span{ font-size:10px; text-transform:lowercase;}
+.actionsection a.commandelink:hover { background: #313133;}
+
+.payment-contnet{ width:100%; clear:both; overflow:hidden; padding:30px;}
+.payment-contnet h4{ background:#a00057; font-size:14px; font-weight:700; display:block; color:#fff; text-transform:uppercase; padding:8px 15px; margin:0 0 10px;}
+
+.pcLt, .pcRt{ float:left; width:50%;}
+
+.pcLt h3, .pcRt h3{ color:#a00057; font-size:14px; font-weight:700; text-transform:uppercase;}
+.pcLt h3 span, .pcRt h3 span{ text-transform:lowercase}
+.payment-contnet ul{ margin:5px 0 25px; padding:0; overflow:hidden;}
+.payment-contnet ul li{ display:block; float:left; list-style:none; margin:0 20px 0 0;}
+
+
+a.paiementbtn { display:block;background: #a61363;text-align: center;color: #fff;font-size: 12px;font-weight: 700;text-transform: uppercase;padding: 7px 15px;text-decoration: none;width:200px;margin:20px auto 0;}
+a.paiementbtn:hover { background: #313133;}
+.CulturAccess{ font-size:12px; color:#434343; margin:15px 0 0; padding:0; font-weight:400; font-family: 'Roboto Condensed', sans-serif; text-align:center;}
+/*
+-----------------------------------------------
+Réservation Style End Here
+-----------------------------------------------------
+*/
+
+
+
+/*
+-----------------------------------------------
+Modal Style Start Here
+-----------------------------------------------------
+*/
+.modal-content{ height:100%; width:100%; background:none !important; box-shadow:none !important; border: none;border-radius: 0;   }
+.modal-body{ padding:0; box-shadow:none !important; height:100%;}
+.directaccess button.close{ position:absolute; top:10px; right:10px;}
+.modal-dialog{ height:100%;}
+
+.modal-body{display: flex;align-items: center; vertical-align: middle; text-align:center;}		
+.modal-body .directaccess{ float:none; margin:0 auto;}		
+.modal { padding:0 !important}
+
+.hantsoncopiemodel { max-width:610px; margin:0 auto; background:#dcdcdc; padding:0px ; width:100%; text-align:left; position:relative;  }
+.hantsoncopiemodel .bookBox {background: #dcdcdc;padding: 0;margin: 0; display:flex;}
+.hantsoncopiemodel .bookDetails { width:100%;}
+.hantsoncopiemodel .book {display: flex;height: 100%; margin-right:0; width:173px; position:relative;}
+.hantsoncopiemodel .book img {display: block;width: 173px;height: auto;}
+.modal-dialog {max-width: 100%;}
+.hantsoncopiemodel .bookBox h1{ background:#313133; color:#fff; font-size:20px; padding:10px 15px;}
+.hantsoncopiemodel .bookBox h1 a{ color:#fff;font-size:20px;}
+.hantsoncopiemodel .bookBox p{ padding-left:15px;}
+.hantsoncopiemodel .blockquoteText {width: 93%; overflow: hidden; background: #fff; padding: 5px; margin: 0 auto 40px;}
+.hantsoncopiemodel .blockquoteText p{ margin-bottom:12px; font-size:14px;}
+.hantsoncopiemodel .reserverbtn {width: 100%; text-align: center; position: relative; bottom: 0;overflow: hidden;left: 0; padding: 0;}
+.hantsoncopiemodel .reserverbtn a {width: 112px;height: 32px;    font-size: 14px;   padding: 6px 0 0;}
+.hantsoncopiemodel button.close { position: absolute;top: 25px;right: 10px; color: #fff;}
+
+.encore {position: absolute;font-size: 12px;color: #a00057;font-weight: 400;text-decoration: none;bottom: -30px;right: 0;}
+.encore:hover{ color: #434343}
+
+.votrepaiement{ max-width:330px; width:100%; min-height:200px; background:#fff; margin:0 auto; border:12px solid #dcdcdc; position:relative; padding-bottom:15px}
+.votrepaiementinner{ width:100%; background:#fff; height:100%; position:relative; }
+.votrepaiementinner h3{ font-size:18px; text-transform:uppercase; margin:0; padding:15px 0 ; color:#fff; font-family: 'Ubuntu', sans-serif; font-weight:400; background:#313133;}
+.votrepaiementinner button.close {margin: -73px 10px 0 0;color: #fff;}
+
+.votrepaiementinner .actionsection {width: 90%;margin: 0 auto;float: none;}
+.votrepaiementinner .asLT {float: left;width: 183px;text-align: left;}
+.votrepaiementinner .asCon { margin: 15px 0 0;}
+.votrepaiementinner .actionsection a.commandelink {width: 200px;float: none;margin: 15px auto 0;clear: both;overflow: hidden;display: block;}
+
+
+.toutelalistepopup{ background:#fff; width:100%; max-width:863px; margin:0 auto; min-height:520px; }
+.culturaccesstitlepopup{ background:#fff; width:100%; max-width:680px; margin:0 auto; min-height:520px; }
+.tllTitle{ background:#a00057 url(../assets/img/listicon12.png) no-repeat 15px 50%; width:100%; position:relative;}
+.culturaccesstitle  { background:#a00057 url(../assets/img/icon-22.png) no-repeat 15px 50%; padding:}
+
+.tllTitle h3 {font-size: 20px;color: #fff;font-weight: 700;text-transform: uppercase;font-family: 'Ubuntu', sans-serif;margin:25px 0 0;padding: 10px 0 10px 35px;text-align: left;}
+.culturaccesstitle h3{ padding: 15px 0 15px 75px;}
+.tllTitle button.close {position: absolute;top: 10px;right: 30px;color: #fff;}
+.tllContent{ width:100%; clear:both; overflow:hidden; padding:25px 35px 35px;  height:500px;}
+.tllinnerContent{ width:100%; overflow:scroll; height:450px; text-align:justify; padding-right:20px}
+.tllinnerContent p {color: #434343;font-size: 14px;margin: 10px 0 0;padding: 0;line-height: 18px;font-weight: 700;text-align: justify;font-family: 'Roboto Condensed', sans-serif;}
+.tllinnerContent  p span {font-weight: 300;}
+
+.culturaccessForm{ width:100%; clear:both; overflow:hidden; padding:0; background:#eeeeee; margin-top:20px ;} 
+.culInput{ width:33.3333%; float:left; padding:15px;}
+.cultextarea{ width:100%; float:left; padding:15px;}
+.culInput input{ display:block; width:100%; clear:both; overflow:hidden; height:28px; background:#fff; padding:0 10px; font-size:13px; color:#434343; font-weight:300; border:none;}
+.cultextarea textarea{ display:block; width:100%; clear:both; overflow:hidden; height:90px; background:#fff; padding: 10px; font-size:13px; color:#434343; font-weight:300; border:none;}
+
+.culturaccessContent{width:100%; clear:both; overflow:hidden; padding:25px 35px 35px;   }
+.culturaccessContent p{ text-align:center;font-family: 'Ubuntu', sans-serif; font-size:15px; color:#323232; margin:0; padding:0; font-weight:400;}
+.culturaccessContent p span{ font-weight:700;}
+.grayrow{ background:#eeeeee; padding-top:30px; padding-bottom:30px;}
+.whiterow{padding-top:30px; padding-bottom:30px;}
+
+.coupde{ width:100%; clear:both; overflow:hidden; position:relative;}
+.coupdeimg{ width:100%; clear:both; overflow:hidden;}
+.coupdeimg img{ width:100%; display:block; height:auto;}
+.contop{ display:block; position:absolute; top:0; left:0; z-index:9;}
+.titlecoup{ width:100%; clear:both; overflow:hidden; background:#a00057; padding:10px 15px;}
+.titlecoup h4{ color:#fff; font-size:24px; font-weight:700; font-family: 'Ubuntu', sans-serif; line-height:24px; float:left; margin:0 25px 0 0; padding:0;}
+.titlecoup h2{ color:#fff; font-size:15px; font-weight:700; font-family: 'Ubuntu', sans-serif; line-height: 17px; text-transform:uppercase; margin:0; padding:0  0 0 0 ;}
+.titlecoup h2 span{ font-weight:400; text-transform:lowercase; display:block;}
+
+
+.soutienactifcon{ width:100%; clear:both; overflow:hidden; background:#bebebe;}
+.soutienactifcon .note-video-clip{width:100% !important;}
+.soutienactifcon h3{ display:block; background:#dcdcdc; text-align:center; font-size:24px; color:#a00057; margin:0; padding:12px 0; font-weight:600; text-transform:uppercase;}
+.soutienactifcon ul{ margin:0; padding:0; width:100%; text-align:center;}
+.soutienactifcon ul li {display: block;float: left;list-style: none;margin: 10px 18px;}
+.lph{ display:block; margin:10px auto ;}
+.lphinfobtn {background: #a00057;width: 100px;display: block;clear: both;text-align: center;font-size: 12px;font-weight: 400;font-family: 'Ubuntu', sans-serif;color: #fff;padding: 3px 0;margin: 12px auto 10px;text-transform:uppercase;}
+.lphinfobtn:hover {background: #313133;color:#fff;text-decoration:none;}
+
+.simplecon{ background:#f0f0f0 url(../assets/img/iconhand.png) no-repeat bottom right; width:100%; overflow:hidden; position:relative;}
+.simplecon h3{ display:block; background:#dcdcdc; text-align:center; font-size:24px; color:#a00057; margin:0; padding:12px 0; font-weight:600; text-transform:uppercase;}
+.tellementrow {width: 100%;clear: both;position: relative;overflow: hidden;padding: 0 0 0 75px;margin:10px 0;}
+.tellementrow img {position: absolute;left: 20px;top: 15px;}
+.tellementrow h2{ font-size:14px; color:#434343; text-transform:uppercase; margin:0; padding:0;}
+.tellementrow ul{ margin:0; padding:0;}
+.tellementrow ul li{ display:block; list-style:none; font-size:10px;}
+
+
+
+.culturAccess{ width:100%; clear:both; overflow:hidden;}
+.culturAccessTitle {width: 100%;clear: both;overflow: hidden;background: url(../assets/img/uo-icon.png) no-repeat 30px 50% #a00057;padding: 10px 50px 10px 110px;margin: 0 0 25px;}
+.culturAccessTitle h2{ font-size:25px; color:#fff;font-family: 'Ubuntu', sans-serif; margin:0; padding:0; font-weight:700; }
+.culturAccessTitle p{ font-size:15px; color:#fff;font-family: 'Ubuntu', sans-serif; margin:0; padding:0; font-weight:400; line-height:18px; }
+
+.culturAccessCon{ width:100%; clear:both; overflow:hidden; margin:0 0 20px; padding:0;}
+.culturAccessCon h1 {font-size: 20px;color: #a00057;font-weight: 700;text-transform: uppercase;font-family: 'Ubuntu', sans-serif;margin: 0;padding: 10px 0 10px 30px;background: url(../assets/img/listicon1.png) no-repeat 10px 50% #d5d5d5;}
+.culturAccessCon h1 span{ color:#323232;}
+.culturAccessCon h3{ color:#7d7d7e; font-size:15px; font-family: 'Ubuntu', sans-serif; margin:0; padding:0;}
+.culturAccessCon h3 span{ display:block; margin:15px 0 0; color:#000000;}
+.culturAccessCon p {color: #434343;font-size: 14px;margin: 10px 0 0;padding: 0;line-height: 18px;font-weight: 700;text-align: justify;font-family: 'Roboto Condensed', sans-serif;}
+.culturAccessCon p span{ font-weight:300;}
+.culturAccessCon p  a{ color:#a00057; font-weight:400;}
+.culturAccessConcol{ padding:10px; overflow:hidden; width:100%;}
+.culturAccessConcol a.cabtn, .envoyerbtn {background: #a00057;width: 100px;display: block;clear: both;text-align: center;font-size: 14px;font-weight: 400;font-family: 'Ubuntu', sans-serif;color: #fff;padding: 3px 0;margin: 22px auto 0;text-transform:uppercase;}
+.culturAccessConcol a.cabtn:hover, .envoyerbtn:hover {background: #313133;color:#fff;text-decoration:none;}
+
+.envoyerbtn{ border:none; display:block; clear:both; margin: 22px auto  ;}
+.deemalcon{ width:90%; clear:both; overflow:hidden; position:relative; margin:35px 0;}
+.deemalcon .inputcol {width: 80%;padding: 0 0 0 224px;float: left;clear: none !important;}
+.deemalcon .inputcol label {display: block;background: #323232;font-size: 20px;font-weight: 700;text-transform: uppercase;position: absolute;top: 0;left: 0;color: #fff;padding: 2px 20px 3px;}
+.valider {background: #a00057;width: 100px;display: block; text-align: center;font-size: 14px;font-weight: 400;font-family: 'Ubuntu', sans-serif;color: #fff;padding: 7px 0;margin: 0;text-transform:uppercase;  border:none; float:right;}
+.valider:hover {background: #313133;color:#fff;text-decoration:none;  border:none;}
+
+.culturaccessForm a {font-size: 10px;color: #313133;text-decoration: none;text-align: left;float: left;margin: 0 15px 15px;}
+.culturAccessConright{ background:url(../assets/img/rightside-bg.png) repeat-y top left; display:block; height:100%; width:100%;}
+.carTitle{ width:100%; clear:both; background:#323232; padding:10px 5px; margin:0 0 35px; position:relative;}
+.carTitle h2{ background:url(../assets/img/user-1.png) no-repeat 5px 50%; font-size:15px; text-transform:uppercase; margin:0 0 0; padding:0 0 0 45px; color:#fff; font-family: 'Ubuntu', sans-serif;}
+.arrowd {display: block;position: absolute;bottom: -21px;z-index: 9999999999999;text-align: center;width: 100%;}
+
+.dateandmonth{ width:100%; clear:both; overflow:hidden; padding:0 10px; background:url(../assets/img/line.png) repeat-y 50% 0; margin:0 0 50px; }
+.dmrow{ width:auto; border:1px solid #323232; padding:5px; background:#fff; margin:0 0 55px;}
+.dmrow:last-child{ margin:0;}
+.dmrow h5{ font-size:13px; color:#323232; text-transform:uppercase; font-family: 'Ubuntu', sans-serif;}
+.dmrow h2{ font-size:24px; color:#a00057; text-transform:uppercase; font-family: 'Ubuntu', sans-serif; font-weight:bold; display:block; margin:0; padding:0;}
+.dmrow h2 span{ font-size:13px; color:#323232; text-transform:uppercase; font-family: 'Ubuntu', sans-serif; float:right; display:block; border-top:2px solid #d5d5d5; margin:7px 0 0}
+
+
+/*
+-----------------------------------------------
+Modal Style End Here
+-----------------------------------------------------
+*/
+
+
+.pcoptRow {width: 100%;clear: both;overflow: hidden;border-bottom: 1px solid #ededed;padding: 0 0 15px;margin: 0 0 15px;}
+.pcoptRow h3{color: #a00057;font-size: 14px;font-weight: 700;text-transform: uppercase;}
+.pcoptRow ul{ margin:10px 0 0; } 
+.dateopt ul li {position: relative;padding: 0 0 0 45px;}
+.dateopt ul li label {font-size: 12px;color: #313133;position: absolute;top: 3px;left: 0;}
+.dateopt ul li .select-style{ width:80px; border:1px solid #313133}
+.dateopt ul li .select-style select {width:100%;}
+
+.cryopt ul li input { width:68px; }
+.pcoptRow input{   height:28px;}
+.cryopt ul li .inputcol{ overflow:inherit;}
+.cryopt ul li .inputcol span.question svg { right: -23px; top: 6px;}
+
+.cettecarteopt ul li{ position:relative;}
+.cettecarteopt ul li input {display: block;float: left;height: auto;margin: 5px 7px 0 0;}
+.cettecarteopt ul li input[type="submit"]{background: #a00057;border: none; text-transform: uppercase;
+    color: #fff; padding: 8px 20px;display: inline-block;margin-top: 0px;font-weight: 600; font-size: 14px;}
+.actionpcopt{ width:100%; clear:both; overflow:hidden; padding:0 0 0;}
+.actionpcopt p{font-size: 12px;color: #434343;margin: 3px 0;padding: 0;font-weight: 400;font-family: 'Roboto Condensed', sans-serif;float:left;display:block;width:55%;}
+.actionpcopt ul{ float:right; margin:0; padding:0;}
+.actionpcopt ul li{ float:left; list-style:none; margin:0 0 0 15px; padding:0;}
+.actionpcopt ul li a {display: block;background: #efefef;color: #bfbfbf;font-size: 14px;text-transform: uppercase;text-decoration: none;padding: 10px 25px;}
+.actionpcopt ul li:last-child a {background: #a71464;color: #fff;}
+.actionpcopt ul li a:hover{  background: #a71464;color: #fff; text-decoration:none;}
+
+
+.productview{ width:100%; overflow:hidden; position:relative;}
+.productimg{width:100%; overflow:hidden; position:relative;    height: 300px;}
+.productimg img{ display:block; width:100% !important;}
+
+.productview h1{ color:#434343; font-size:25px; font-weight:700; font-family: 'Ubuntu', sans-serif; margin:20px 0 15px 0; padding:0 55px 0 0;}
+.productview h1 a{ color:#434343; font-size:25px; font-weight:700; font-family: 'Ubuntu', sans-serif; margin:0; padding:0; text-decoration:none;}
+
+.productview h3{ color:#a00057; font-weight:700; text-transform:uppercase; font-family: 'Roboto Condensed', sans-serif; margin:0; padding:0 0 0 22px; font-size:15px; background:url(../assets/img/clander-icon.png) no-repeat 0 50%;}
+.productview h4{ color:#434343; font-weight:400;  font-family: 'Roboto Condensed', sans-serif; margin:0; padding:0 0 0 0; font-size:15px; }
+.productview h5{color:#a00057;font-weight:300;font-family: 'Roboto Condensed', sans-serif;margin:15px 0;padding:0 0 0 22px;font-size:15px; background:url(../assets/img/location.png) no-repeat 0 50%;}
+
+.productview p{ color:#434343; font-weight:400;  font-family: 'Roboto Condensed', sans-serif; margin:0 0 25px; padding:0 0 0 0; font-size:15px; }
+.productview p span{ font-weight:700;}
+.productview p strong{color:#a00057;}
+.productview p a{ color:#a00057; }
+
+.sociallink{ margin:0; padding:0;}
+.sociallink li{ display:block; float:left; list-style:none; margin:0 5px 0 0;}
+
+.mcbSectionright{ width:100%; overflow:hidden; clear:both;background-color:#f1f1f1;}
+.mcbSectionTitle{ background:#a00057 url(../assets/img/icon221.png) no-repeat 45px 50%; text-align:center; }
+.mcbSectionTitle h2{ font-size:25px; font-weight:700; margin:0; padding:15px 0; font-family: 'Ubuntu', sans-serif; color:#fff; text-transform:uppercase;}
+
+.mseContent {padding: 0px 20px 20px;overflow: hidden;margin: 0 auto;}
+.mseContent h4{ text-align:center;}
+.mseContent h4 a {display: block;border: 1px solid #a00057;color: #a00057;font-family: 'Ubuntu', sans-serif;text-transform: uppercase;font-weight: 700;width: 210px;margin: 20px auto;line-height: 27px;padding: 7px 0 0;font-size: 36px;}
+.mseContent h4 a strong
+{
+	    font-size: 30px;
+    display: inline-block;
+    position: relative;
+    top: -14px;
+    margin-left: -5px;
+}
+.mseContent h4 a span{ font-size:12px; font-weight:500;    padding-right: 10px; }
+.mseContent h4 a span.mse-icon{    font-size: 22px;    position: relative;    top: -15px;    right: 6px;}
+.mseContent h4 a:hover{ text-decoration:none;}
+
+.mseImg{ width:100%; clear:both; overflow:hidden; position:relative;}
+.mseImg img{ width:100%;}
+
+.mseImg a {background: #a00057;    text-align: center;    font-size: 18px;    font-family: 'Ubuntu', sans-serif;    color: #fff;
+    font-weight: 500;    display: block;    position: absolute;    top: 34%;    left: 0;    z-index: 88;    width: 90%;    text-transform: uppercase;
+    padding: 5px 0;    margin: 0px auto;    right: 0;}
+.mseImg a:hover {background: #434343;color:#fff;text-decoration:none;}
+
+.representationsCol{ width:100%; clear:both; overflow:hidden; background:url(../assets/img/arrowdown.png) no-repeat top center; padding:42px 0 0 0; margin:15px 0 0;}
+.representationsCol  ul{ margin:0; padding:0px 0; width:100%; display:flex;   overflow:hidden;    text-align: center;justify-content: center;}
+.representationsCol ul li {display: inline-block;list-style: none; width: 32%; text-align: center; background: #e7e7e7 url(../assets/img/clander-icon-b.png) no-repeat 50% 10%; border-left: 1px solid #323232;padding: 30px 15px 15px 15px;
+margin-bottom: 10px;}
+.representationsCol ul li:nth-child(3n+1){ border:none;}
+.representationsCol ul li span {  font-family: 'Roboto Condensed', sans-serif; color:#323232; font-size:14px; line-height:16px; display:block; margin:10px 0 }
+.representationsCol ul li a {  font-family: 'Roboto Condensed', sans-serif; color:#fff; font-size:14px; background:#323232; display:block; clear:both; margin:2px auto;}
+
+.representationsCol h3{ font-size:18px; text-align:center; text-transform:uppercase; margin:10px 0; padding:0; color:#323232;  font-family: 'Ubuntu', sans-serif;}
+
+.graycontnt{ background:url(../assets/img/rightside-bg.png) repeat top left; width:100%; overflow:hidden; height:400px; margin:15px auto;margin-top:0px;}
+.graycontnt img{max-width:100%;}
+.mesfootsection{ width:100%; clear:both; overflow:hidden; padding: 0 0 25px;}
+.mesLeft {float: left;/* width: 750px; */padding: 0 0px;padding-left:0px;}
+.mesRight {float: left;/* width: 450px; */padding: 0 15px;padding-left:0px;}
+.mestab .mcbTab li {display: block;list-style: none;float: left;width: 33.3333333333%;text-align: center;}
+.mescontent{ width:100%; clear:both; overflow:hidden; min-height:250px; background:#eeeeee; padding:20px;}
+
+.calendarArea{}
+.monthrow{ width:100%; clear:both; overflow:hidden;}
+.monthrow ul{ margin:0; padding:0; width:100%; text-align:center;}
+.monthrow ul li{ display:inline-block; text-align:center; list-style:none; padding:0 5px;}
+.monthrow ul li a{ font-size:18px; color:#313133; text-decoration:none;}
+.monthrow ul li span{ text-transform:uppercase; color:#a00057; font-size:18px; margin:0; padding:0; display:block; font-size:16px; }
+
+.daterow{ width:100%; clear:both; overflow:hidden; text-align:center;}
+.daterow ul{ margin:20px 0 10px; text-align:center; padding:0; width:100%;}
+.daterow ul li{ display:block; float:left; list-style:none; font-size:13px; text-transform:uppercase; color:#313133; width:110px;}
+
+.datecount{ width:100%; clear:both; overflow:hidden;}
+.datecount ul{ margin:0 0 15px; text-align:center; padding:10px 0; width:100%; border:1px solid #313133; overflow:hidden; background:#fff;}
+.datecount ul li{ display:block; float:left; list-style:none; font-size:13px; text-transform:uppercase; color:#313133; width:110px; border-left:1px solid #dcdcdc; text-align:right; height:55px; padding:0 10px;}
+.datecount ul li span{ color:#959595;}
+.datecount ul li span.red{ color:#a00057; font-weight:700;}
+.datecount ul li p{margin-bottom:0px;line-height: 14px;}
+.datecount ul li p a{ background:#a00057; font-size:10px; color:#fff; margin:0 0 2px; padding:0; text-align:center;    padding: 0px 5px;}
+
+.ensavoirRow{ width:100%; overflow:hidden;}
+.ensavoirRow h2 {background: #a10058;font-size: 15px;text-transform: uppercase;color: #fff;font-family: 'Ubuntu', sans-serif;font-weight: 400;padding: 7px 15px;}
+.ensavoirinner{ width:100%; overflow:hidden; padding:15px;}
+.ensavoirinner p{ font-size:15px; color:#434343; line-height:20px;font-weight:400;}
+.ensavoirinner p span{ font-weight:400;}
+.videoinner{ width:100%; clear:both; overflow:hidden;}
+.videocon {float: left;width: 33.33333333%;overflow: hidden;padding: 10px; margin-bottom: 10px;}
+.ensavoirRow .videocon a{display:inline-block;}
+.videocon img{ display:block; max-width:100%;}
+
+.recentspost{ width:100%; clear:both; overflow:hidden; border-bottom:1px solid #434343; padding:0 0 15px;}
+.recentspost h1{ margin:0; padding:0; display:inline-block;}
+.recentspost h1 a{ display:block; font-size:18px; font-weight:700; color:#434343; text-decoration:none;}
+.recentspost ul {margin: 0 0 -5px 10px;padding: 0;display: inline-block;}
+.recentspost ul li{ display:block; float:left; list-style:none; color:#434343; }
+.recentspost h3{ font-size:15px; color:#a10058; line-height:20px;}
+.recentspost h3 a{ font-size:15px; color:#a10058; line-height:20px; display:block; text-decoration:none; font-weight:700;}
+
+.addressRow{ width:100%; clear:both; overflow:hidden; margin:0 0 30px;}
+.addressRow table{}
+.addressRow tr td{ border-bottom:1px solid #b5b5b5; padding:15px 0;}
+.map{border:1px solid #b5b5b5;  }
+.addressRow tr.bordernone td{ border:none;}
+.addressRow tr td.titletr{ width:100px;    vertical-align: top;}
+
+.mesRightInner{ background: url(../assets/img/redbg.png); width:100%; clear:both; overflow:hidden; min-height:400px;  padding: 0 0px; height:100%}
+.logosection{ width:100%; text-align:center; padding:0px 0 0px; }
+.redinner{ width:100%; clear:both; border-top:1px solid #fff; padding:12px 0; position:relative;}
+.redinner h2 {font-size: 18px;color: #ffffff;margin: 0;padding: 10px 25px 10px 100px;font-weight: 700;text-transform: uppercase;display: block;}
+.unchoix h2{ background:url(../assets/img/star-1.png) no-repeat 0 50%;}
+.unservice h2{ background:url(../assets/img/icon-55.png) no-repeat 15px 50%;}
+.unpaiement h2{ background:url(../assets/img/lock.png) no-repeat 15px 50%;}
+.unecommunaute h2{ background:url(../assets/img/uo-icon.png) no-repeat 15px 50%;}
+
+
+
+.mesRightgrayInner{ background:#cccccc; width:100%; clear:both; overflow:hidden; min-height:400px;   padding: 0 0; height:100%}
+.mesRightgrayInner h2{ font-size:23px; color:#fff; text-transform:uppercase; font-weight:700; font-family: 'Ubuntu', sans-serif; margin:0; padding:5px 0; background:#a00057; text-align:center;}
+
+.selectiontable {width: 90%;margin: 0 auto;padding: 55px 0;}
+.selectiontable h3{ font-size:20px; font-weight:700; text-transform:uppercase; color:#323232; margin:0 0 35px; padding:0; text-align:center;}
+.selectiontable h3 span{ display:block; color:#a10058;}
+.catsection{ width:100%; clear:both; overflow:hidden; }
+.cattitlecon{ width:100%; overflow:hidden; background:#252526; padding:15px 5px; text-align:center;}
+.ctrow{ float:left; width:25%; border-left:1px solid #fff;}
+.ctrow:first-child{ border:none; }
+.ctrow:first-child h2 {text-align: left;}
+.ctrow h2{ font-size:14px; font-family: 'Roboto Condensed', sans-serif; color:#fff; background:#252526;}
+.catconinner {background: #fff;overflow: hidden;border-bottom:1px solid #252526;}
+.catconinner .ctrow {float: left;width: 25%;border-left: 1px solid #252526;padding: 16px 0;text-align: center;    display: flex;
+    align-items: center;
+    justify-content: center;}
+.catconinner  .ctrow:first-child{ border:none; border-bottom:1px solid #252526; text-align:left;}
+.inner {padding: 0px 5px;overflow: hidden;display:flex;}
+.catconinner .ctrow p{ margin:0; padding:0;position:relative;    font-size: 12px;}
+.selectiontable form .catconinner:first-child .inner{border-bottom:none;}
+.catconinner .ctrow .select-style{ width:75px; border:1px solid #252526; margin:0 auto;}
+
+.catconinner .ctrow .select-style select {width: 100%;}
+.catconinner .ctrow.bonone1{ border:none;text-align: left;    text-transform: uppercase;}
+.catconinner  .ctrow:nth-child(2n).bonone2{border-bottom:1px solid #252525;}
+
+.catconinner .ctrow.bonone2, .catconinner .ctrow.bonone3{ border-bottom:none;}
+.catconinner .ctrow.bonone2 strong span,.catconinner .ctrow.pricerow strong span{font-size:20px;}
+a.btn-select {width: 125px;height: 32px;display: block;margin:30px  auto;text-align: center;font-size: 14px;text-transform: uppercase;font-family: 'Ubuntu', sans-serif;font-weight: 700;color: #fff;padding: 5px 0 0;background:#a00057;}
+a.btn-select:hover{ text-decoration:none; background:#434343;}
+
+button.btn-select {wudth:auto;height: 32px;display: block;margin:30px  auto;text-align: center;font-size: 14px;text-transform: uppercase;font-family: 'Ubuntu', sans-serif;font-weight: 700;color: #fff;padding: 0px 10px;background:#a00057;border:none;}
+button.btn-select:hover{ text-decoration:none; background:#434343;}
+.catconinner .ctrow:first-child {
+    border: none;
+    
+    text-align: left;
+}
+.catconinner:last-child .inner{border-top:none;}
+.orderrow{ width:100%; clear:both; overflow:hidden;}
+.orderrow h5{ display:block; background:#2c2c2d; text-align:center; font-size:30px; font-weight:700; color:#fff;  font-family: 'Roboto Condensed', sans-serif; width:47px; height:47px; padding:6px 0; margin:0;display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.orderCol{ width:100%; clear:both; overflow:hidden; border:1px solid #2c2c2d; margin:0 0 25px}
+.orderinner{ width:100%; clear:both; overflow:hidden; background:#eeeeee; border-bottom:1px solid #b3b3b4;}
+.orderColLt{ width:200px; background:#eeeeee; float:left; min-height: 60px;display: flex;align-items: center;position: relative;vertical-align: middle;text-align: left;}
+.orderColLt h4{ font-size:14px; color:#323232; font-weight:700; margin:0; padding:20px 10px 20px 20px; text-transform:uppercase;  font-family: 'Roboto Condensed', sans-serif;}
+.orderColRt{ float:left; width:676px; min-height: 60px; background:#fff; display: flex;align-items: center;position: relative;vertical-align: middle;text-align: left;}
+.orderColRt.orderColRt-block{display:block;}
+.orderColRt.orderColRt-block p span{padding:0px 15px;}
+.orderColRt.orderColRt-block p span:first-child{padding-left:0px;}
+.orderColRt p {font-size: 14px;color: #2c2c2d;font-family: 'Roboto Condensed', sans-serif;margin: 0;padding: 5px 20px;}
+.orderColRt p span{ color:#a00057;}
+.ltOrderrow, .rtOrderrow{ float:left; width:50%; overflow:hidden; }
+.rest_password.formSection	{max-width: 600px;
+    margin: 0px auto;
+    background: #fff;
+    padding: 20px;
+	}
+.rest_password.formSection b{   
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #ffffff;
+    /* padding-bottom: 10px; */
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    background: #9e0256;
+    margin-bottom: 20px;
+    padding: 10px;
+	}
+.rest_password .inputcolLt,.rest_password .inputcolRt
+{
+	width:100%;
+}
+.rest_password input[type="submit"]{
+	    background: #a10052;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    display: block;
+    margin: 0px auto;
+    cursor: pointer;
+}
+.ltOrderrow .orderColRt, .rtOrderrow .orderColRt{ width:239px;}
+.imgcon{ float:right; width:170px; text-align:center;}
+.orderColLt1 {float: left;width: 478px;border-right: 1px solid #b3b3b4;}
+.orderinner:last-child{ border:none;}
+.myorderstabInner h3 {background: #a00057;font-size: 15px;font-weight: 700;font-family: 'Ubuntu', sans-serif;margin: 20px 0 10px; 25px;padding: 12px 20px;text-transform: uppercase;color: #fff;display: inline-block;}
+.myorderstabInner h5{    font-size: 16px;    text-transform: uppercase;    font-weight: 600;}
+.coordinatestab{ padding:20px 0; width:100%; clear:both; float:left;}
+.rightcoor{  	 background: url(../assets/img/rightside-bg.png) repeat-y top left;     padding: 0;}
+.rightcoor .mesRight {float: left;width: 100%;padding: 0;text-align: center;}
+.rightcoor .mesRight  .mesRightInner {    background: url(../assets/img/redbg.png) repeat top left;
+    padding: 20px;height: 100%;}
+.rightcoor .mesRight  .mesRightInner .logosection img{ width:100%; height:auto;}
+.rightcoor  .redinner h2 {padding: 55px 0 10px;display: block;background-position: 50% 0 !important;}
+.rightcoor .logoh {margin: 25px auto;display: block;height: auto;clear: both;float: left;}
+.leftcoor{ /* width:580px; float:left; overflow:hidden; height:auto; */}
+.formSection {padding: 15px;background: #eeeeee;overflow: hidden;margin: 0 0 0px;}
+.coorform{ max-width:450px; width:100%; margin:0 0; padding:0;}
+.coorform h3{background: #a00057;font-size: 15px;font-weight: 700;font-family: 'Ubuntu', sans-serif;margin: 0 0 15px;padding: 12px 20px;text-transform: uppercase;color: #fff;display: block; text-align:left;}
+
+.cscforminner h4{ font-size:14px; color:#a00057; font-weight:600; font-family: 'Roboto Condensed', sans-serif; margin:0 0 10px; padding:0; text-transform:uppercase;}
+
+/* .formSection .cscforminner .meconnecterbtn input{ width:120px;} */
+.fullcoor{ width:100%;}
+.fullcoor p span{ color:#a00057;}
+.fullcoortext{}
+.fullcoortext textarea{ width:100%; clear:both; overflow:hidden; height:100px; padding:10px; color: #434343;font-size: 12px;font-family: 'Roboto Condensed', sans-serif;}
+.inputcol33{ float:left; width:33.33333%; clear:none; position:relative; padding:0 0 0 45px; margin-right:15px;}
+.inputcol33 label {display: block;margin: 0;padding: 0;font-size: 12px;color: #434343;font-family: 'Roboto Condensed', sans-serif;position: absolute;top: 10px;left: 0;}
+
+.carousal-element
+{
+	    height: 279px;
+}
+
+.carousal-element .carousel-item
+{
+  height:100%;
+}
+.carousal-element .image-element
+{
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: top right;
+	background-size: contain;
+	background-color: #313132;
+}
+
+.owl-carousel.owl-loaded.owl-theme .owl-nav{
+	height: 0;
+	top: 37%;
+}
+.error {
+  color: #F00;
+  
+}
+
+
+.contact_element_gray
+{
+	    background: #434343;
+    padding: 10px 20px;
+    position: relative;
+}
+.contact_element_gray h3
+{
+	color:#fff;
+	text-transform:uppercase;
+}
+.contact_element_gray p
+{
+	color:#fff;
+	margin-bottom:0pc;
+}
+.contact_bg
+{
+	background:#fff;
+	padding:20px;
+}
+.contact_address
+{
+	display:flex;
+	    background: #f4f4f4;
+		    align-items: center;
+}
+.contact_bg h4{
+	color: #9e0057;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+.contact_bg p
+{
+	margin-bottom:0px;
+}
+.contact_bg p span
+{
+	    background: none;
+    padding: 0;
+    margin-right: 5px;
+	    color: #9e0057;
+}
+.contact_bg span
+{    background: #434343;
+    padding: 30px;
+    margin-right: 15px;
+}
+.contact_bg span svg
+{
+	width:30px;
+	height:auto;
+	
+}
+.contact_right
+{
+	
+}
+.contact_form
+{
+	padding:0px 15px;
+}
+.contact_form h3{
+	    background: #9e0057;
+    margin: 35px 0px 20px;
+    padding: 10px 20px;
+    max-width: 415px;
+    color: #ffff;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+}
+.contact_form input{width:100%;padding:10px;}
+.contact_form form textarea{
+    width: 100%;
+    height: 175px;
+    padding: 10px;
+    resize: none;
+}
+.contact_form form .lphinfobtn
+{
+	border: none;
+    margin: 0px auto;
+    padding: 10px 20px;
+    width: 150px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.contact_popup .pay_element{
+	max-width:375px;
+}
+.contact_popup .pay_element h4
+{
+	background: #e4e4e4;
+	    color: #a00057;
+		text-align:left;
+		font-size:24px;
+}
+.contact_popup .pay_element h4 svg
+{
+	width: 30px;
+    height: auto;
+    margin-right: 20px;
+    float: left;
+    margin-top: -5px;
+}
+.contact_popup .pay_element .actionsection
+{
+	background-color:#DCDCDC;
+}
+.contact_popup .pay_element .actionsection p
+{
+	font-size:16px;
+	font-weight:400;
+	text-align:center;
+	margin-bottom:0px;
+}
+.contact_popup .dark_pin-btn
+{
+	font-size:12px;
+}
+/* *******(5-17-2018)*********Custom css start here********(5-17-2018)*********** */
+.modal-dialog
+{
+	    display: flex;
+    align-items: center;
+	margin:0px;
+}
+.modal_element
+{
+    background-color: #fff !important;
+    max-width: 700px;
+    margin: 0px auto;
+    border-radius: 5px;
+	    height: auto;
+}
+.modal-body.modal_block 
+{
+	align-items:unset;
+	    background: #e4e4e4;
+		    padding: 15px 0px;
+}
+.modal_block-content
+{
+	background-color:#fff;
+	text-align:left;
+	    height: 100%;
+}
+.modal_block h3
+{
+	background:#535353;
+	color:#fff;
+	text-align:center;
+	text-transform:uppercase;
+	font-weight:600;
+}
+.modal_block h3 span
+{
+	font-size:20px;
+	display:block;
+	text-transform:capitalize;
+	font-weight:400;
+}
+.modal_block .modal_block-content p
+{
+	padding:0px 20px;
+}
+.modal_block .modal_block-content ul {
+	margin-bottom:0px;
+	padding-bottom:10px;
+}
+.dark_pin-btn
+{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: #a00057;
+    border: none;
+    padding: 10px;
+}
+.dark_pin-btn:hover,.dark_pin-btn:focus
+{
+	color:#fff;
+	text-decoration:none;
+	
+}
+.modal_block-content form 
+{
+	padding:0px 10px;
+	height:70%;
+}
+
+.modal_element .modal-header
+{
+	padding: 0px;
+    position: absolute;
+    top: -24px;
+    width: 25px;
+    height: 25px;
+    z-index: 999;
+    text-align: center;
+    right: 0;
+    background: #020000;
+    border-radius: 0;
+    color: #fff;
+
+}
+
+.modal_element .modal-header button
+{
+	    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    color: #fff;
+    opacity: 1;
+}
+.modal_block-content form input
+{
+	 padding: 5px 10px;
+	width:100%;
+}
+.modal_block-content form input[type="submit"]
+{height: auto;
+    padding: 10px;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    z-index: 9999;
+}
+.modal_block .modal_block-content form p
+{
+	padding:0px;
+	text-align:right;
+	
+}
+.modal_block .modal_block-content form p a
+{	
+      color: #a00057;
+}
+.bonjouar_element
+{
+	max-width:550px;
+	margin:0px auto;
+	background:#fff !important;
+	height:auto;
+}
+.bonjouar_element .modal-header
+{
+	padding: 0px;
+    position: absolute;
+    top: -24px;
+    width: 25px;
+    height: 25px;
+    z-index: 999;
+    text-align: center;
+    right: 0;
+    background: #020000;
+    border-radius: 0;
+    color: #fff;
+
+}
+.bonjouar_element .modal-header button
+{
+	    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    color: #fff;
+    opacity: 1;
+}
+.bonjouar_element .modal_block-content ul
+{
+	padding-right:20px;
+}
+.bonjouar_element .modal_block-content ul li
+{
+	border-bottom:1px solid #ccc;
+	    padding: 10px 0px;
+}
+.bonjouar_element .modal_block-content ul li a
+{
+	color:#ccc;
+}
+.bonjouar_element .modal_block-content ul li a:hover
+{
+	color:#a00057;
+	text-decoration:none;
+}
+
+.moduleaccess .moduleaccessBox:after
+{
+	content: '';
+    background: url(../assets/img/arrowright.png) no-repeat;
+    background-size: contain;
+    width: 25px;
+    height: 100%;
+    z-index: 9;
+    position: absolute;
+    right: 0;
+    top: 0;
+	
+}
+.moduleaccess .col-md-4:nth-child(3) .moduleaccessBox:after
+{
+	display:none;
+}
+.moduleaccessBox figure
+{
+	    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+}
+.moduleaccessBox img{
+	max-width:100%;
+	width:160px;
+}
+/* payment popup */
+.pay_element
+{
+	max-width:330px;
+	margin:0px auto;
+	    height: auto;
+}
+.pay_element h4
+{
+font-size: 18px;
+    background: #313133;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    text-transform: uppercase;
+	margin-bottom: 0px;
+}
+.pay_element h4 span
+{
+	display:block;
+}
+.pay_element .actionsection
+{
+	float:none;
+	width:100%;
+	    display: flow-root;
+    flex-direction: column-reverse;
+	    padding: 0px 15px;
+}
+.pay_element .actionsection p
+{
+    padding: 5px 10px;
+    font-weight: 600;
+    font-size: 11px;
+}
+.pay_element .actionsection .asCon
+{
+	display:flex;
+	    margin: 20px 0px;
+}
+.pay_element .actionsection .asLT
+{
+	width:210px;
+	display: flex;
+    align-items: center;
+}
+.pay_element .actionsection .asRT
+{
+	width:88px;
+	display: flex;
+    align-items: center;
+}
+.pay_element .actionsection .asRT p
+{
+	font-size:14px;
+}
+.pay_element .actionsection .asRT p span
+{
+	font-size:18px;
+}
+.text-pink{
+	color:#980052 !important;
+}
+.pay_element .actionsection form
+{
+	padding:0px 0px;
+}
+.forget_password
+{
+	display:none;
+}
+.modal_logo_box figure
+{
+	background-color: #fff;
+    margin-bottom: 0;
+    padding: 10px;
+}
+.modal_logo_box figure img{
+	max-width:100%;
+}
+.modal_logo_box  p
+{
+	margin-bottom:0px;
+	margin-top:10px;
+}
+.modal_logo_box  p a{
+	display:block;
+}
+/* tool-tip */
+.tooltip_box{
+	    position: absolute;
+    width: 240px;
+    background: #fff;
+    font-size: 12px;
+	display:none;
+	    margin-top: 5px;
+		z-index:999;
+}
+.tooltip_box:before
+{
+    content: '';
+    position: absolute;
+    border-bottom: 10px solid #252526;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    top: -9px;
+    left: 10px;
+	
+}
+.tooltip_box table tr td
+{
+	    border: 1px solid #252526;
+    padding: 5px;
+}
+.selectiontable form .catconinner .inner .bonone1 p .fa-info-circle {
+	    width: 16px;
+    position: absolute;
+    top: -5px;
+    right: 6px;
+
+}
+.selectiontable form .catconinner .inner .bonone1:hover .tooltip_box 
+{
+	display:block;
+}
+#Confirmation
+{
+	text-align:center;
+}
+#Confirmation h3{
+text-align: center;
+    display: flex;
+    /* height: 100vh; */
+    justify-content: center;
+    align-items: center;
+    font-size: 19px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #ffffff;
+    background: #9d0059;
+    max-width: 600px;
+    margin: 0px auto;
+    margin-top: 40px;
+    padding: 10px;
+}
+#Confirmation h5
+{
+	    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 14px;
+    color: #9d0059;
+}
+#Confirmation h6
+{
+	font-weight:400;
+}
+.coming-soon
+{
+	max-width:400px;
+	margin:0px auto;
+}

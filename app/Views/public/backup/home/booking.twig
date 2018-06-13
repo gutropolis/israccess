@@ -1,0 +1,522 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %} 
+           
+		   
+	  <!--  Le cadeau spectacle Section Start Here 
+  		    ==================================================--> 
+            <div class="lcsSection">
+            
+            <!-- Pagination  Section Start Here 
+  		    ==================================================--> 
+            <div class="paginationCon">
+            	<div class="container">
+                	<div class="row">
+                     <div class="col-lg-12">
+                     	<ul>
+                            <li><a href="#">Accueil</a></li> 
+                            <li> |</li> 
+                            <li><a href="#">Théâtre/ Humour</a></li>
+                            <li> |</li> 
+                            <li><a href="#">Olivier Guedj : Olivier Guedj vous redonne le sourire</a></li>
+                            <li> |</li>  
+                            <li> Réservation</li> 
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <!-- Pagination Section End Here 
+  		    ==================================================--> 
+            
+            	<div class="mcbSection">
+                    <div class="tabcontentArea">
+                             <ul class="nav mcbTab" role="tablist">
+                              <li class="nav-item">
+                                <a class="nav-link active" href="#Maréservation" role="tab" data-toggle="tab">
+                                	ma réservation
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#Coordonnées" role="tab" data-toggle="tab">
+                                	coordonnées
+                                </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#Recapitulatif" role="tab" data-toggle="tab">
+                                	récapitulatif
+                                </a>
+                              </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="#Paiement" role="tab" data-toggle="tab">
+                                	paiement
+                                </a>
+                              </li>
+                               <li class="nav-item">
+                                <a class="nav-link" href="#Confirmation" role="tab" data-toggle="tab">
+                                	confirmation
+                                </a>
+                              </li>
+                            </ul>                            
+                             <!-- Tab panes -->
+                             <div class="tab-content">
+                              <div role="tabpanel" class="tab-pane fade active show" id="Maréservation">
+                                  <div class="mcbTabContent">
+                                  	<div class="mcbTabinner">
+                                  	<div class="mcbleftside">
+                                    	<div class="loginform">
+                                        	<div class="logintitle">
+                                            	<h2>Déjà membre... je m’identifie</h2>
+                                            </div>
+                                            <div class="loginforminner">
+                                            	<div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Mot de passe">
+                                                </div>
+                                            	<a href="#">Mot de passe oublié ?</a>
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="me connecter" >
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="formSection">
+                                        	<h2>COMMANDE SANS COMPTE</h2>
+                                            
+                                            <div class="cscforminner">
+                                            	<div class="inputcol radiocontent">
+                                                	 <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                     <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                            	<div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div> 
+                                                
+                                                <div class="inputcol inputinfo">
+                                                	<p>Renseignez votre <strong>numéro de téléphone</strong> pour que nous puissions vous joindre en cas d’annulation.</p>
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                                
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="valider ma commande" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mcbrightside">
+                                    	<div class="formSection">
+                                        	<h2>COMMANDE SANS COMPTE</h2>
+                                            
+                                            <div class="cscforminner">
+                                            	<div class="inputcol radiocontent">
+                                                	 <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                     <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                            	<div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Adresse">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Compléments adresse">
+                                                </div>
+                                                
+                                                <div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Code postal">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Ville">
+                                                </div>
+                                                
+                                                <div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<div class="select-style">
+                                                     	<select>
+                                                        	<option>Pays</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                     </div>
+                                                </div>
+                                                
+                                                <div class="inputcol dateandtimeCol">
+                                                	
+                                                    <h5>Date de naissance</h5>
+                                                    <div class="date">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Jour</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                    <div class="month">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Mois</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                    <div class="year">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Année</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email*">
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>                                                    
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                                </div> 
+                                                
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="valider mon inscription" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    </div>
+                                  </div>
+                                   
+                               </div>
+                              <div role="tabpanel" class="tab-pane fade" id="Coordonnées">
+                              	2
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="Recapitulatif">
+                              	3
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="Paiement">
+                              	4
+                              </div>
+                              <div role="tabpanel" class="tab-pane fade" id="Confirmation">
+                              	5
+                              </div>
+                            </div>
+                            </div>
+                    <!--Mobile Content Code--> 
+                       <div id="accordion" role="tablist" style="display:none;">
+                                  <div class="card">
+                                    <div class="cardheader" role="tab" id="headingOne">
+                                      <h5 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                          ma réservation
+                                        </a>
+                                      </h5>
+                                    </div>
+                                
+                                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                                      <div class="card-body">
+                                      <div class="mcbTabContent">
+                                  	<div class="mcbTabinner">
+                                  	<div class="mcbleftside">
+                                    	<div class="loginform">
+                                        	<div class="logintitle">
+                                            	<h2>Déjà membre... je m’identifie</h2>
+                                            </div>
+                                            <div class="loginforminner">
+                                            	<div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Mot de passe">
+                                                </div>
+                                            	<a href="#">Mot de passe oublié ?</a>
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="me connecter" >
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="formSection">
+                                        	<h2>COMMANDE SANS COMPTE</h2>
+                                            
+                                            <div class="cscforminner">
+                                            	<div class="inputcol radiocontent">
+                                                	 <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                     <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                            	<div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div> 
+                                                
+                                                <div class="inputcol inputinfo">
+                                                	<p>Renseignez votre <strong>numéro de téléphone</strong> pour que nous puissions vous joindre en cas d’annulation.</p>
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                                
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="valider ma commande" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mcbrightside">
+                                    	<div class="formSection">
+                                        	<h2>COMMANDE SANS COMPTE</h2>
+                                            
+                                            <div class="cscforminner">
+                                            	<div class="inputcol radiocontent">
+                                                	 <label> <input name="gen" type="radio" value=""> Mme</label>
+                                                     <label> <input name="gen" type="radio" value=""> M.</label>
+                                                </div>
+                                            	<div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Nom*">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Prénom*">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Adresse">
+                                                </div>
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Compléments adresse">
+                                                </div>
+                                                
+                                                <div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Code postal">
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<input name="" type="text" placeholder="Ville">
+                                                </div>
+                                                
+                                                <div class="inputcol inputcolLt">
+                                                	<input name="" type="text" placeholder="Téléphone">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                </div>
+                                                <div class="inputcol inputcolRt">
+                                                	<div class="select-style">
+                                                     	<select>
+                                                        	<option>Pays</option>
+                                                            <option>Pays 1</option>
+                                                            <option>Pays 2</option>
+                                                            <option>Pays 3</option>
+                                                        </select>
+                                                     </div>
+                                                </div>
+                                                
+                                                <div class="inputcol dateandtimeCol">
+                                                	
+                                                    <h5>Date de naissance</h5>
+                                                    <div class="date">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Jour</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                    <div class="month">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Mois</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                    <div class="year">
+                                                        <div class="select-style">
+                                                            <select>
+                                                                <option>Année</option>
+                                                                <option>Pays 1</option>
+                                                                <option>Pays 2</option>
+                                                                <option>Pays 3</option>
+                                                            </select>
+                                                         </div>
+                                                   </div>
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Email*">
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Confirmez votre email*">
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="question" ><i class="fas fa-question-circle"></i></span>
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>                                                    
+                                                </div>
+                                                
+                                                <div class="inputcol">
+                                                	<input name="" type="text" placeholder="Choisissez votre mot de passe*">
+                                                    <span class="viewicon" ><i class="fas fa-eye"></i></span>
+                                                </div> 
+                                                
+                                                 <div class="inputcol meconnecterbtn">
+                                                	 <input name="" type="button" value="valider mon inscription" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    </div>
+                                  </div>
+                                      
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card">
+                                    <div class="cardheader" role="tab" id="headingTwo">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                           coordonnées
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                                      <div class="card-body">
+                                        2
+                                       
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card">
+                                    <div class="cardheader" role="tab" id="headingThree">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                          récapitulatif
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                                      <div class="card-body">
+                                       3
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="card">
+                                    <div class="cardheader" role="tab" id="headingFour">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                          paiement
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
+                                      <div class="card-body">
+                                       4
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="card">
+                                    <div class="cardheader" role="tab" id="headingFive">
+                                      <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                           Confirmation
+                                        </a>
+                                      </h5>
+                                    </div>
+                                    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-parent="#accordion">
+                                      <div class="card-body">
+                                       5
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                    <!--Mobile Content Code-->           
+                       
+                    <div class="importantCon">
+                                    <h3>important</h3>
+                                    <p>Les informations collectées nous permettent de traiter de façon optimale votre commande. Vous êtes avertis en cas d’évènements majeurs (annulations, reports). Cela nous permet également de créer un compte à votre nom. Vous pourrez ainsi accéder à l’historique de vos commandes et avoir toujours vos billets à portée de clic.
+Nous garantissons l’extrême confidentialité des informations que vous nous transmettez.</p>
+								   </div>
+                </div>
+            </div>
+            <!--  Le cadeau spectacle  Section End Here 
+  		    ==================================================--> 
+ 	   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+{% endblock %}
+{% block footerscripts %}
+
+	<script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>   
+   <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+
+	<script>
+    /*jslint browser:true*/
+    /*global jQuery, document*/
+    
+    jQuery(document).ready(function () {
+    'use strict';
+    
+    jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+    });
+    </script>		 
+{% endblock %} 	

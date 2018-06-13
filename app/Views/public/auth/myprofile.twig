@@ -1,0 +1,538 @@
+{% extends "public/layouts/layout-public.twig" %}
+{% block maincontent %}
+
+
+    <!--  Le cadeau spectacle Section Start Here
+  		    ==================================================-->
+    <div class="lcsSection">
+
+        <!-- Pagination  Section Start Here
+          ==================================================-->
+        <div class="paginationCon">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul>
+                            <li><a href="#">Accueil</a></li>
+                            <li> |</li>
+                            <li> Mes commandes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination Section End Here
+          ==================================================-->
+
+        <div class="mcbSection myordersection">
+            <div class="mesplacessection">
+                <div class="container-fluid">
+                    <div class="tabcontentArea mestab">
+                        <ul class="nav mcbTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link {% if(case =='mes-commandes') %} active {% endif %}" href="#mes-1" role="tab" data-toggle="tab">
+                                    mes commandes
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if(case =='mes-coordonnees') %} active {% endif %}" href="#mes-2" role="tab" data-toggle="tab">
+                                    MES coordonnées
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% if(case =='email-prioritaire') %} active {% endif %}" href="#mes-3" role="tab" data-toggle="tab">
+                                   Email prioritaire
+                                </a>
+                            </li>
+
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade {% if(case =='mes-commandes') %} active show {% endif %}" id="mes-1">
+
+                                <div class="myorderstabInner">
+                                    <h3>iNFORMATIONS CONCERnanT votre achat de billets</h3>
+                                     {{recentbooking|raw}}
+										<h3>MON HISTORIQUE DE COMMANDE </h3>
+										 {{bookingHis|raw}}
+										 
+                                </div>
+
+                            </div>
+                            
+
+                            <div role="tabpanel" class="tab-pane fade {% if(case =='mes-coordonnees') %} active show {% endif %} " id="mes-2">
+                                <div class="coordinatestab row">
+                                    <div class="leftcoor col-md-8">
+                                        <div class="coorform">
+                                            <h3>Confirmer ou modifier mon profil </h3>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                    <h4>Changer mon adresse mail</h4>
+													<form  id="myform" name="myform" onsubmit="return FormChangeEmail()"     validate="true" >
+                                                    <div class="inputcol">
+                                                        <input name="mymail" id="mymail" type="text" value="{{userinfo.memberEmail}}" placeholder="nergy@laposte.net">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="nymail" id="nymail" type="text" placeholder="Nouvelle adresse e-mail" id="nymail">
+                                                    </div>
+                                                    <div class="inputcol">
+                                                        <input name="cymail" id="cymail"  type="text" placeholder="Confirmez adresse e-mail"  >
+                                                    </div>
+
+                                                    <div class="inputcol meconnecterbtn">
+                                                        <input name="submit" type="submit" value="modifier" >
+                                                    </div>
+													<div class="inputcol">
+                                                         <div id="e_result"></div>
+                                                    </div>
+													</form>
+                                                </div>
+                                            </div>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                    <h4>Changer mon mot de passe </h4>
+													<form name="changepass" id="changepass"  onsubmit="return FormChangePassword()"  method="post">
+														<div class="inputcol">
+															<input name="mypass" id="mypass" type="password" placeholder="Mot de passe actuel">
+														</div>
+														<div class="inputcol">
+															<input name="nypass" id="nypass" type="password" placeholder="Nouveau mot de passe" id="nypass">
+														</div>
+														<div class="inputcol">
+															<input name="cypass" id="cypass"  type="password" placeholder="Confirmez mot de passe"  >
+														</div>
+
+														<div class="inputcol meconnecterbtn">
+															<input name="submit" type="submit" value="modifier" >
+														</div>
+														<div class="inputcol">
+															 <div id="p_result"></div>
+														</div>
+													</form>
+                                                </div>
+                                            </div>
+                                            <div class="formSection">
+                                                <div class="cscforminner">
+                                                     
+														<form id="registerform"  name="registerform" onsubmit="return EditForm()"  >
+															<div class="formSection">
+																<h4>Modifier des éléments de mon profil </h4>
+																<div class="cscforminner">
+																	 
+																	<div class="inputcol inputcolLt">
+                                                                        <input type="hidden" value="{{ base_url() }}" id="hdnurl" name="hdnurl"  />
+																		<input type="text" value="{{userinfo.memberUname}}" name="firstname" placeholder="Nom*">
+																	</div>
+																	<div class="inputcol inputcolRt">
+																		<input name="lastname" value="{{userMeta.first_name}}" type="text" placeholder="Prénom*">
+																	</div>
+																	<div class="inputcol">
+																		<input name="address" type="text"  value="{{userMeta.address_1}}"  placeholder="Adresse*">
+																	</div>
+																	<div class="inputcol">
+																		<input name="c_address" type="text"  value="{{userMeta.address_2}}"  placeholder="Compléments adresse*">
+																	</div>
+
+																	<div class="inputcol inputcolLt">
+																		<input name="postal_code" type="text"  value="{{userMeta.postal_code}}"  placeholder="Code postal*">
+																	</div>
+																	<div class="inputcol inputcolRt">
+																		<input name="ville" type="text"  value="{{userMeta.ville}}"  placeholder="Ville*">
+																	</div>
+
+																	<div class="inputcol inputcolLt">
+																		<input name="telephon" type="text" placeholder="Téléphone*"  value="{{userMeta.phone_no}}"  >
+																		<span class="question" ><i class="fas fa-question-circle"></i></span>
+																	</div>
+																	<div class="inputcol inputcolRt">
+																		<div class="select-style"> 
+																			<select name="country">
+																			      
+																				 <option  value="" >PAYS</option>
+																				{% if countryList|length >  0 %} 
+											 
+																					{% for key,val in countryList %} 
+																						<option   {% if userMeta.country== key %} selected {% endif %}    value="{{ key }}" >{{ val }}</option>
+																					{% endfor %}
+																						
+																					 
+																				{% endif %} 
+																					
+																			   
+																				
+																			</select>
+																			<!--<option value="{{ key }}" {% if key=='IL' %} selected {% endif %} >{{ val }}</option>-->
+																		</div>
+																	</div>
+																	  <div class="inputcol dateandtimeCol">
+                                                                        
+																		<h5>Date de naissance</h5>
+																		<div class="date">
+																			<div class="select-style">
+																				<select name="day"> 
+																				<option value=""  >Jour</option>
+																					 {% for i in 0..31 %}
+																						<option value ="{{ i }}" {% if i == userdobD %} selected {% endif %}  >{{ i }}</option> 
+																					{% endfor %} 
+																				</select>
+																			</div>
+																		</div>
+																		<div class="month">
+																			<div class="select-style">
+																				<select name="month"> 
+																				<option value=""  >Mois</option>
+																					 {% for i in 0..12 %}
+																						<option value ="{{ i }}"  {% if i == userdobM %} selected {% endif %}  >{{ i }}</option> 
+																					{% endfor %} 
+																				</select>
+																			</div>
+																		</div>
+																		<div class="year">
+																			<div class="select-style">
+																				<select name="year"> 
+																					<option value=""  >Année</option>
+																					{% for i in 1965..2011 %}
+																						<option value ="{{ i }}"   {% if i == userdobY %} selected {% endif %}  >{{ i }}</option> 
+																					{% endfor %} 
+																				</select>
+																			</div>
+																		</div>
+																	</div>   
+																	<div class="inputcol meconnecterbtn">
+																		<input type="submit" value="valider mon inscription" >
+																	</div>
+																</div>
+																<div id="reg_result" style="text-align:center;"></div>
+															</div>
+														</form> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rightcoor col-md-4">
+                                        <div class="mesRight">
+                                            <div class="mesRightInner">
+                                                <div class="logosection">
+                                                    <img src="{{ base_url() }}/assets/assets/img/logo-red-section.png" width="261" height="48">
+                                                </div>
+
+                                                <div class="redinner unchoix">
+                                                    <h2>un choix incomparable </h2>
+                                                </div>
+
+                                                <div class="redinner unservice">
+                                                    <h2>un service client à votre écoute</h2>
+                                                </div>
+
+                                                <div class="redinner unpaiement">
+                                                    <h2>un paiement 100% sécurisé</h2>
+                                                </div>
+
+                                                <div class="redinner unecommunaute">
+                                                    <h2>une communauté de passionnés</h2>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <img src="{{ base_url() }}/assets/assets/img/logoh.png" width="100%" class="logoh">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane fade {% if(case =='email-prioritaire') %}  active show  {% endif %}" id="mes-3">
+                                <div class="coordinatestab">
+                                    <div class="fullcoor">
+
+                                        <p>Parce que vous êtes la raison d’être Culturaccess...<br>Parce que vous adhérer à un projet culturel d’envergure...<br>Parce que pour nous, vous êtes unique...</p>
+                                        <p><span>Alors votre mail sera traité en priorité absolue et nous ferons tout pour accéder à votre demande, c’est un engagement.</span></p>
+                                        <div class="formSection">
+
+
+                                            <div class="cscforminner">
+											<form name="mailmsg" id="mailmsg" onsubmit="return Email()" method="get">
+                                                <div class="inputcol inputcol33">
+                                                    <label>Objet : </label> <input name="subject" type="text" placeholder="Objet de votre message" >
+                                                </div>
+                                                
+                                                <div class="fullcoortext">
+                                                    <textarea name="message" cols="" rows="" placeholder="Votre message"></textarea>
+                                                </div>
+
+                                                <div class="inputcol meconnecterbtn">
+                                                    <input name="" type="submit" value="envoyer" >
+                                                </div>
+												</form>
+												<div id="mail_result" style="text-align:center;"></div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!--  Le cadeau spectacle  Section End Here
+      ==================================================-->
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block footerscripts %}
+
+    <script src="{{ base_url() }}/assets/js/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/js/jquery.datetimepicker.css"/>
+    <script src="{{ base_url() }}/assets/js/jquery.datetimepicker.full.js"></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+	    <script src="{{ base_url() }}/assets/js/ordervalidation.js"></script>
+    <script src="{{ base_url() }}/assets/js/validation.js"></script>
+    <script src="{{ base_url() }}/assets/js/customize.js"></script>
+
+    <script>
+        /*jslint browser:true*/
+        /*global jQuery, document*/
+
+        jQuery(document).ready(function () {
+            'use strict';
+
+            jQuery('#filter-date, #search-from-date, #search-to-date').datetimepicker();
+        });
+		$(document).ready(function() {
+
+        $('#registerform').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                email: {
+                    required: true,
+                    email: true
+                },
+                telephon: {
+                    required: true
+
+
+                },
+                message: {
+                    required: true
+
+
+                },
+                person_name: {
+                    required: true
+
+                },
+
+                password: {
+                    required: true
+
+                },
+                password_confirm : {
+                    required: true,
+                    equalTo: '#password'
+                },
+                confirm_email : {
+                    required: true,
+                    equalTo: '#email'
+                },
+               
+                postal_code: {
+                    required: true
+
+                },
+
+                country: {
+                    required: true
+
+                },
+
+                ville: {
+                    required: true
+
+                },
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "Champs requis",
+                    },
+                lastname:
+                    {
+                        required: "Champs requis",
+                    },
+                address:
+                    {
+                        required: "Champs requis",
+                    },
+
+                email: {
+                    required: "Entrer votre Email",
+                    email: "Entrez une adresse email valide"
+                },
+                telephon:
+                    {
+                        required: "Champs requis",
+                    },
+                message:
+                    {
+                        required: "un message est requis",
+                    },
+                person_name:
+                    {
+                        required: "nom de la personne est requis",
+                    },
+                password:
+                    {
+                        required: "Mot de passe requis",
+                    },
+                password_confirm:
+                    {
+                        required: "confirmer le mot de passe est requis",
+                        equalTo:"mot de passe ne correspond pas"
+                    },
+                confirm_email:
+                    {
+                        required: "confirmer que le courriel est requis",
+                        equalTo:"L'email ne correspond pas"
+                    },
+                c_password:
+                    {
+                        required: "complements address  is required",
+                    },
+                postal_code:
+                    {
+                        required: "Champs requis",
+                    },
+                ville:
+                    {
+                        required: "Champs requis",
+                    },
+
+            }
+        });
+        $('#mailmsg').validate({
+            rules: {
+
+
+                firstname: {
+                    required: true
+
+                },
+                lastname: {
+                    required: true
+
+                },
+                address: {
+                    required: true
+
+                },
+
+                mymail: {
+                    required: true,
+                    email: true
+                },
+                subject: {
+                    required: true,
+                    
+
+                },
+                message: {
+                    required: true
+
+
+                }
+            },
+            messages: {
+                firstname:
+                    {
+                        required: "Le prénom est requis",
+                    },
+                lastname:
+                    {
+                        required: "le nom de famille est requis",
+                    },
+                address:
+                    {
+                        required: "adresse est requise",
+                    },
+
+                mymail: {
+                    required: "Entrer votre Email",
+                    email: "Entrez une adresse email valide"
+                },
+                subject:
+                    {
+                        required: "subject is required",
+                        
+                    },
+                message:
+                    {
+                        required: "message is required",
+                    }
+
+            }
+        });
+		
+    });
+	 function Email(){
+	 //alert('hello register');
+	 if (!$("#mailmsg").validate().form()) {
+		
+	 }
+	 else{
+	    // alert('Welcome to full registration');
+         var mydata = $('#mailmsg').serialize();
+		 //var redURL = $("#redUrlRegister").val();
+        // alert(mydata);
+	    $.ajax({
+        type: "get",
+        url: '{{base_url()}}/sendemail',
+        data:mydata ,
+         success: function( data ) {
+					//var obj = jQuery.parseJSON( data);
+					var obj = data; 
+					console.log(obj.status);console.log(obj.msg);
+					if(obj.status === '1'){
+						$("#mail_result").html('<div class="alert alert-info" role="alert"><strong></strong> '+obj.msg+'.</div>');
+						window.location.href = redURL;
+						
+					}else{
+						$("#mail_result").html('<div class="alert alert-danger" role="alert"><strong></strong> '+obj.msg+'.</div>');
+					}
+					
+					return false;
+				}
+		});
+		return false;
+	 }
+   }
+		
+    </script>
+{% endblock %}

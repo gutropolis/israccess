@@ -1,0 +1,192 @@
+{% extends "admin/layouts/layout-admin.twig" %}
+{% block maincontent %} 
+<!-- BEGIN: Subheader -->
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title "> {{ title}} </h3>
+    </div>
+    <div> </div>
+  </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content"> 
+  <!-- == Main Content  start here ========== -->
+  
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet " id="m_portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon"> <i class="flaticon-map-location"></i> </span>
+              <h3 class="m-portlet__head-text"> {{ adminLang.dashboard_site_live_mode_txt }} </h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="form-group m-form__group row">
+            <label class="col-form-label col-lg-3 col-sm-12">  {% if is_for_maintenance == 1 %} {{ adminLang.dashboard_live_mode_txt}} {% else %} {{ adminLang.dashboard_maintenance_mode_txt }} {% endif %} </label>
+            <div class="col-lg-9 col-md-9 col-sm-12">
+			      {% set selected = false %}
+                  {% if is_for_maintenance == 1 %}
+                  {% set selected = true %}
+                  {% endif %}
+              <input class="btn_changepermission" name="is_for_maintenance" id="is_for_maintenance" data-switch="true" type="checkbox" {% if selected %}checked="checked"{% endif %} data-on-text="Live" data-handle-width="150" data-auid="{{ is_for_maintenance}}" data-off-text="Maintenance" data-on-color="brand" data-size="large">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--end::Portlet--> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12"> 
+      <!--begin::Portlet-->
+      <div class="m-portlet " id="m_portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title"> <span class="m-portlet__head-icon"> <i class="flaticon-map-location"></i> </span>
+              <h3 class="m-portlet__head-text"> Reports </h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact Person</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th colspan="2" align="center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+              <tr>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td>xyz</td>
+                <td><a href="#" class="btn btn-info">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--end::Portlet--> 
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footerscripts %} 
+<!--begin::Page Vendors --> 
+
+<!--end::Page Vendors --> 
+<!--begin::Page Snippets --> 
+<script src="{{ base_url() }}/assets/app/js/dashboard.js" type="text/javascript"></script> 
+<script src="{{ base_url() }}/assets/admin/demo/default/custom/components/forms/widgets/bootstrap-switch.js" type="text/javascript"></script> 
+<script>
+$(document).ready(function(){
+ $('.btn_changepermission').bootstrapSwitch({size : 'large', on: 'Enabled',
+      off: 'Disabled'});
+    var stopchange = false;
+    $('.btn_changepermission').on('switchChange.bootstrapSwitch', function (e, state) {
+        var obj = $(this);
+        if(stopchange === false){
+            $.ajax({
+                url: "./updateSiteMode",
+                dataType: 'json',
+                type: "POST",
+                quietMillis: 100,
+                data: { 
+                    is_for_maintenance: $(this).data('auid'),
+                },
+                success: function(result) {
+                    if(result.status) {
+                        location.reload();
+                    } else {
+                       // alert('Error:'+result['message']);
+                        if(stopchange === false){
+                            stopchange = true;
+                            obj.bootstrapSwitch('toggleState');
+                            stopchange = false;
+                        }
+                    }
+                },
+                error: function(result) {
+                    alert('Error! Unable to find this agentuser.');
+                    if(stopchange === false){
+                        stopchange = true;
+                        obj.bootstrapSwitch('toggleState');
+                        stopchange = false;
+                    }
+                }
+            });
+        }
+    }); 
+	
+ 
+  
+  });
+</script>
+<!--end::Page Snippets --> 
+<!--   {% block addfooter %}{% endblock %} --> 
+{% endblock %} 
